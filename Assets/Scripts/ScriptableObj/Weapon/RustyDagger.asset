@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4190384e51b819c4198a45f9bde983b6, type: 3}
+  m_Name: RustyDagger
+  m_EditorClassIdentifier: 
+  weaponName: Rusty Dagger
+  damage: 2
+  target: 1
+  modifier:
+    mods:
+    - mod: 2
+      modifier: 2
+    - mod: 4
+      modifier: 0.05
+    - mod: 5
+      modifier: 0.05
+    weaponModReqSizes: 000000000100000002000000
+    weaponEffect: []
+    passive: 

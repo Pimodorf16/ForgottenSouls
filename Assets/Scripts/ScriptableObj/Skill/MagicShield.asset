@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6371591707b571248bded230c5d32982, type: 3}
+  m_Name: MagicShield
+  m_EditorClassIdentifier: 
+  skillName: Magic Shield
+  skillLevel: 1
+  cooldown: 4
+  modifier:
+  - damaging: 0
+    healing: 0
+    multiplier: 0
+    manaCost: 8
+    target:
+      target: 0
+      amount: 1
+    damageMods: []
+    skillMods: []
+    effects:
+    - effect: {fileID: 11400000, guid: b704f179f0b748549a881d8ea6534b65, type: 2}
+      chance: 100
+      duration: 2
+  - damaging: 0
+    healing: 0
+    multiplier: 0
+    manaCost: 16
+    target:
+      target: 0
+      amount: 1
+    damageMods: []
+    skillMods: []
+    effects:
+    - effect: {fileID: 11400000, guid: 1227dfc5865bdf64d8371219b424124e, type: 2}
+      chance: 100
+      duration: 2
+  - damaging: 0
+    healing: 0
+    multiplier: 0
+    manaCost: 25
+    target:
+      target: 0
+      amount: 1
+    damageMods: []
+    skillMods: []
+    effects:
+    - effect: {fileID: 11400000, guid: d46de9a7419132147b88d09e294a4754, type: 2}
+      chance: 100
+      duration: 2

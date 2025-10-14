@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66b92594bd8cd044db6e6c72b6eb808d, type: 3}
+  m_Name: Character 1
+  m_EditorClassIdentifier: 
+  characterName: TestCharacter
+  level: 1
+  maxExp: 30
+  exp: 0
+  maxHP: 20
+  currentHP: 20
+  maxMP: 10
+  currentMP: 10
+  attackStat: 5
+  defenseStat: 5
+  speedStat: 5
+  luckStat: 5
+  baseCritRate: 0.1
+  baseCritDamageMultiplier: 0.15
+  baseDodge: 10
+  weapon: {fileID: 11400000, guid: 85ba46b7e8f143e4096f2c5d29ca7c78, type: 2}
+  skill:
+  - {fileID: 11400000, guid: b6d33f3fdc0fac846a10a1c70f3c11f5, type: 2}
+  soul: {fileID: 11400000, guid: 4554c7797d082ac4f88940d37e5050f9, type: 2}
+  criticalChance: 0
+  evasionChance: 0

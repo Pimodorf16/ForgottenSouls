@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6371591707b571248bded230c5d32982, type: 3}
+  m_Name: Berserk
+  m_EditorClassIdentifier: 
+  skillName: Berserk
+  skillLevel: 1
+  cooldown: 4
+  modifier:
+  - damaging: 0
+    healing: 0
+    multiplier: 0
+    manaCost: 6
+    target:
+      target: 3
+      amount: 1
+    damageMods: []
+    skillMods: []
+    effects:
+    - effect: {fileID: 11400000, guid: aab6d292dd086a843bb166c4ee54752f, type: 2}
+      chance: 100
+      duration: 2
+  - damaging: 0
+    healing: 0
+    multiplier: 0
+    manaCost: 12
+    target:
+      target: 3
+      amount: 1
+    damageMods: []
+    skillMods: []
+    effects:
+    - effect: {fileID: 11400000, guid: ad5a3511e8862fc4d9fdb0d0cb2023cb, type: 2}
+      chance: 100
+      duration: 2
+  - damaging: 0
+    healing: 0
+    multiplier: 0
+    manaCost: 20
+    target:
+      target: 3
+      amount: 1
+    damageMods: []
+    skillMods: []
+    effects:
+    - effect: {fileID: 11400000, guid: 01b447ec7a490cb499942d6fadef381b, type: 2}
+      chance: 100
+      duration: 2

@@ -42,6 +42,7 @@ public class BattleManager : MonoBehaviour
             enemies.Add(enemyGO.GetComponent<Enemy>());
 
             enemies[enemy.stationIndex].enemyData = enemy.enemyData;
+            enemies[enemy.stationIndex].LoadDataValues(enemy.enemyData);
             enemies[enemy.stationIndex].SetValues();
         }
 
@@ -59,7 +60,9 @@ public class BattleManager : MonoBehaviour
     IEnumerator PlayerAttack()
     {
         Debug.Log("Player Attack");
-        float damage = character.Attack();
+        int roll = character.Roll();
+        StartCoroutine(playerHUD.SetDiceRoll(roll));
+        float damage = character.Attack(roll);
         enemies[Random.Range(0, enemies.Count)].TakeDamage(damage);
         Debug.Log("Damage = " + damage);
 
@@ -75,10 +78,10 @@ public class BattleManager : MonoBehaviour
         
         foreach(Enemy enemy in enemies)
         {
-
-            float damage = enemy.Attack();
+            int roll = enemy.Roll();
+            float damage = enemy.Attack(roll);
             character.TakeDamage(damage);
-            playerHUD.SetHP(character.characterData.currentHP);
+            playerHUD.SetHP(character.currentHP);
             Debug.Log("Damage = " + damage);
             yield return new WaitForSeconds(1f);
         }

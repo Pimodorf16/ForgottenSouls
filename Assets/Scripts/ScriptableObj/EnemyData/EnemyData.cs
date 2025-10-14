@@ -6,12 +6,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Enemy", menuName = "Enemy")]
 public class EnemyData : ScriptableObject
 {
-    public enum EnemyType { Rat, Skeleton, Zombie, Goblin, Ogre}
+    public enum EnemyType { Rat, Skeleton, Zombie, Goblin, Ogre, None}
     
     [Header("Enemy")]
     public EnemyType type;
     public string enemyName;
-    public enum EnemySize {small, medium, big}
+    public enum EnemySize { Small, Medium, Big, None }
     public EnemySize enemySize;
 
     [Header("Level")]

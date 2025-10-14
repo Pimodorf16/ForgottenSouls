@@ -10,6 +10,78 @@ public class Enemy : MonoBehaviour
 
     public Slider hpSlider;
 
+    public enum EnemyType { Rat, Skeleton, Zombie, Goblin, Ogre, None }
+
+    [Header("Enemy")]
+    public EnemyType type;
+    public string enemyName;
+    public enum EnemySize { Small, Medium, Big , None}
+    public EnemySize enemySize;
+
+    [Header("Level")]
+    public int level = 1;
+    public int exp = 0;
+
+    [Header("Status")]
+    public int maxHP = 20;
+    public int currentHP;
+    public int maxMP = 10;
+    public int currentMP;
+    public int attackStat = 5;
+    public int defenseStat = 5;
+    public int speedStat = 5;
+    public int luckStat = 5;
+    public float baseCritRate = 0.10f;
+    public float baseCritDamageMultiplier = 0.15f;
+    public float baseDodge = 0.10f;
+
+    public int baseGold;
+
+    [Header("Weapon")]
+    public Weapon weapon;
+
+    [Header("Skills")]
+    public List<Skill> skill;
+
+    [Header("Soul")]
+    public Soul soul;
+
+    [Header("Probability")]
+    public float criticalChance;
+    public float evasionChance;
+
+    private void Awake()
+    {
+        LoadDataValues(enemyData);
+
+        currentHP = maxHP;
+        currentMP = maxMP;
+    }
+
+    public void LoadDataValues(EnemyData data)
+    {
+        enemyName = data.enemyName;
+        level = data.level;
+        exp = data.exp;
+        maxHP = data.maxHP;
+        currentHP = data.currentHP;
+        maxMP = data.maxMP;
+        currentMP = data.currentMP;
+        attackStat = data.attackStat;
+        defenseStat = data.defenseStat;
+        speedStat = data.speedStat;
+        luckStat = data.luckStat;
+        baseCritRate = data.baseCritRate;
+        baseCritDamageMultiplier += data.baseCritDamageMultiplier;
+        baseDodge = data.baseDodge;
+
+        weapon = data.weapon;
+        skill = data.skill;
+        soul = data.soul;
+        criticalChance = data.criticalChance;
+        evasionChance = data.evasionChance;
+    }
+
     private void Start()
     {
         hpSlider = GetComponentInChildren<Slider>();
@@ -23,16 +95,16 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if(enemyData.currentHP > 0)
+        if(currentHP > 0)
         {
-            enemyData.currentHP -= Mathf.CeilToInt(damage);
+            currentHP -= Mathf.CeilToInt(damage);
             Debug.Log("Took " + Mathf.CeilToInt(damage) + " Damage!");
-            hpSlider.value = enemyData.currentHP;
+            hpSlider.value = currentHP;
         }
         else
         {
-            enemyData.currentHP = 0;
-            hpSlider.value = enemyData.currentHP;
+            currentHP = 0;
+            hpSlider.value = currentHP;
         }
         
     }
@@ -42,9 +114,8 @@ public class Enemy : MonoBehaviour
         hpSlider.value = hp;
     }
 
-    public float Attack()
-    {
-        int roll = Roll();
+    public float Attack(int roll)
+    {;
         int rng;
         float damage = enemyData.attackStat + enemyData.weapon.damage;
 

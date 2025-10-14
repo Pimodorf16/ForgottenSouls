@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66b92594bd8cd044db6e6c72b6eb808d, type: 3}
+  m_Name: Character
+  m_EditorClassIdentifier: 
+  characterName: N
+  level: 1
+  maxExp: 30
+  exp: 0
+  maxHP: 20
+  currentHP: 20
+  maxMP: 10
+  currentMP: 10
+  attackStat: 5
+  defenseStat: 5
+  speedStat: 5
+  luckStat: 5
+  baseCritRate: 0.1
+  baseCritDamageMultiplier: 0.15
+  baseDodge: 10
+  weapon: {fileID: 11400000, guid: 85ba46b7e8f143e4096f2c5d29ca7c78, type: 2}
+  skill:
+  - {fileID: 11400000, guid: 878b560d5734a9c45a9113ef6b14c47a, type: 2}
+  - {fileID: 11400000, guid: d5d960d3ec83b61479ae552ec5e67f1f, type: 2}
+  - {fileID: 11400000, guid: b6d33f3fdc0fac846a10a1c70f3c11f5, type: 2}
+  - {fileID: 11400000, guid: 3b1bccf0051af774e99189a2aaafd056, type: 2}
+  - {fileID: 11400000, guid: 6d6a40708e9ef0d468ef1ee4cccd5f42, type: 2}
+  - {fileID: 11400000, guid: 3d56d8437c08c0741836fe7f6d9aefee, type: 2}
+  - {fileID: 11400000, guid: c12d0e5f7be6c0f449bbaffef6f301f0, type: 2}
+  - {fileID: 11400000, guid: 11062615fe5d4284c997547a0a917193, type: 2}
+  soul: {fileID: 11400000, guid: 4554c7797d082ac4f88940d37e5050f9, type: 2}
+  criticalChance: 0
+  evasionChance: 0

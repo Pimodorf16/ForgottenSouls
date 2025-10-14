@@ -6,10 +6,77 @@ using UnityEngine.UI;
 public class Character : MonoBehaviour
 {
     public CharacterData characterData;
+    public GameObject characterPrefab;
 
-    public float Attack()
+    [Header("Character")]
+    public string characterName;
+
+    [Header("Level")]
+    public int level = 1;
+    public int maxExp = 30;
+    public int exp = 0;
+
+    [Header("Status")]
+    public int maxHP = 20;
+    public int currentHP;
+    public int maxMP = 10;
+    public int currentMP;
+    public int attackStat = 5;
+    public int defenseStat = 5;
+    public int speedStat = 5;
+    public int luckStat = 5;
+    public float baseCritRate = 0.10f;
+    public float baseCritDamageMultiplier = 0.15f;
+    public float baseDodge = 0.10f;
+
+    [Header("Weapon")]
+    public Weapon weapon;
+
+    [Header("Skills")]
+    public List<Skill> skill;
+
+    [Header("Soul")]
+    public Soul soul;
+
+    [Header("Probability")]
+    public float criticalChance;
+    public float evasionChance;
+
+    private void Awake()
     {
-        int roll = Roll();
+        LoadDataValues(characterData);
+        
+        currentHP = maxHP;
+        currentMP = maxMP;
+    }
+
+    public void LoadDataValues(CharacterData data)
+    {
+        characterName = data.characterName;
+        level = data.level;
+        maxExp = data.maxExp;
+        exp = data.exp;
+        maxHP = data.maxHP;
+        currentHP = data.currentHP;
+        maxMP = data.maxMP;
+        currentMP = data.currentMP;
+        attackStat = data.attackStat;
+        defenseStat = data.defenseStat;
+        speedStat = data.speedStat;
+        luckStat = data.luckStat;
+        baseCritRate = data.baseCritRate;
+        baseCritDamageMultiplier += data.baseCritDamageMultiplier;
+        baseDodge = data.baseDodge;
+
+        weapon = data.weapon;
+        skill = data.skill;
+        soul = data.soul;
+        criticalChance = data.criticalChance;
+        evasionChance = data.evasionChance;
+    }
+
+    public float Attack(int roll)
+    {
         int rng;
         float damage = characterData.attackStat + characterData.weapon.damage;
         
@@ -69,14 +136,14 @@ public class Character : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if(characterData.currentHP > 0)
+        if(currentHP > 0)
         {
-            characterData.currentHP -= Mathf.CeilToInt(damage);
+            currentHP -= Mathf.CeilToInt(damage);
             Debug.Log("Took " + Mathf.CeilToInt(damage) + " Damage!");
         }
         else
         {
-            characterData.currentHP = 0;
+            currentHP = 0;
         }
     }
 }

@@ -10,29 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c5599bbc65b3874eafdc1a7eca1524f, type: 3}
-  m_Name: Rat
+  m_Name: Goblin
   m_EditorClassIdentifier: 
-  type: 0
-  enemyName: Rat
+  type: 3
+  enemyName: Goblin
   enemySize: 0
   level: 1
   exp: 0
-  maxHP: 10
-  currentHP: 10
-  maxMP: 5
-  currentMP: 5
+  maxHP: 13
+  currentHP: 13
+  maxMP: 10
+  currentMP: 10
   attackStat: 2
-  defenseStat: 1
-  speedStat: 4
+  defenseStat: 2
+  speedStat: 5
   luckStat: 3
   baseCritRate: 0.1
   baseCritDamageMultiplier: 0.15
   baseDodge: 0.1
-  baseGold: 5
-  weapon: {fileID: 11400000, guid: 4ed6dfa982c099d4f88c6205f2b0c779, type: 2}
+  baseGold: 15
+  weapon: {fileID: 11400000, guid: 85ba46b7e8f143e4096f2c5d29ca7c78, type: 2}
   skill:
-  - {fileID: 11400000, guid: 76ba4bbf34c05264bb9966adbd172b90, type: 2}
-  - {fileID: 11400000, guid: 3eb134a557c9026408014d81633ac123, type: 2}
+  - {fileID: 11400000, guid: dc3d78f7dfc8cb641b1875bb1a12ceac, type: 2}
+  - {fileID: 11400000, guid: 11062615fe5d4284c997547a0a917193, type: 2}
   soul: {fileID: 11400000, guid: 4554c7797d082ac4f88940d37e5050f9, type: 2}
   criticalChance: 0
   evasionChance: 0

@@ -10,29 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c5599bbc65b3874eafdc1a7eca1524f, type: 3}
-  m_Name: Rat
+  m_Name: Skeleton
   m_EditorClassIdentifier: 
-  type: 0
-  enemyName: Rat
-  enemySize: 0
+  type: 1
+  enemyName: Skeleton
+  enemySize: 1
   level: 1
   exp: 0
-  maxHP: 10
-  currentHP: 10
-  maxMP: 5
-  currentMP: 5
-  attackStat: 2
-  defenseStat: 1
+  maxHP: 15
+  currentHP: 15
+  maxMP: 0
+  currentMP: 0
+  attackStat: 3
+  defenseStat: 3
   speedStat: 4
   luckStat: 3
   baseCritRate: 0.1
   baseCritDamageMultiplier: 0.15
   baseDodge: 0.1
-  baseGold: 5
+  baseGold: 10
   weapon: {fileID: 11400000, guid: 4ed6dfa982c099d4f88c6205f2b0c779, type: 2}
   skill:
-  - {fileID: 11400000, guid: 76ba4bbf34c05264bb9966adbd172b90, type: 2}
-  - {fileID: 11400000, guid: 3eb134a557c9026408014d81633ac123, type: 2}
+  - {fileID: 11400000, guid: cc618c2ba31c2d84a87c723705690f9e, type: 2}
   soul: {fileID: 11400000, guid: 4554c7797d082ac4f88940d37e5050f9, type: 2}
   criticalChance: 0
   evasionChance: 0

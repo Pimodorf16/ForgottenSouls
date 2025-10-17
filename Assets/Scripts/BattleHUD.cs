@@ -3,12 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
+using UnityEngine.Events;
+using Unity.VisualScripting;
 
 public class BattleHUD : MonoBehaviour
 {
-    public Slider hpSlider;
+    [Header("BattleManager")]
+    public BattleManager battleManager;
+    
+    [Header("Player UI")]
+    public GameObject playerTurn;
 
+    [Header("Display UI")]
+    public GameObject display;
     public TextMeshProUGUI diceRoll;
+    public Slider hpSlider;
+    public TextMeshProUGUI enemyCountText;
+
+    [Header("Targeting UI")]
+    public GameObject targeting;
+    public GameObject gridLayout;
+    public GameObject enemyButtonPrefab;
+    public List<string> targetNames = new List<string>();
+    public bool createdTargets = false;
+    public bool originalTargets = false;
+    public List<GameObject> enemyButton = new List<GameObject>();
 
     public void SetHUD(Character c)
     {
@@ -30,5 +50,91 @@ public class BattleHUD : MonoBehaviour
     public void SetHP(int hp)
     {
         hpSlider.value = hp;
+    }
+
+    public void SetEnemyCount(int count)
+    {
+        enemyCountText.text = "Enemy: " + count;
+    }
+
+    public void DisplayTargetHUD(int enemyCount)
+    {
+        playerTurn.SetActive(false);
+        targeting.SetActive(true);
+
+        if (createdTargets == false)
+        {
+            for (int i = 0; i < enemyCount; i++)
+            {
+                CreateEnemyButton(i);
+            }
+        }else if(createdTargets == true)
+        {
+            return;
+        }
+
+        originalTargets = true;
+    }
+
+    public void DestroyTargetButtonHUD(int enemyCount)
+    {
+        for(int i = enemyCount; i > 0; i--)
+        {
+            Destroy(enemyButton[i - 1]);
+            enemyButton.RemoveAt(i - 1);
+        }
+    }
+
+    public void DisplayPlayerTurnHUD()
+    {
+        playerTurn.SetActive(true);
+        targeting.SetActive(false);
+    }
+
+    public void CreateEnemyButton(int i)
+    {
+        createdTargets = true;
+        
+        GameObject newEnemyButton = Instantiate(enemyButtonPrefab);
+        enemyButton.Add(newEnemyButton);
+        EventTrigger trigger = newEnemyButton.GetComponent<EventTrigger>();
+        newEnemyButton.transform.SetParent(gridLayout.transform);
+        newEnemyButton.transform.localScale = new Vector3(1, 1, 1);
+
+        newEnemyButton.GetComponent<Button>().onClick.AddListener(() => battleManager.OnEnemySelectButton(i));
+
+        AddEventTriggerListener(trigger, EventTriggerType.PointerEnter, (eventData) => OnPointerEnterFunction(eventData, i));
+        AddEventTriggerListener(trigger, EventTriggerType.PointerExit, (eventData) => OnPointerExitFunction(eventData, i));
+
+
+        TextMeshProUGUI textComponent = newEnemyButton.GetComponentInChildren<TextMeshProUGUI>();
+        if(textComponent != null )
+        {
+            if(originalTargets == false)
+            {
+                targetNames[i] = targetNames[i] + " " + (i + 1);
+                
+            }
+
+            textComponent.text = targetNames[i];
+        }
+    }
+
+    private void AddEventTriggerListener(EventTrigger trigger, EventTriggerType eventType, UnityAction<BaseEventData> listener)
+    {
+        EventTrigger.Entry entry = new EventTrigger.Entry();
+        entry.eventID = eventType;
+        entry.callback.AddListener(listener);
+        trigger.triggers.Add(entry);
+    }
+
+    private void OnPointerEnterFunction(BaseEventData eventData, int i)
+    {
+        battleManager.enemies[i].indicator.gameObject.SetActive(true);
+    }
+
+    private void OnPointerExitFunction(BaseEventData eventData, int i)
+    {
+        battleManager.enemies[i].indicator.gameObject.SetActive(false);
     }
 }

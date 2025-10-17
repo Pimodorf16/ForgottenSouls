@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     public EnemyData enemyData;
-
+    public Image indicator;
     public Slider hpSlider;
 
     public enum EnemyType { Rat, Skeleton, Zombie, Goblin, Ogre, None }

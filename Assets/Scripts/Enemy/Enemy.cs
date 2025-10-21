@@ -50,6 +50,10 @@ public class Enemy : MonoBehaviour
     public float criticalChance;
     public float evasionChance;
 
+    [Header("In Battle")]
+    public bool guarding = false;
+    public int guardValue = 0;
+
     private void Awake()
     {
         LoadDataValues(enemyData);
@@ -93,12 +97,12 @@ public class Enemy : MonoBehaviour
         hpSlider.value = enemyData.currentHP;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         if(currentHP > 0)
         {
-            currentHP -= Mathf.CeilToInt(damage);
-            Debug.Log("Took " + Mathf.CeilToInt(damage) + " Damage!");
+            currentHP -= damage;
+            Debug.Log("Took " + damage + " Damage!");
             hpSlider.value = currentHP;
         }
         else
@@ -114,42 +118,50 @@ public class Enemy : MonoBehaviour
         hpSlider.value = hp;
     }
 
-    public float Attack(int roll)
-    {;
-        int rng;
-        float damage = enemyData.attackStat + enemyData.weapon.damage;
+    float RollValueConversion(int roll)
+    {
+        float rng = 0f;
 
         switch (roll)
         {
             case 1:
-                rng = Random.Range(0, 17);
-                damage *= (rng / 100f);
+                rng = Random.Range(0f, 17f);
                 break;
             case 2:
-                rng = Random.Range(17, 34);
-                damage *= (rng / 100f);
+                rng = Random.Range(17f, 34f);
                 break;
             case 3:
-                rng = Random.Range(34, 51);
-                damage *= (rng / 100f);
+                rng = Random.Range(34f, 51f);
                 break;
             case 4:
-                rng = Random.Range(51, 68);
-                damage *= (rng / 100f);
+                rng = Random.Range(51f, 68f);
                 break;
             case 5:
-                rng = Random.Range(68, 85);
-                damage *= (rng / 100f);
+                rng = Random.Range(68f, 85f);
                 break;
             case 6:
-                rng = Random.Range(85, 101);
-                damage *= (rng / 100f);
+                rng = Random.Range(85f, 101f);
                 break;
             default:
                 break;
         }
 
-        return damage;
+        rng = rng / 100f;
+
+        return rng;
+    }
+
+    public int Attack(int roll)
+    {;
+        float rng = RollValueConversion(roll);
+        float damage = enemyData.attackStat + enemyData.weapon.damage;
+        damage *= rng;
+
+        Debug.Log("Damage = " + damage);
+
+        damage = Mathf.CeilToInt(damage);
+
+        return (int)damage;
     }
 
     public void Target()
@@ -168,8 +180,15 @@ public class Enemy : MonoBehaviour
         return 0;
     }
 
-    public int GuardCheck()
+    public int GuardCheck(int roll)
     {
-        return 0;
+        float rng = RollValueConversion(roll);
+        float guard = enemyData.defenseStat * 2 * rng;
+
+        Debug.Log("Guard = " + guard);
+
+        guard = Mathf.CeilToInt(guard);
+
+        return (int)guard;
     }
 }

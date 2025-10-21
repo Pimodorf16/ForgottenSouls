@@ -116,6 +116,8 @@ public class BattleManager : MonoBehaviour
     {
         Debug.Log("Player Turn");
 
+        ResetPlayerGuard();
+
         playerHUD.DisplayPlayerTurnHUD();
     }
 
@@ -124,6 +126,12 @@ public class BattleManager : MonoBehaviour
         Debug.Log("Targeting");
 
         playerHUD.DisplayTargetHUD(enemyCount);
+    }
+
+    void ResetPlayerGuard()
+    {
+        character.guarding = false;
+        character.guardValue = 0;
     }
     
     IEnumerator PlayerAttack(int enemyIndex)
@@ -148,6 +156,19 @@ public class BattleManager : MonoBehaviour
         }
     }
 
+    IEnumerator PlayerGuard()
+    {
+        Debug.Log("Player Guards!");
+
+        character.guarding = true;
+        int roll = RollCharacterDice();
+        ShowDiceRoll(roll);
+
+        character.guardValue = character.GuardCheck(roll);
+
+        yield return new WaitForSeconds(1f);
+    }
+
     int RollCharacterDice()
     {
         return character.Roll();
@@ -160,15 +181,24 @@ public class BattleManager : MonoBehaviour
 
     void AttackEnemy(int enemyIndex, int roll)
     {
-        float damage = character.Attack(roll);
+        int damage = character.Attack(roll);
+
+        if(CheckEnemyGuardStatus(enemyIndex) == true)
+        {
+            damage -= enemies[enemyIndex].guardValue;
+        }
 
         DamageEnemy(enemyIndex, damage);
     }
 
-    public void DamageEnemy(int enemyIndex, float damage)
+    public bool CheckEnemyGuardStatus(int enemyIndex)
+    {
+        return enemies[enemyIndex].guarding;
+    }
+
+    public void DamageEnemy(int enemyIndex, int damage)
     {
         enemies[enemyIndex].TakeDamage(damage);
-        Debug.Log("Damage = " + damage);
     }
 
     void CheckEnemyHP(int enemyIndex)
@@ -229,14 +259,43 @@ public class BattleManager : MonoBehaviour
         ChangeStateToPlayer();
     }
 
+    void RandomEnemyAction()
+    {
+        int rng = Random.Range(1, 3);
+    }
+
+    void ResetEnemyGuard()
+    {
+        foreach(Enemy enemy in enemies)
+        {
+            enemy.guarding = false;
+            enemy.guardValue = 0;
+        }
+    }
+
     IEnumerator EnemyAttack(Enemy enemy)
     {
+        Debug.Log("Enemy Attacks!");
+        
         int roll = RollEnemyDice(enemy);
 
         ShowDiceRoll(roll);
         AttackPlayer(enemy, roll);
         CheckPlayerHP();
 
+        yield return new WaitForSeconds(1f);
+    }
+
+    IEnumerator EnemyGuard(Enemy enemy)
+    {
+        Debug.Log("Enemy Guards!");
+
+        enemy.guarding = true;
+        int roll = RollEnemyDice(enemy);
+        ShowDiceRoll(roll);
+
+        enemy.guardValue = enemy.GuardCheck(roll);
+        
         yield return new WaitForSeconds(1f);
     }
 
@@ -247,11 +306,10 @@ public class BattleManager : MonoBehaviour
 
     void AttackPlayer(Enemy enemy, int roll)
     {
-        float damage = enemy.Attack(roll);
+        int damage = enemy.Attack(roll);
+        int guard = character.GuardCheck(roll);
         character.TakeDamage(damage);
         playerHUD.SetHP(character.currentHP);
-
-        Debug.Log("Damage = " + damage);
     }
 
     void CheckPlayerHP()

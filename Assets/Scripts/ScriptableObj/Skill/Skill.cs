@@ -9,6 +9,7 @@ public class Skill : ScriptableObject
     [Header("Skill")]
     public string skillName;
     public int skillLevel = 1;
+    public int levelReq = 1;
     public int cooldown;
     public bool passive;
 

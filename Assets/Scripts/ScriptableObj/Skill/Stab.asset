@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Stab
   skillLevel: 1
-  cooldown: 2
+  levelReq: 1
+  cooldown: 3
   passive: 0
   modifier:
   - damaging: 1
@@ -22,7 +23,7 @@ MonoBehaviour:
     multiplier: 1
     manaCost: 4
     target:
-      target: 0
+      target: 4
       amount: 0
     damageMods: []
     skillMods: []

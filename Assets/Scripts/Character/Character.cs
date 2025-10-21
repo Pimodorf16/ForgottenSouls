@@ -113,11 +113,6 @@ public class Character : MonoBehaviour
         return damage;
     }
 
-    public void Target()
-    {
-
-    }
-
     public int Roll()
     {
         int result = Random.Range(1, 7);

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Undead
   skillLevel: 1
+  levelReq: 1
   cooldown: 0
   passive: 1
   modifier:
@@ -30,7 +31,7 @@ MonoBehaviour:
     immunities:
     - immuneEffect: {fileID: 11400000, guid: 5e89791356bf5fe4a906c76ee690089d, type: 2}
       chance: 100
-      duration: 1
+      duration: 10
     - immuneEffect: {fileID: 11400000, guid: 9b7fa570930716348a61d9a3c4b08bfd, type: 2}
       chance: 100
-      duration: 1
+      duration: 10

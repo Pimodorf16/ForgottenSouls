@@ -13,12 +13,26 @@ MonoBehaviour:
   m_Name: Freeze
   m_EditorClassIdentifier: 
   status: 3
+  defaultDuration: 1
   duration: 1
+  negativeEffect: 0
   allowAction: 0
   allowGuard: 0
   damageOverTime: 0
   damagePercentageOverTime: 0
   healOverTime: 0
   healPercentageOverTime: 0
+  maxHealthLockPercentageOverTime: 0
   damageMultiplier: 0
+  damageReceivedMultiplier: 0
+  applyStatus: 0
+  chance: 0
+  applyDuration: 0
   nextStatus: 2
+  changes:
+  - receiving: {fileID: 11400000, guid: 565def2bc516bf54bbdf3c75c35ec4e3, type: 2}
+    add:
+    - {fileID: 11400000, guid: 78d149064faa473428241f911d8440bb, type: 2}
+    remove:
+    - {fileID: 11400000}
+    - {fileID: 11400000, guid: 565def2bc516bf54bbdf3c75c35ec4e3, type: 2}

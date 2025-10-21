@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Fireball
   skillLevel: 1
+  levelReq: 1
   cooldown: 2
+  passive: 0
   modifier:
   - damaging: 1
     healing: 0
@@ -29,42 +31,4 @@ MonoBehaviour:
     - effect: {fileID: 11400000, guid: 565def2bc516bf54bbdf3c75c35ec4e3, type: 2}
       chance: 100
       duration: 2
-  - damaging: 1
-    healing: 0
-    multiplier: 0.9
-    manaCost: 6
-    target:
-      target: 3
-      amount: 1
-    damageMods: []
-    skillMods: []
-    effects:
-    - effect: {fileID: 11400000, guid: 565def2bc516bf54bbdf3c75c35ec4e3, type: 2}
-      chance: 100
-      duration: 2
-  - damaging: 1
-    healing: 0
-    multiplier: 1
-    manaCost: 10
-    target:
-      target: 3
-      amount: 1
-    damageMods: []
-    skillMods: []
-    effects:
-    - effect: {fileID: 11400000, guid: 565def2bc516bf54bbdf3c75c35ec4e3, type: 2}
-      chance: 100
-      duration: 2
-  - damaging: 1
-    healing: 0
-    multiplier: 1.1
-    manaCost: 15
-    target:
-      target: 3
-      amount: 1
-    damageMods: []
-    skillMods: []
-    effects:
-    - effect: {fileID: 11400000, guid: 565def2bc516bf54bbdf3c75c35ec4e3, type: 2}
-      chance: 100
-      duration: 3
+    immunities: []

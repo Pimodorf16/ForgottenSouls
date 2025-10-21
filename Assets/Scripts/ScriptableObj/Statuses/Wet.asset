@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Wet
   m_EditorClassIdentifier: 
   status: 2
-  duration: 1
+  defaultDuration: 3
+  duration: 3
+  negativeEffect: 0
   allowAction: 1
   allowGuard: 1
   damageOverTime: 0
@@ -22,4 +24,18 @@ MonoBehaviour:
   healPercentageOverTime: 0
   maxHealthLockPercentageOverTime: 0
   damageMultiplier: 0
+  damageReceivedMultiplier: 0
+  applyStatus: 0
+  chance: 0
+  applyDuration: 0
   nextStatus: 0
+  changes:
+  - receiving: {fileID: 11400000, guid: 565def2bc516bf54bbdf3c75c35ec4e3, type: 2}
+    add: []
+    remove:
+    - {fileID: 11400000}
+    - {fileID: 11400000, guid: 565def2bc516bf54bbdf3c75c35ec4e3, type: 2}
+  - receiving: {fileID: 11400000, guid: 529fbd2557bffbd43be913e795bf46b1, type: 2}
+    add: []
+    remove:
+    - {fileID: 11400000}

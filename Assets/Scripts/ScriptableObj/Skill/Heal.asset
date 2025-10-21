@@ -10,25 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6371591707b571248bded230c5d32982, type: 3}
-  m_Name: Poison
+  m_Name: Heal
   m_EditorClassIdentifier: 
-  skillName: Poison
+  skillName: Heal
   skillLevel: 1
-  levelReq: 1
-  cooldown: 2
+  cooldown: 4
   passive: 0
   modifier:
   - damaging: 0
-    healing: 0
-    multiplier: 0
-    manaCost: 2
+    healing: 1
+    multiplier: 0.25
+    manaCost: 3
     target:
-      target: 4
+      target: 0
       amount: 1
     damageMods: []
     skillMods: []
-    effects:
-    - effect: {fileID: 11400000, guid: 9b7fa570930716348a61d9a3c4b08bfd, type: 2}
-      chance: 100
-      duration: 2
+    effects: []
     immunities: []

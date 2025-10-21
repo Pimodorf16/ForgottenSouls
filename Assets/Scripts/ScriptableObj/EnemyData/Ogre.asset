@@ -17,10 +17,10 @@ MonoBehaviour:
   enemySize: 2
   level: 1
   exp: 0
-  maxHP: 30
-  currentHP: 30
-  maxMP: 10
-  currentMP: 10
+  maxHP: 25
+  currentHP: 25
+  maxMP: 0
+  currentMP: 0
   attackStat: 5
   defenseStat: 5
   speedStat: 1
@@ -29,7 +29,7 @@ MonoBehaviour:
   baseCritDamageMultiplier: 0.15
   baseDodge: 0.1
   baseGold: 30
-  weapon: {fileID: 11400000, guid: 38ae002df6cc4e3478f91fa2f71809eb, type: 2}
+  weapon: {fileID: 11400000, guid: 4ed6dfa982c099d4f88c6205f2b0c779, type: 2}
   skill:
   - {fileID: 11400000, guid: a01a07f875c0b1e4b8dc5dbd05ff9bdc, type: 2}
   soul: {fileID: 11400000, guid: 4554c7797d082ac4f88940d37e5050f9, type: 2}

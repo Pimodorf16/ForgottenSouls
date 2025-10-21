@@ -23,6 +23,7 @@ public class CharacterData : ScriptableObject
     public int defenseStat = 5;
     public int speedStat = 5;
     public int luckStat = 5;
+    public int manaRecoveryOvertime = 2;
     public float baseCritRate = 0.10f;
     public float baseCritDamageMultiplier = 0.15f;
     public float baseDodge = 0.10f;

@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3562f5a2e572e8c4aa99b5c177b2486c, type: 3}
-  m_Name: Shield3
+  m_Name: GlacialEnhancement
   m_EditorClassIdentifier: 
-  status: 9
+  status: 10
+  defaultDuration: 1
   duration: 2
+  negativeEffect: 0
   allowAction: 1
   allowGuard: 1
   damageOverTime: 0
@@ -21,6 +23,10 @@ MonoBehaviour:
   healOverTime: 0
   healPercentageOverTime: 0
   maxHealthLockPercentageOverTime: 0
-  damageMultiplier: 0
-  damageReceivedMultiplier: 0.25
+  damageMultiplier: 1.175
+  damageReceivedMultiplier: 0
+  applyStatus: 3
+  chance: 25
+  applyDuration: 1
   nextStatus: 0
+  changes: []

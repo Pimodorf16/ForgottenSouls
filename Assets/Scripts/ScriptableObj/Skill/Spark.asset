@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Spark
   skillLevel: 1
+  levelReq: 1
   cooldown: 2
   passive: 0
   modifier:
@@ -23,45 +24,6 @@ MonoBehaviour:
     manaCost: 3
     target:
       target: 3
-      amount: 1
-    damageMods:
-    - statusReq: {fileID: 11400000, guid: 78d149064faa473428241f911d8440bb, type: 2}
-      modifier: 1.25
-    skillMods: []
-    effects: []
-    immunities: []
-  - damaging: 1
-    healing: 0
-    multiplier: 0.9
-    manaCost: 6
-    target:
-      target: 1
-      amount: 1
-    damageMods:
-    - statusReq: {fileID: 11400000, guid: 78d149064faa473428241f911d8440bb, type: 2}
-      modifier: 1.25
-    skillMods: []
-    effects: []
-    immunities: []
-  - damaging: 1
-    healing: 0
-    multiplier: 1
-    manaCost: 10
-    target:
-      target: 1
-      amount: 1
-    damageMods:
-    - statusReq: {fileID: 11400000, guid: 78d149064faa473428241f911d8440bb, type: 2}
-      modifier: 1.25
-    skillMods: []
-    effects: []
-    immunities: []
-  - damaging: 1
-    healing: 0
-    multiplier: 1.1
-    manaCost: 15
-    target:
-      target: 1
       amount: 1
     damageMods:
     - statusReq: {fileID: 11400000, guid: 78d149064faa473428241f911d8440bb, type: 2}

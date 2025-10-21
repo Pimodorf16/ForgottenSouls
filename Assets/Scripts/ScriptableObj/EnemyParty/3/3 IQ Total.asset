@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: 3 IQ Total
   m_EditorClassIdentifier: 
   partyName: 
-  enemies: []
+  enemies:
+  - enemyData: {fileID: 0}
+    stationIndex: 0
+  - enemyData: {fileID: 0}
+    stationIndex: 0
+  - enemyData: {fileID: 0}
+    stationIndex: 0

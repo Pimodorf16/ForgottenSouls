@@ -10,6 +10,7 @@ public class StatusEffect : ScriptableObject
 
     [Header("Status Effect")]
     public Status status;
+    public int defaultDuration = 1;
     public int duration = 1;
     public bool negativeEffect;
 
@@ -35,4 +36,16 @@ public class StatusEffect : ScriptableObject
 
     [Header("Follow Up Status")]
     public Status nextStatus;
+
+    [Header("Change Status")]
+    public List<StatusChange> changes;
+
+}
+
+[Serializable]
+public class StatusChange
+{
+    public StatusEffect receiving;
+    public List<StatusEffect> add;
+    public List<StatusEffect> remove;
 }

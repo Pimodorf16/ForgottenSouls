@@ -14,41 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Chain Lightning
   skillLevel: 1
+  levelReq: 9
   cooldown: 4
+  passive: 0
   modifier:
   - damaging: 1
     healing: 0
     multiplier: 1
-    manaCost: 7
+    manaCost: 10
     target:
-      target: 1
+      target: 2
       amount: 3
     damageMods:
     - statusReq: {fileID: 11400000, guid: 78d149064faa473428241f911d8440bb, type: 2}
       modifier: 1.25
     skillMods: []
     effects: []
-  - damaging: 1
-    healing: 0
-    multiplier: 1.125
-    manaCost: 14
-    target:
-      target: 1
-      amount: 4
-    damageMods:
-    - statusReq: {fileID: 11400000, guid: 78d149064faa473428241f911d8440bb, type: 2}
-      modifier: 1.25
-    skillMods: []
-    effects: []
-  - damaging: 1
-    healing: 0
-    multiplier: 1.25
-    manaCost: 22
-    target:
-      target: 1
-      amount: 5
-    damageMods:
-    - statusReq: {fileID: 11400000, guid: 78d149064faa473428241f911d8440bb, type: 2}
-      modifier: 1.25
-    skillMods: []
-    effects: []
+    immunities: []

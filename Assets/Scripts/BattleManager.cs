@@ -18,6 +18,7 @@ public class BattleManager : MonoBehaviour
     public List<Transform> enemyStation = new List<Transform>();
 
     Character character;
+    GameObject playerGO;
     public BattleHUD playerHUD;
 
     public List<Enemy> enemies = new List<Enemy>();
@@ -31,31 +32,84 @@ public class BattleManager : MonoBehaviour
         StartCoroutine(SetupBattle());
     }
 
+    void ChangeStateToPlayer()
+    {
+        state = States.Player;
+        PlayerTurn();
+    }
+
+    void ChangeStateToEnemy()
+    {
+        state = States.Enemy;
+        StartCoroutine(EnemyTurn());
+    }
+
+    void ChangeStateToTargeting()
+    {
+        state = States.Target;
+        PlayerTarget();
+    }
+
+    void ChangeStateToSkill()
+    {
+        state = States.Skill;
+    }
+
+    void ChangeStateToWon()
+    {
+        state = States.Won;
+    }
+
+    void ChangeStateToLost()
+    {
+        state = States.Lost;
+    }
+
     IEnumerator SetupBattle()
     {
-        GameObject playerGO = Instantiate(playerPrefab, playerStation);
-        character = playerGO.GetComponent<Character>();
-        playerHUD.SetHUD(character);
+        InstantiatePlayer();
 
         foreach (IndividualEnemy enemy in party.enemies)
         {
-            GameObject enemyGO = Instantiate(enemyPrefab, enemyStation[enemy.stationIndex]);
-            enemies.Add(enemyGO.GetComponent<Enemy>());
-            playerHUD.targetNames.Add(enemyGO.GetComponent<Enemy>().enemyName);
-
-            enemies[enemy.stationIndex].enemyData = enemy.enemyData;
-            enemies[enemy.stationIndex].LoadDataValues(enemy.enemyData);
-            enemies[enemy.stationIndex].SetValues();
-
-            enemyCount ++;
+            InstantiateEnemy(enemy);
         }
-
-        playerHUD.SetEnemyCount(enemyCount);
 
         yield return new WaitForSeconds(1f);
 
         state = States.Player;
         PlayerTurn();
+    }
+
+    void InstantiatePlayer()
+    {
+        playerGO = Instantiate(playerPrefab, playerStation);
+        character = playerGO.GetComponent<Character>();
+        playerHUD.SetHUD(character);
+    }
+
+    void InstantiateEnemy(IndividualEnemy enemy)
+    {
+        GameObject enemyGO = Instantiate(enemyPrefab, enemyStation[enemy.stationIndex]);
+        enemies.Add(enemyGO.GetComponent<Enemy>());
+        playerHUD.targetNames.Add(enemyGO.GetComponent<Enemy>().enemyName);
+
+        enemies[enemy.stationIndex].enemyData = enemy.enemyData;
+        enemies[enemy.stationIndex].LoadDataValues(enemy.enemyData);
+        enemies[enemy.stationIndex].SetValues();
+
+        IncreaseEnemyCount();
+    }
+
+    public void IncreaseEnemyCount()
+    {
+        enemyCount++;
+        playerHUD.SetEnemyCount(enemyCount);
+    }
+
+    public void DecreaseEnemyCount()
+    {
+        enemyCount--;
+        playerHUD.SetEnemyCount(enemyCount);
     }
 
     void PlayerTurn()
@@ -72,31 +126,93 @@ public class BattleManager : MonoBehaviour
         playerHUD.DisplayTargetHUD(enemyCount);
     }
     
-    IEnumerator PlayerAttack(int i)
+    IEnumerator PlayerAttack(int enemyIndex)
     {
         Debug.Log("Player Attack");
-        int roll = character.Roll();
-        StartCoroutine(playerHUD.SetDiceRoll(roll));
-        float damage = character.Attack(roll);
-        enemies[i].TakeDamage(damage);
-        Debug.Log("Damage = " + damage);
 
-        if(enemies[i].currentHP <= 0)
-        {
-            enemies[i].gameObject.SetActive(false);
-            Destroy(enemies[i]);
-            enemies.RemoveAt(i);
-            playerHUD.targetNames.RemoveAt(i);
-            playerHUD.DestroyTargetButtonHUD(enemyCount);
-            playerHUD.createdTargets = false;
-            enemyCount --;
-            playerHUD.SetEnemyCount(enemyCount);
-        }
+        int roll = RollCharacterDice();
+
+        ShowDiceRoll(roll);
+        AttackEnemy(enemyIndex, roll);
+        CheckEnemyHP(enemyIndex);
 
         yield return new WaitForSeconds(1f);
 
-        state = States.Enemy;
-        StartCoroutine(EnemyTurn());
+        if(CheckAllEnemiesDead() == true)
+        {
+            ChangeStateToWon();
+        }
+        else
+        {
+            ChangeStateToEnemy();
+        }
+    }
+
+    int RollCharacterDice()
+    {
+        return character.Roll();
+    }
+
+    void ShowDiceRoll(int roll)
+    {
+        StartCoroutine(playerHUD.SetDiceRoll(roll));
+    }
+
+    void AttackEnemy(int enemyIndex, int roll)
+    {
+        float damage = character.Attack(roll);
+
+        DamageEnemy(enemyIndex, damage);
+    }
+
+    public void DamageEnemy(int enemyIndex, float damage)
+    {
+        enemies[enemyIndex].TakeDamage(damage);
+        Debug.Log("Damage = " + damage);
+    }
+
+    void CheckEnemyHP(int enemyIndex)
+    {
+        if (enemies[enemyIndex].currentHP <= 0)
+        {
+            DestroyEnemyGO(enemyIndex);
+
+            RemoveEnemyFromList(enemyIndex);
+
+            ResetEnemyButtonHUD();
+
+            DecreaseEnemyCount();
+        }
+    }
+
+    void DestroyEnemyGO(int enemyIndex)
+    {
+        enemies[enemyIndex].gameObject.SetActive(false);
+        Destroy(enemies[enemyIndex]);
+    }
+
+    void RemoveEnemyFromList(int enemyIndex)
+    {
+        enemies.RemoveAt(enemyIndex);
+        playerHUD.targetNames.RemoveAt(enemyIndex);
+    }
+
+    void ResetEnemyButtonHUD()
+    {
+        playerHUD.DestroyTargetButtonHUD(enemyCount);
+        playerHUD.createdTargets = false;
+    }
+
+    bool CheckAllEnemiesDead()
+    {
+        if(enemyCount <= 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     IEnumerator EnemyTurn()
@@ -105,22 +221,52 @@ public class BattleManager : MonoBehaviour
         
         foreach(Enemy enemy in enemies)
         {
-            if(enemy.currentHP > 0)
-            {
-                int roll = enemy.Roll();
-                float damage = enemy.Attack(roll);
-                character.TakeDamage(damage);
-                playerHUD.SetHP(character.currentHP);
-                Debug.Log("Damage = " + damage);
-                yield return new WaitForSeconds(1f);
-            }
+            StartCoroutine(EnemyAttack(enemy));
         }
-
 
         yield return new WaitForSeconds(1f);
 
-        state = States.Player;
-        PlayerTurn();
+        ChangeStateToPlayer();
+    }
+
+    IEnumerator EnemyAttack(Enemy enemy)
+    {
+        int roll = RollEnemyDice(enemy);
+
+        ShowDiceRoll(roll);
+        AttackPlayer(enemy, roll);
+        CheckPlayerHP();
+
+        yield return new WaitForSeconds(1f);
+    }
+
+    int RollEnemyDice(Enemy enemy)
+    {
+        return enemy.Roll();
+    }
+
+    void AttackPlayer(Enemy enemy, int roll)
+    {
+        float damage = enemy.Attack(roll);
+        character.TakeDamage(damage);
+        playerHUD.SetHP(character.currentHP);
+
+        Debug.Log("Damage = " + damage);
+    }
+
+    void CheckPlayerHP()
+    {
+        if (character.currentHP <= 0)
+        {
+            DeactivatePlayerGO();
+
+            ChangeStateToLost();
+        }
+    }
+
+    void DeactivatePlayerGO()
+    {
+        playerGO.SetActive(false);
     }
 
     public void OnAttackButton()
@@ -130,9 +276,7 @@ public class BattleManager : MonoBehaviour
             return;
         }
 
-        state = States.Target;
-
-        PlayerTarget();
+        ChangeStateToTargeting();
     }
 
     public void OnSkillButton()
@@ -142,8 +286,7 @@ public class BattleManager : MonoBehaviour
             return;
         }
 
-        state = States.Skill;
-        
+        ChangeStateToSkill();
     }
 
     public void OnGuardButton()
@@ -153,8 +296,7 @@ public class BattleManager : MonoBehaviour
             return;
         }
 
-        state = States.Enemy;
-
+        ChangeStateToEnemy();
     }
 
     public void OnEnemySelectButton(int i)

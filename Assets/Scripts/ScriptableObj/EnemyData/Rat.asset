@@ -17,8 +17,8 @@ MonoBehaviour:
   enemySize: 0
   level: 1
   exp: 0
-  maxHP: 10
-  currentHP: 10
+  maxHP: 8
+  currentHP: 8
   maxMP: 5
   currentMP: 5
   attackStat: 2

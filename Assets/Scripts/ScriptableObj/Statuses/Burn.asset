@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Burn
   m_EditorClassIdentifier: 
   status: 1
+  defaultDuration: 1
   duration: 1
   negativeEffect: 1
   allowAction: 1
@@ -28,3 +29,10 @@ MonoBehaviour:
   chance: 0
   applyDuration: 0
   nextStatus: 0
+  changes:
+  - receiving: {fileID: 11400000, guid: 529fbd2557bffbd43be913e795bf46b1, type: 2}
+    add:
+    - {fileID: 11400000, guid: 78d149064faa473428241f911d8440bb, type: 2}
+    remove:
+    - {fileID: 11400000}
+    - {fileID: 11400000, guid: 529fbd2557bffbd43be913e795bf46b1, type: 2}

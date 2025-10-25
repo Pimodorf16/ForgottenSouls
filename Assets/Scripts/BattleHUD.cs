@@ -25,12 +25,18 @@ public class BattleHUD : MonoBehaviour
 
     [Header("Targeting UI")]
     public GameObject targeting;
-    public GameObject gridLayout;
+    public GameObject gridLayoutEnemy;
     public GameObject enemyButtonPrefab;
     public List<string> targetNames = new List<string>();
     public bool createdTargets = false;
     public bool originalTargets = false;
     public List<GameObject> enemyButton = new List<GameObject>();
+
+    [Header("Skill Selection UI")]
+    public SelectSkills selectSkills;
+    public GameObject skillSelection;
+    public GameObject gridLayoutSkill;
+    public GameObject skillButtonPrefab;
 
     public void SetHUD(Character c)
     {
@@ -64,9 +70,16 @@ public class BattleHUD : MonoBehaviour
         waveCountText.text = "Wave: " + currentWave + " / " + waveCount;
     }
 
+<<<<<<< Updated upstream
     public void SetStageCount(int stageCount)
     {
         stageCountText.text = "Stage: " + stageCount;
+=======
+    public void DisplaySkillSelectionHUD()
+    {
+        playerTurn.SetActive(false);
+        skillSelection.SetActive(true);
+>>>>>>> Stashed changes
     }
 
     public void DisplayTargetHUD(int enemyCount)
@@ -110,7 +123,7 @@ public class BattleHUD : MonoBehaviour
         GameObject newEnemyButton = Instantiate(enemyButtonPrefab);
         enemyButton.Add(newEnemyButton);
         EventTrigger trigger = newEnemyButton.GetComponent<EventTrigger>();
-        newEnemyButton.transform.SetParent(gridLayout.transform);
+        newEnemyButton.transform.SetParent(gridLayoutEnemy.transform);
         newEnemyButton.transform.localScale = new Vector3(1, 1, 1);
 
         newEnemyButton.GetComponent<Button>().onClick.AddListener(() => battleManager.OnEnemySelectButton(i));

@@ -22,6 +22,7 @@ public class BattleManager : MonoBehaviour
     Character character;
     GameObject playerGO;
     public BattleHUD playerHUD;
+    public SelectSkills selectSkills;
 
     public List<Enemy> enemies = new List<Enemy>();
 
@@ -214,6 +215,26 @@ public class BattleManager : MonoBehaviour
         ShowDiceRoll(roll);
 
         character.guardValue = character.GuardCheck(roll);
+
+        yield return new WaitForSeconds(1f);
+
+        if (PlayerWonCheck() == false)
+        {
+            ChangeStateToEnemy();
+        }
+    }
+
+    IEnumerator PlayerSkill(int enemyIndex)
+    {
+        Debug.Log("Player Uses Skill: " + "!");
+
+        if (character.skill[selectSkills.selectedSkill].modifier[0].damaging == true)
+        {
+            int roll = RollCharacterDice();
+            ShowDiceRoll(roll);
+
+            CheckEnemyHP(enemyIndex);
+        }
 
         yield return new WaitForSeconds(1f);
 
@@ -456,8 +477,8 @@ public class BattleManager : MonoBehaviour
         {
             enemy.indicator.gameObject.SetActive(false);
         }
-        
-        ChangeStateToPlayer();
+
+        playerHUD.DisplayPlayerTurnHUD();
 
         StartCoroutine(PlayerAttack(i));
     }

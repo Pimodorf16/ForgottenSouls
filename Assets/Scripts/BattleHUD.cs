@@ -70,16 +70,14 @@ public class BattleHUD : MonoBehaviour
         waveCountText.text = "Wave: " + currentWave + " / " + waveCount;
     }
 
-<<<<<<< Updated upstream
     public void SetStageCount(int stageCount)
     {
         stageCountText.text = "Stage: " + stageCount;
-=======
+    }
     public void DisplaySkillSelectionHUD()
     {
         playerTurn.SetActive(false);
         skillSelection.SetActive(true);
->>>>>>> Stashed changes
     }
 
     public void DisplayTargetHUD(int enemyCount)

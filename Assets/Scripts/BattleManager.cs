@@ -12,6 +12,7 @@ public class BattleManager : MonoBehaviour
     public GameObject enemyPrefab;
 
     public EnemyStage stage;
+    int stageCount = 1;
     int currentWave = 0;
     int enemyCount = 0;
 
@@ -70,6 +71,8 @@ public class BattleManager : MonoBehaviour
     IEnumerator SetupBattle()
     {
         InstantiatePlayer();
+
+        playerHUD.SetStageCount(stageCount);
 
         stage.RandomizeEnemy();
 
@@ -469,5 +472,7 @@ public class BattleManager : MonoBehaviour
     {
         //playerHUD.createdTargets = false;
         //playerHUD.originalTargets = false;
+        stageCount++;
+        playerHUD.SetStageCount(stageCount);
     }
 }

@@ -140,11 +140,13 @@ public class Character : MonoBehaviour
     public int GuardCheck(int roll)
     {
         float rng = RollValueConversion(roll);
+        Debug.Log("Guard RNG = " + rng);
+
         float guard = characterData.defenseStat * 2 * rng;
 
-        Debug.Log("Guard = " + guard);
-
         guard = Mathf.CeilToInt(guard);
+
+        Debug.Log("Guard = " + guard);
 
         return (int)guard;
     }

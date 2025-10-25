@@ -20,6 +20,7 @@ public class BattleHUD : MonoBehaviour
     public TextMeshProUGUI diceRoll;
     public Slider hpSlider;
     public TextMeshProUGUI enemyCountText;
+    public TextMeshProUGUI waveCountText;
 
     [Header("Targeting UI")]
     public GameObject targeting;
@@ -55,6 +56,11 @@ public class BattleHUD : MonoBehaviour
     public void SetEnemyCount(int count)
     {
         enemyCountText.text = "Enemy: " + count;
+    }
+
+    public void SetWaveCount(int currentWave,int waveCount)
+    {
+        waveCountText.text = "Wave: " + currentWave + " / " + waveCount;
     }
 
     public void DisplayTargetHUD(int enemyCount)
@@ -113,7 +119,6 @@ public class BattleHUD : MonoBehaviour
             if(originalTargets == false)
             {
                 targetNames[i] = targetNames[i] + " " + (i + 1);
-                
             }
 
             textComponent.text = targetNames[i];

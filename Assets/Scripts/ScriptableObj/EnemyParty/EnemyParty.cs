@@ -8,12 +8,7 @@ public class EnemyParty : ScriptableObject
 {
     [Header("Party")]
     public string partyName;
-    public List<IndividualEnemy> enemies;
-}
+    public List<Waves> waves;
 
-[Serializable]
-public class IndividualEnemy
-{
-    public EnemyData enemyData;
-    public int stationIndex;
+    public List<EnemyData> enemyPool;
 }

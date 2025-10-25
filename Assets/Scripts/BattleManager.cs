@@ -11,7 +11,8 @@ public class BattleManager : MonoBehaviour
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
 
-    public EnemyParty party;
+    public EnemyStage stage;
+    int currentWave = 0;
     int enemyCount = 0;
 
     public Transform playerStation;
@@ -58,6 +59,7 @@ public class BattleManager : MonoBehaviour
     void ChangeStateToWon()
     {
         state = States.Won;
+        Debug.Log("Player Wins!");
     }
 
     void ChangeStateToLost()
@@ -69,7 +71,27 @@ public class BattleManager : MonoBehaviour
     {
         InstantiatePlayer();
 
-        foreach (IndividualEnemy enemy in party.enemies)
+        stage.RandomizeEnemy();
+
+        playerHUD.SetWaveCount(currentWave + 1, stage.waves.Count);
+
+        foreach (IndividualEnemy enemy in stage.waves[currentWave].enemies)
+        {
+            InstantiateEnemy(enemy);
+        }
+
+        yield return new WaitForSeconds(1f);
+
+        state = States.Player;
+        PlayerTurn();
+    }
+
+    IEnumerator SpawnNextWave()
+    {
+        currentWave++;
+        playerHUD.SetWaveCount(currentWave + 1, stage.waves.Count);
+
+        foreach (IndividualEnemy enemy in stage.waves[currentWave].enemies)
         {
             InstantiateEnemy(enemy);
         }
@@ -91,11 +113,12 @@ public class BattleManager : MonoBehaviour
     {
         GameObject enemyGO = Instantiate(enemyPrefab, enemyStation[enemy.stationIndex]);
         enemies.Add(enemyGO.GetComponent<Enemy>());
-        playerHUD.targetNames.Add(enemyGO.GetComponent<Enemy>().enemyName);
 
         enemies[enemy.stationIndex].enemyData = enemy.enemyData;
         enemies[enemy.stationIndex].LoadDataValues(enemy.enemyData);
         enemies[enemy.stationIndex].SetValues();
+
+        playerHUD.targetNames.Add(enemyGO.GetComponent<Enemy>().enemyName);
 
         IncreaseEnemyCount();
     }
@@ -118,7 +141,34 @@ public class BattleManager : MonoBehaviour
 
         ResetPlayerGuard();
 
+        PlayerWonCheck();
+
         playerHUD.DisplayPlayerTurnHUD();
+    }
+
+    bool PlayerWonCheck()
+    {
+        if (CheckAllEnemiesDead() == true)
+        {
+            WaveCheck();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    void WaveCheck()
+    {
+        if(stage.waves.Count > currentWave + 1)
+        {
+            StartCoroutine(SpawnNextWave());
+        }
+        else
+        {
+            ChangeStateToWon();
+        }
     }
 
     void PlayerTarget()
@@ -146,11 +196,7 @@ public class BattleManager : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        if(CheckAllEnemiesDead() == true)
-        {
-            ChangeStateToWon();
-        }
-        else
+        if (PlayerWonCheck() == false)
         {
             ChangeStateToEnemy();
         }
@@ -167,6 +213,11 @@ public class BattleManager : MonoBehaviour
         character.guardValue = character.GuardCheck(roll);
 
         yield return new WaitForSeconds(1f);
+
+        if (PlayerWonCheck() == false)
+        {
+            ChangeStateToEnemy();
+        }
     }
 
     int RollCharacterDice()
@@ -186,6 +237,11 @@ public class BattleManager : MonoBehaviour
         if(CheckEnemyGuardStatus(enemyIndex) == true)
         {
             damage -= enemies[enemyIndex].guardValue;
+
+            if(damage <= 0)
+            {
+                damage = 0;
+            }
         }
 
         DamageEnemy(enemyIndex, damage);
@@ -248,20 +304,47 @@ public class BattleManager : MonoBehaviour
     IEnumerator EnemyTurn()
     {
         Debug.Log("Enemy Turn");
+
+        ResetEnemyGuard();
         
         foreach(Enemy enemy in enemies)
         {
-            StartCoroutine(EnemyAttack(enemy));
+            StartCoroutine(RandomEnemyAction(enemy));
+
+            if(state == States.Lost)
+            {
+                break;
+            }
+
+            yield return new WaitForSeconds(1f);
         }
 
         yield return new WaitForSeconds(1f);
 
-        ChangeStateToPlayer();
+        if(state == States.Enemy)
+        {
+            ChangeStateToPlayer();
+        }
     }
 
-    void RandomEnemyAction()
+    IEnumerator RandomEnemyAction(Enemy enemy)
     {
         int rng = Random.Range(1, 3);
+
+        switch (rng)
+        {
+            case 1:
+                StartCoroutine(EnemyAttack(enemy));
+                break;
+            case 2:
+                StartCoroutine(EnemyGuard(enemy));
+                break;
+            default:
+                StartCoroutine(EnemyAttack(enemy));
+                break;
+        }
+
+        yield return new WaitForSeconds(1f);
     }
 
     void ResetEnemyGuard()
@@ -307,7 +390,14 @@ public class BattleManager : MonoBehaviour
     void AttackPlayer(Enemy enemy, int roll)
     {
         int damage = enemy.Attack(roll);
-        int guard = character.GuardCheck(roll);
+        int guard = character.guardValue;
+        damage -= guard;
+
+        if (damage < 0)
+        {
+            damage = 0;
+        }
+
         character.TakeDamage(damage);
         playerHUD.SetHP(character.currentHP);
     }
@@ -354,7 +444,7 @@ public class BattleManager : MonoBehaviour
             return;
         }
 
-        ChangeStateToEnemy();
+        StartCoroutine(PlayerGuard());
     }
 
     public void OnEnemySelectButton(int i)
@@ -364,8 +454,7 @@ public class BattleManager : MonoBehaviour
             enemy.indicator.gameObject.SetActive(false);
         }
         
-        state = States.Player;
-        PlayerTurn();
+        ChangeStateToPlayer();
 
         StartCoroutine(PlayerAttack(i));
     }

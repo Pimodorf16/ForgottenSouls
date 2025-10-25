@@ -54,6 +54,21 @@ public class Enemy : MonoBehaviour
     public bool guarding = false;
     public int guardValue = 0;
 
+    [Header("Status Effect")]
+    public List<StatusEffect> statusEffects = new List<StatusEffect>();
+    public List<StatusEffect> immunities = new List<StatusEffect>();
+    public bool allowAction = true;
+    public bool allowGuard = true;
+    public int damageOverTime = 0;
+    public int damagePercentageOverTime = 0;
+    public int healOverTime = 0;
+    public int healPercentageOverTime = 0;
+    public int maxHealthLockPercentageOverTime = 0;
+    public float damageMultiplier = 1;
+    public float damageReceivedMultiplier = 1;
+    public StatusEffect.Status applyStatus = StatusEffect.Status.None;
+    public int chance = 0;
+    public int applyDuration = 0;
     private void Awake()
     {
         LoadDataValues(enemyData);
@@ -84,6 +99,119 @@ public class Enemy : MonoBehaviour
         soul = data.soul;
         criticalChance = data.criticalChance;
         evasionChance = data.evasionChance;
+    }
+
+    public void SetStatusEffect(StatusEffect status, int duration)
+    {
+        if (CheckImmunity(status) == false)
+        {
+            statusEffects.Add(status);
+            status.duration = duration;
+
+            if (status.allowAction == false)
+            {
+                allowAction = status.allowAction;
+            }
+            if (status.allowGuard == false)
+            {
+                allowGuard = status.allowGuard;
+            }
+
+            damageOverTime += status.damageOverTime;
+            damagePercentageOverTime += status.damagePercentageOverTime;
+            healOverTime += status.healOverTime;
+            healPercentageOverTime += status.healPercentageOverTime;
+            maxHealthLockPercentageOverTime += status.maxHealthLockPercentageOverTime;
+            damageMultiplier += status.damageMultiplier;
+            damageReceivedMultiplier += status.damageReceivedMultiplier;
+            applyStatus = status.applyStatus;
+            chance += status.chance;
+            applyDuration += status.applyDuration;
+        }
+    }
+
+    public void RemoveStatusEffect(StatusEffect status)
+    {
+        statusEffects.Remove(status);
+
+        if (status.allowAction == false)
+        {
+            allowAction = true;
+        }
+        if (status.allowGuard == false)
+        {
+            allowGuard = true;
+        }
+
+        damageOverTime -= status.damageOverTime;
+        damagePercentageOverTime -= status.damagePercentageOverTime;
+        healOverTime -= status.healOverTime;
+        healPercentageOverTime -= status.healPercentageOverTime;
+        maxHealthLockPercentageOverTime -= status.maxHealthLockPercentageOverTime;
+        damageMultiplier -= status.damageMultiplier;
+        damageReceivedMultiplier -= status.damageReceivedMultiplier;
+        applyStatus = status.applyStatus;
+        chance -= status.chance;
+        applyDuration -= status.applyDuration;
+    }
+
+    public void CheckStatusEffectDuration()
+    {
+        foreach (StatusEffect effect in statusEffects)
+        {
+            if (effect.duration <= 0)
+            {
+                RemoveStatusEffect(effect);
+                statusEffects.Remove(effect);
+            }
+            else
+            {
+                effect.duration--;
+            }
+        }
+    }
+
+    public bool CheckImmunity(StatusEffect newStatus)
+    {
+        foreach (StatusEffect immune in immunities)
+        {
+            if (newStatus == immune)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        return false;
+    }
+
+    public void SetImmunity(StatusEffect immune, int duration)
+    {
+        immunities.Add(immune);
+        immune.duration = duration;
+    }
+
+    public void RemoveImmunity(StatusEffect immune)
+    {
+        immunities.Remove(immune);
+    }
+
+    public void CheckImmunityDuration()
+    {
+        foreach (StatusEffect immune in immunities)
+        {
+            if (immune.duration <= 0)
+            {
+                immunities.Remove(immune);
+            }
+            else
+            {
+                immune.duration--;
+            }
+        }
     }
 
     private void Start()

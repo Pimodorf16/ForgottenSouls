@@ -23,7 +23,7 @@ MonoBehaviour:
   healOverTime: 0
   healPercentageOverTime: 0
   maxHealthLockPercentageOverTime: 0
-  damageMultiplier: 1.175
+  damageMultiplier: 0.175
   damageReceivedMultiplier: 0
   applyStatus: 3
   chance: 25

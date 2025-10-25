@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Poison
   m_EditorClassIdentifier: 
   status: 5
+  defaultDuration: 1
   duration: 1
   negativeEffect: 1
   allowAction: 1
@@ -21,10 +22,11 @@ MonoBehaviour:
   damagePercentageOverTime: 0
   healOverTime: 0
   healPercentageOverTime: 0
-  maxHealthLockPercentageOverTime: 2
+  maxHealthLockPercentageOverTime: 1
   damageMultiplier: 0
   damageReceivedMultiplier: 0
   applyStatus: 0
   chance: 0
   applyDuration: 0
   nextStatus: 0
+  changes: []

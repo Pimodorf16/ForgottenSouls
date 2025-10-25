@@ -19,9 +19,9 @@ public class BattleHUD : MonoBehaviour
     public GameObject display;
     public TextMeshProUGUI diceRoll;
     public Slider hpSlider;
+    public Slider mpSlider;
     public TextMeshProUGUI enemyCountText;
     public TextMeshProUGUI waveCountText;
-    public TextMeshProUGUI stageCountText;
 
     [Header("Targeting UI")]
     public GameObject targeting;
@@ -38,10 +38,21 @@ public class BattleHUD : MonoBehaviour
     public GameObject gridLayoutSkill;
     public GameObject skillButtonPrefab;
 
+    [Header("Skill Targeting UI")]
+    public GameObject skillTargeting;
+    public GameObject gridLayoutSkillTarget;
+    public GameObject playerButtonPrefab;
+    public List<string> targetSkillNames = new List<string>();
+    public bool createdSkillTargets = false;
+    public bool originalSkillTargets = false;
+    public List<GameObject> enemySkillButton = new List<GameObject>();
+
     public void SetHUD(Character c)
     {
         hpSlider.maxValue = c.characterData.maxHP;
         hpSlider.value = c.characterData.currentHP;
+        mpSlider.maxValue = c.characterData.maxMP;
+        mpSlider.value = c.characterData.currentMP;
     }
 
     public IEnumerator SetDiceRoll(int roll)
@@ -60,6 +71,11 @@ public class BattleHUD : MonoBehaviour
         hpSlider.value = hp;
     }
 
+    public void SetMP(int mp)
+    {
+        mpSlider.value = mp;
+    }
+
     public void SetEnemyCount(int count)
     {
         enemyCountText.text = "Enemy: " + count;
@@ -70,10 +86,11 @@ public class BattleHUD : MonoBehaviour
         waveCountText.text = "Wave: " + currentWave + " / " + waveCount;
     }
 
-    public void SetStageCount(int stageCount)
+    /*public void SetStageCount(int stageCount)
     {
         stageCountText.text = "Stage: " + stageCount;
-    }
+    }*/
+
     public void DisplaySkillSelectionHUD()
     {
         playerTurn.SetActive(false);
@@ -99,6 +116,25 @@ public class BattleHUD : MonoBehaviour
         originalTargets = true;
     }
 
+    public void DisplaySkillTargetHUD(int enemyCount)
+    {
+        skillSelection.SetActive(false);
+        skillTargeting.SetActive(true);
+
+        if(createdSkillTargets == false)
+        {
+            for(int i = 0; i < enemyCount; i++)
+            {
+                CreateEnemySkillButton(i);
+            }
+        }else if(createdSkillTargets== true)
+        {
+            return;
+        }
+
+        originalSkillTargets = true;
+    }
+
     public void DestroyTargetButtonHUD(int enemyCount)
     {
         for(int i = enemyCount; i > 0; i--)
@@ -112,6 +148,35 @@ public class BattleHUD : MonoBehaviour
     {
         playerTurn.SetActive(true);
         targeting.SetActive(false);
+        skillSelection.SetActive(false);
+        skillTargeting.SetActive(false);
+    }
+    public void CreateEnemySkillButton(int i)
+    {
+        createdSkillTargets = true;
+
+        GameObject newEnemySkillButton = Instantiate(enemyButtonPrefab);
+        enemyButton.Add(newEnemySkillButton);
+        EventTrigger trigger = newEnemySkillButton.GetComponent<EventTrigger>();
+        newEnemySkillButton.transform.SetParent(gridLayoutSkillTarget.transform);
+        newEnemySkillButton.transform.localScale = new Vector3(1, 1, 1);
+
+        newEnemySkillButton.GetComponent<Button>().onClick.AddListener(() => battleManager.OnEnemySkillSelectButton(i));
+
+        AddEventTriggerListener(trigger, EventTriggerType.PointerEnter, (eventData) => OnPointerEnterFunction(eventData, i));
+        AddEventTriggerListener(trigger, EventTriggerType.PointerExit, (eventData) => OnPointerExitFunction(eventData, i));
+
+
+        TextMeshProUGUI textComponent = newEnemySkillButton.GetComponentInChildren<TextMeshProUGUI>();
+        if (textComponent != null)
+        {
+            if (originalSkillTargets == false)
+            {
+                targetNames[i] = targetNames[i] + " " + (i + 1);
+            }
+
+            textComponent.text = targetNames[i];
+        }
     }
 
     public void CreateEnemyButton(int i)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public enum States { Start, Player, Target, Skill, Enemy, Won, Lost}
 
@@ -14,7 +15,7 @@ public class BattleManager : MonoBehaviour
     public EnemyStage stage;
     int stageCount = 1;
     int currentWave = 0;
-    int enemyCount = 0;
+    public int enemyCount = 0;
 
     public Transform playerStation;
     public List<Transform> enemyStation = new List<Transform>();
@@ -56,6 +57,7 @@ public class BattleManager : MonoBehaviour
     void ChangeStateToSkill()
     {
         state = States.Skill;
+        PlayerSelectSkill();
     }
 
     void ChangeStateToWon()
@@ -73,7 +75,7 @@ public class BattleManager : MonoBehaviour
     {
         InstantiatePlayer();
 
-        playerHUD.SetStageCount(stageCount);
+        //playerHUD.SetStageCount(stageCount);
 
         stage.RandomizeEnemy();
 
@@ -110,6 +112,7 @@ public class BattleManager : MonoBehaviour
     {
         playerGO = Instantiate(playerPrefab, playerStation);
         character = playerGO.GetComponent<Character>();
+        selectSkills.character = character;
         playerHUD.SetHUD(character);
     }
 
@@ -123,6 +126,7 @@ public class BattleManager : MonoBehaviour
         enemies[enemy.stationIndex].SetValues();
 
         playerHUD.targetNames.Add(enemyGO.GetComponent<Enemy>().enemyName);
+        playerHUD.targetSkillNames.Add(enemyGO.GetComponent<Enemy>().enemyName);
 
         IncreaseEnemyCount();
     }
@@ -142,12 +146,28 @@ public class BattleManager : MonoBehaviour
     void PlayerTurn()
     {
         Debug.Log("Player Turn");
-
         ResetPlayerGuard();
-
+        PlayerDOT();
+        character.CheckStatusEffectDuration();
         PlayerWonCheck();
+        
+        if (character.allowAction == true)
+        {
+            playerHUD.DisplayPlayerTurnHUD();
+        }
+        else
+        {
+            Debug.Log("Cannot Move! Turn Skipped!");
+            ChangeStateToEnemy();
+        }
+    }
 
-        playerHUD.DisplayPlayerTurnHUD();
+    void PlayerDOT()
+    {
+        character.TakeDamage(character.maxHP * (character.damagePercentageOverTime / 100));
+        character.TakeDamage(character.maxHP * (character.maxHealthLockPercentageOverTime) / 100);
+        character.TakeDamage(character.damageOverTime);
+        character.maxHP -= Mathf.CeilToInt(character.maxHealthLockPercentageOverTime / 100);
     }
 
     bool PlayerWonCheck()
@@ -182,6 +202,11 @@ public class BattleManager : MonoBehaviour
         playerHUD.DisplayTargetHUD(enemyCount);
     }
 
+    void PlayerSelectSkill()
+    {
+        playerHUD.DisplaySkillSelectionHUD();
+    }
+
     void ResetPlayerGuard()
     {
         character.guarding = false;
@@ -195,7 +220,7 @@ public class BattleManager : MonoBehaviour
         int roll = RollCharacterDice();
 
         ShowDiceRoll(roll);
-        AttackEnemy(enemyIndex, roll);
+        AttackEnemy(enemyIndex, roll, 1f);
         CheckEnemyHP(enemyIndex);
 
         yield return new WaitForSeconds(1f);
@@ -224,23 +249,215 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    IEnumerator PlayerSkill(int enemyIndex)
+    public IEnumerator PlayerSkill(int enemyIndex, int skill)
     {
-        Debug.Log("Player Uses Skill: " + "!");
+        Skill skillData = character.skill[skill];
+        Debug.Log("Player Uses Skill: " + skillData.skillName + "!");
 
-        if (character.skill[selectSkills.selectedSkill].modifier[0].damaging == true)
-        {
-            int roll = RollCharacterDice();
-            ShowDiceRoll(roll);
+        character.UseMP(skillData.modifier[0].manaCost);
+        playerHUD.SetMP(character.currentMP);
 
-            CheckEnemyHP(enemyIndex);
-        }
+        CheckSkillDamaging(skillData, 1, enemyIndex);
+
+        CheckSkillEffects(skillData, 1, enemyIndex);
+
+        CheckSkillImmunities(skillData, 1, enemyIndex);
 
         yield return new WaitForSeconds(1f);
 
         if (PlayerWonCheck() == false)
         {
             ChangeStateToEnemy();
+        }
+    }
+
+    public IEnumerator PlayerSkillAllOfEnemies(int skill)
+    {
+        Skill skillData = character.skill[skill];
+        Debug.Log("Player Uses Skill: " + skillData.skillName + "!");
+
+        character.UseMP(skillData.modifier[0].manaCost);
+        playerHUD.SetMP(character.currentMP);
+
+        CheckSkillDamaging(skillData, 2, 0);
+
+        CheckSkillEffects(skillData, 2, 0);
+
+        CheckSkillImmunities(skillData, 2, 0);
+
+        yield return new WaitForSeconds(1f);
+
+        if (PlayerWonCheck() == false)
+        {
+            ChangeStateToEnemy();
+        }
+    }
+
+    public IEnumerator PlayerSkillSelf(int skill)
+    {
+        Skill skillData = character.skill[skill];
+        Debug.Log("Player Uses Skill: " + skillData.skillName + "!");
+
+        character.UseMP(skillData.modifier[0].manaCost);
+        playerHUD.SetMP(character.currentMP);
+
+        CheckSkillDamaging(skillData, 0, 0);
+
+        CheckSkillHealing(skillData);
+
+        CheckSkillEffects(skillData, 0, 0);
+
+        CheckSkillImmunities(skillData, 0, 0);
+
+        yield return new WaitForSeconds(1f);
+
+        if (PlayerWonCheck() == false)
+        {
+            ChangeStateToEnemy();
+        }
+    }
+
+    void CheckSkillDamaging(Skill skill, int target, int enemyIndex)
+    {
+        if (skill.modifier[0].damaging == true)
+        {
+            int roll = RollCharacterDice();
+            ShowDiceRoll(roll);
+
+            switch (target)
+            {
+                case 0:
+                    AttackSelf(roll, skill.modifier[0].multiplier);
+                    CheckPlayerHP();
+                    break;
+                case 1:
+                    AttackEnemy(enemyIndex, roll, skill.modifier[0].multiplier);
+                    break;
+                case 2:
+                    AttackAllEnemy(roll, skill.modifier[0].multiplier);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    void CheckSkillHealing(Skill skill)
+    {
+        if (skill.modifier[0].healing == true)
+        {
+            int heal = character.Heal(skill.modifier[0].multiplier);
+            playerHUD.SetHP(heal);
+        }
+    }
+
+    void CheckSkillEffects(Skill skill, int target, int enemyIndex)
+    {
+        if (skill.modifier[0].effects != null)
+        {
+            switch (target)
+            {
+                case 0:
+                    ApplyStatusToCharacter(skill.modifier[0]);
+                    break;
+                case 1:
+                    ApplyStatusToEnemy(skill.modifier[0], enemyIndex);
+                    break;
+                case 2:
+                    ApplyStatusToAllEnemy(skill.modifier[0]);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    void CheckSkillImmunities(Skill skill, int target, int enemyIndex)
+    {
+        if (skill.modifier[0].immunities != null)
+        {
+            switch (target)
+            {
+                case 0:
+                    ApplyImmunityToCharacter(skill.modifier[0]);
+                    break;
+                case 1:
+                    ApplyImmunityToEnemy(skill.modifier[0], enemyIndex);
+                    break;
+                case 2:
+                    ApplyImmunityToAllEnemy(skill.modifier[0]);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    void ApplyStatusToCharacter(SkillModifier mod)
+    {
+        foreach(SkillEffect effect in mod.effects)
+        {
+            if(Random.Range(1, 101) < effect.chance)
+            {
+                Debug.Log("Applied " + effect.effect.status + " Status to Player!");
+                character.SetStatusEffect(effect.effect, effect.duration);
+            }
+        }
+    }
+
+    void ApplyImmunityToCharacter(SkillModifier mod)
+    {
+        foreach(SkillImmunity immunity in mod.immunities)
+        {
+            if (Random.Range(1, 101) < immunity.chance)
+            {
+                Debug.Log("Applied " + immunity.immuneEffect.status + " Status to Player!");
+                character.SetImmunity(immunity.immuneEffect, immunity.chance);
+            }
+        }
+    }
+
+    void ApplyStatusToEnemy(SkillModifier mod, int enemyIndex)
+    {
+        foreach (SkillEffect effect in mod.effects)
+        {
+            if (Random.Range(1, 101) < effect.chance)
+            {
+                Debug.Log("Applied " + effect.effect.status + " Status to " + playerHUD.targetNames[enemyIndex] + "!");
+                enemies[enemyIndex].SetStatusEffect(effect.effect, effect.duration);
+            }
+        }
+    }
+
+    void ApplyStatusToAllEnemy(SkillModifier mod)
+    {
+        int index = 0;
+        
+        foreach(Enemy enemy in enemies)
+        {
+            ApplyStatusToEnemy(mod, index);
+        }
+    }
+
+    void ApplyImmunityToEnemy(SkillModifier mod, int enemyIndex)
+    {
+        foreach (SkillImmunity immunity in mod.immunities)
+        {
+            if (Random.Range(1, 101) < immunity.chance)
+            {
+                Debug.Log("Applied " + immunity.immuneEffect.status + " Status to " + playerHUD.targetNames[enemyIndex] + "!");
+                enemies[enemyIndex].SetImmunity(immunity.immuneEffect, immunity.chance);
+            }
+        }
+    }
+
+    void ApplyImmunityToAllEnemy(SkillModifier mod)
+    {
+        int index = 0;
+
+        foreach (Enemy enemy in enemies)
+        {
+            ApplyImmunityToEnemy(mod, index);
         }
     }
 
@@ -254,11 +471,34 @@ public class BattleManager : MonoBehaviour
         StartCoroutine(playerHUD.SetDiceRoll(roll));
     }
 
-    void AttackEnemy(int enemyIndex, int roll)
+    void AttackAllEnemy(int roll, float multiplier)
+    {
+        int enemyIndex = 0;
+        int damage = character.Attack(roll);
+        damage = Mathf.CeilToInt(damage * multiplier);
+
+        foreach(Enemy enemy in enemies)
+        {
+            if (CheckEnemyGuardStatus(enemyIndex) == true)
+            {
+                damage -= enemy.guardValue;
+
+                if (damage <= 0)
+                {
+                    damage = 0;
+                }
+            }
+
+            DamageEnemy(enemyIndex, damage);
+            enemyIndex++;
+        }
+    }
+
+    void AttackEnemy(int enemyIndex, int roll, float multiplier)
     {
         int damage = character.Attack(roll);
-
-        if(CheckEnemyGuardStatus(enemyIndex) == true)
+        damage = Mathf.CeilToInt(damage * multiplier);
+        if (CheckEnemyGuardStatus(enemyIndex) == true)
         {
             damage -= enemies[enemyIndex].guardValue;
 
@@ -269,6 +509,14 @@ public class BattleManager : MonoBehaviour
         }
 
         DamageEnemy(enemyIndex, damage);
+    }
+
+    void AttackSelf(int roll, float multiplier)
+    {
+        int damage = character.Attack(roll);
+        damage = Mathf.CeilToInt(damage * multiplier);
+        character.TakeDamage(damage);
+        playerHUD.SetHP(character.currentHP);
     }
 
     public bool CheckEnemyGuardStatus(int enemyIndex)
@@ -333,11 +581,17 @@ public class BattleManager : MonoBehaviour
         
         foreach(Enemy enemy in enemies)
         {
-            StartCoroutine(RandomEnemyAction(enemy));
+            EnemyDOT(enemy);
+            enemy.CheckStatusEffectDuration();
 
-            if(state == States.Lost)
+            if (CheckEnemyAllowAction(enemy) == true)
             {
-                break;
+                StartCoroutine(RandomEnemyAction(enemy));
+
+                if (state == States.Lost)
+                {
+                    break;
+                }
             }
 
             yield return new WaitForSeconds(1f);
@@ -351,6 +605,38 @@ public class BattleManager : MonoBehaviour
         }
     }
 
+    void EnemyDOT(Enemy enemy)
+    {
+        enemy.TakeDamage(enemy.maxHP * (enemy.damagePercentageOverTime / 100));
+        enemy.TakeDamage(enemy.maxHP * (enemy.maxHealthLockPercentageOverTime) / 100);
+        enemy.TakeDamage(enemy.damageOverTime);
+        enemy.maxHP -= Mathf.CeilToInt(enemy.maxHealthLockPercentageOverTime / 100);
+    }
+
+    bool CheckEnemyAllowAction(Enemy enemy)
+    {
+        if(enemy.allowAction == true)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    bool CheckEnemyAllowGuard(Enemy enemy)
+    {
+        if (enemy.allowGuard == true)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     IEnumerator RandomEnemyAction(Enemy enemy)
     {
         int rng = Random.Range(1, 3);
@@ -361,8 +647,15 @@ public class BattleManager : MonoBehaviour
                 StartCoroutine(EnemyAttack(enemy));
                 break;
             case 2:
-                StartCoroutine(EnemyGuard(enemy));
-                break;
+                if (CheckEnemyAllowGuard(enemy) == true)
+                {
+                    StartCoroutine(EnemyGuard(enemy));
+                }
+                else
+                {
+                    StartCoroutine(EnemyAttack(enemy));
+                }
+                    break;
             default:
                 StartCoroutine(EnemyAttack(enemy));
                 break;
@@ -468,7 +761,14 @@ public class BattleManager : MonoBehaviour
             return;
         }
 
-        StartCoroutine(PlayerGuard());
+        if(character.allowGuard == true)
+        {
+            StartCoroutine(PlayerGuard());
+        }
+        else
+        {
+            Debug.Log("Cannot Guard!");
+        }
     }
 
     public void OnEnemySelectButton(int i)
@@ -483,10 +783,29 @@ public class BattleManager : MonoBehaviour
         StartCoroutine(PlayerAttack(i));
     }
 
+    public void OnEnemySkillSelectButton(int i)
+    {
+        foreach (Enemy enemy in enemies)
+        {
+            enemy.indicator.gameObject.SetActive(false);
+        }
+
+        playerHUD.DisplayPlayerTurnHUD();
+
+        StartCoroutine(PlayerSkill(i, selectSkills.selectedSkill));
+    }
+
+    public void OnSelfSkillSelectButton()
+    {
+        playerHUD.DisplayPlayerTurnHUD();
+
+        StartCoroutine(PlayerSkillSelf(selectSkills.selectedSkill));
+    }
+
     public void OnBackButton()
     {
         state = States.Player;
-        PlayerTurn();
+        playerHUD.DisplayPlayerTurnHUD();
     }
 
     public void StageComplete()
@@ -494,6 +813,6 @@ public class BattleManager : MonoBehaviour
         //playerHUD.createdTargets = false;
         //playerHUD.originalTargets = false;
         stageCount++;
-        playerHUD.SetStageCount(stageCount);
+        //playerHUD.SetStageCount(stageCount);
     }
 }

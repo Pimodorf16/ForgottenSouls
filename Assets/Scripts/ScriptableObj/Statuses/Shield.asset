@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Shield
   m_EditorClassIdentifier: 
   status: 9
+  defaultDuration: 1
   duration: 2
+  negativeEffect: 0
   allowAction: 1
   allowGuard: 1
   damageOverTime: 0
@@ -22,5 +24,9 @@ MonoBehaviour:
   healPercentageOverTime: 0
   maxHealthLockPercentageOverTime: 0
   damageMultiplier: 0
-  damageReceivedMultiplier: 0.75
+  damageReceivedMultiplier: -0.25
+  applyStatus: 0
+  chance: 0
+  applyDuration: 0
   nextStatus: 0
+  changes: []

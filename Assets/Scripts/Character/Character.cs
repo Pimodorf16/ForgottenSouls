@@ -120,7 +120,7 @@ public class Character : MonoBehaviour
         damage *= rng;
 
         Debug.Log("Damage = " + damage);
-
+        GetComponent<PlaySound>().PlayByIndex(0);
         damage = Mathf.CeilToInt(damage);
 
         return (int)damage;
@@ -153,6 +153,7 @@ public class Character : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        GetComponent<PlaySound>().PlayByIndex(2);
         if(currentHP > 0)
         {
             currentHP -= damage;

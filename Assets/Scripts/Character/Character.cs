@@ -288,11 +288,16 @@ public class Character : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        GetComponent<PlaySound>().PlayByIndex(2);
+        
         if(currentHP > 0)
         {
+            float pastHP = currentHP;
             currentHP -= Mathf.CeilToInt((float)damage * damageReceivedMultiplier);
             Debug.Log("Took " + damage + " Damage!");
+            if (currentHP < pastHP)
+            {
+                GetComponent<PlaySound>().PlayByIndex(0);
+            }
         }
         else
         {
@@ -310,6 +315,12 @@ public class Character : MonoBehaviour
     {
         currentHP += (int)(multiplier * maxHP);
         Debug.Log("Healed " + (int)(multiplier * maxHP) + " HP!");
+        if(currentHP > maxHP)
+        {
+            currentHP = maxHP;
+        }
         return currentHP;
     }
+
+
 }

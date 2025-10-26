@@ -22,6 +22,7 @@ public class BattleHUD : MonoBehaviour
     public Slider mpSlider;
     public TextMeshProUGUI enemyCountText;
     public TextMeshProUGUI waveCountText;
+    public TextMeshProUGUI stageCountText;
 
     [Header("Targeting UI")]
     public GameObject targeting;
@@ -86,10 +87,10 @@ public class BattleHUD : MonoBehaviour
         waveCountText.text = "Wave: " + currentWave + " / " + waveCount;
     }
 
-    /*public void SetStageCount(int stageCount)
+    public void SetStageCount(int stageCount)
     {
         stageCountText.text = "Stage: " + stageCount;
-    }*/
+    }
 
     public void DisplaySkillSelectionHUD()
     {

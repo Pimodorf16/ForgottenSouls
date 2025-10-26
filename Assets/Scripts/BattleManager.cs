@@ -75,7 +75,7 @@ public class BattleManager : MonoBehaviour
     {
         InstantiatePlayer();
 
-        //playerHUD.SetStageCount(stageCount);
+        playerHUD.SetStageCount(stageCount);
 
         stage.RandomizeEnemy();
 

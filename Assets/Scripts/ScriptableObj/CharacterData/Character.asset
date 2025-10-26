@@ -18,8 +18,8 @@ MonoBehaviour:
   exp: 0
   maxHP: 20
   currentHP: 20
-  maxMP: 10
-  currentMP: 10
+  maxMP: 1000
+  currentMP: 1000
   attackStat: 5
   defenseStat: 5
   speedStat: 5

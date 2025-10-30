@@ -285,6 +285,8 @@ public class BattleManager : MonoBehaviour
 
         CheckSkillImmunities(skillData, 2, 0);
 
+        playerHUD.DisplayPlayerTurnHUD();
+
         yield return new WaitForSeconds(1f);
 
         if (PlayerWonCheck() == false)
@@ -308,6 +310,8 @@ public class BattleManager : MonoBehaviour
         CheckSkillEffects(skillData, 0, 0);
 
         CheckSkillImmunities(skillData, 0, 0);
+
+        playerHUD.DisplayPlayerTurnHUD();
 
         yield return new WaitForSeconds(1f);
 

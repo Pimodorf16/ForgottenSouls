@@ -10,14 +10,11 @@ public class Enemy : MonoBehaviour
     public Image indicator;
     public Slider hpSlider;
 
-    public enum EnemyType { Rat, Skeleton, Zombie, Goblin, Ogre, None }
-
     [Header("Enemy")]
-    public EnemyType type;
+    public EnemyData.EnemyType type;
     public string enemyName;
     public int stationIndex;
-    public enum EnemySize { Small, Medium, Big , None}
-    public EnemySize enemySize;
+    public EnemyData.EnemySize enemySize;
 
     [Header("Level")]
     public int level = 1;
@@ -82,7 +79,9 @@ public class Enemy : MonoBehaviour
 
     public void LoadDataValues(EnemyData data)
     {
+        type = data.type;
         enemyName = data.enemyName;
+        enemySize = data.enemySize;
         level = data.level;
         exp = data.exp;
         maxHP = data.maxHP;

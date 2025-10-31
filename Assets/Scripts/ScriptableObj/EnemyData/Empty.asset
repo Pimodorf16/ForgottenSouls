@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c5599bbc65b3874eafdc1a7eca1524f, type: 3}
   m_Name: Empty
   m_EditorClassIdentifier: 
-  type: 0
+  type: 5
   enemyName: 
   enemySize: 0
   level: 1
@@ -25,6 +25,7 @@ MonoBehaviour:
   defenseStat: 5
   speedStat: 5
   luckStat: 5
+  manaRecoveryOvertime: 1
   baseCritRate: 0.1
   baseCritDamageMultiplier: 0.15
   baseDodge: 0.1

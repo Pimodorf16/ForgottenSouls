@@ -9,25 +9,34 @@ public enum States { Start, Player, Target, Skill, Enemy, Won, Lost}
 
 public class BattleManager : MonoBehaviour
 {
+    [Header("Prefabs")]
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
 
+    [Header("States")]
+    public States state;
+
+    [Header("Enemy Components")]
     public EnemyStage stage;
     int stageCount = 1;
     int currentWave = 0;
     public int enemyCount = 0;
+    int ratCount = 0;
+    int skeletonCount = 0;
+    int zombieCount = 0;
+    int goblinCount = 0;
+    int ogreCount = 0;
+    public List<Enemy> enemies = new List<Enemy>();
 
-    public Transform playerStation;
-    public List<Transform> enemyStation = new List<Transform>();
-
+    [Header("Player Components")]
     Character character;
     GameObject playerGO;
     public BattleHUD playerHUD;
     public SelectSkills selectSkills;
 
-    public List<Enemy> enemies = new List<Enemy>();
-
-    public States state;
+    [Header("Stations")]
+    public Transform playerStation;
+    public List<Transform> enemyStation = new List<Transform>();
 
     // Start is called before the first frame update
     void Start()
@@ -86,6 +95,9 @@ public class BattleManager : MonoBehaviour
             InstantiateEnemy(enemy);
         }
 
+        SetEnemyName();
+        SetEnemyButtonNames();
+
         yield return new WaitForSeconds(1f);
 
         state = States.Player;
@@ -101,6 +113,9 @@ public class BattleManager : MonoBehaviour
         {
             InstantiateEnemy(enemy);
         }
+
+        SetEnemyName();
+        SetEnemyButtonNames();
 
         yield return new WaitForSeconds(1f);
 
@@ -120,16 +135,123 @@ public class BattleManager : MonoBehaviour
     {
         GameObject enemyGO = Instantiate(enemyPrefab, enemyStation[enemy.stationIndex]);
         enemies.Add(enemyGO.GetComponent<Enemy>());
+        AddEnemyTypeAmount(enemy.enemyData);
 
         enemies[enemy.stationIndex].enemyData = enemy.enemyData;
         enemies[enemy.stationIndex].stationIndex = enemy.stationIndex;
         enemies[enemy.stationIndex].LoadDataValues(enemy.enemyData);
         enemies[enemy.stationIndex].SetValues();
 
-        playerHUD.targetNames.Add(enemyGO.GetComponent<Enemy>().enemyName);
-        playerHUD.targetSkillNames.Add(enemyGO.GetComponent<Enemy>().enemyName);
-
         IncreaseEnemyCount();
+    }
+
+    void AddEnemyTypeAmount(EnemyData enemy)
+    {
+        switch (enemy.type)
+        {
+            case EnemyData.EnemyType.Rat:
+                ratCount++;
+                break;
+            case EnemyData.EnemyType.Skeleton:
+                skeletonCount++;
+                break;
+            case EnemyData.EnemyType.Zombie:
+                zombieCount++;
+                break;
+            case EnemyData.EnemyType.Goblin:
+                goblinCount++;
+                break;
+            case EnemyData.EnemyType.Ogre:
+                ogreCount++;
+                break;
+            case EnemyData.EnemyType.None:
+                break;
+            default:
+                break;
+        }
+    }
+
+    void SetEnemyName()
+    {
+        int rat = 0;
+        int skeleton = 0;
+        int zombie = 0;
+        int goblin = 0;
+        int ogre = 0;
+        
+        foreach (Enemy enemy in enemies)
+        {
+            switch (enemy.type)
+            {
+                case EnemyData.EnemyType.Rat:
+                    if(ratCount > 1)
+                    {
+                        rat++;
+                        enemy.enemyName = (enemy.enemyName + " " + rat);
+                    }
+                    else
+                    {
+                        break;
+                    }
+                        break;
+                case EnemyData.EnemyType.Skeleton:
+                    if (skeletonCount > 1)
+                    {
+                        skeleton++;
+                        enemy.enemyName = (enemy.enemyName + " " + skeleton);
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    break;
+                case EnemyData.EnemyType.Zombie:
+                    if (zombieCount > 1)
+                    {
+                        zombie++;
+                        enemy.enemyName = (enemy.enemyName + " " + zombie);
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    break;
+                case EnemyData.EnemyType.Goblin:
+                    if (goblinCount > 1)
+                    {
+                        goblin++;
+                        enemy.enemyName = (enemy.enemyName + " " + goblin);
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    break;
+                case EnemyData.EnemyType.Ogre:
+                    if (ogreCount > 1)
+                    {
+                        ogre++;
+                        enemy.enemyName = (enemy.enemyName + " " + ogre);
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    break;
+                case EnemyData.EnemyType.None:
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    void SetEnemyButtonNames()
+    {
+        foreach(Enemy enemy in enemies)
+        {
+            playerHUD.targetNames.Add(enemy.enemyName);
+        }
     }
 
     public void IncreaseEnemyCount()
@@ -544,6 +666,7 @@ public class BattleManager : MonoBehaviour
             RemoveEnemyFromList(enemyIndex);
 
             ResetEnemyButtonHUD();
+            ResetSkillTargetHUD();
 
             DecreaseEnemyCount();
         }
@@ -564,7 +687,11 @@ public class BattleManager : MonoBehaviour
     void ResetEnemyButtonHUD()
     {
         playerHUD.DestroyTargetButtonHUD(enemyCount);
-        playerHUD.createdTargets = false;
+    }
+
+    void ResetSkillTargetHUD()
+    {
+        playerHUD.DestroySkillTargetButtonHUD(enemyCount);
     }
 
     bool CheckAllEnemiesDead()
@@ -784,6 +911,7 @@ public class BattleManager : MonoBehaviour
             enemy.indicator.gameObject.SetActive(false);
         }
 
+        ResetEnemyButtonHUD();
         playerHUD.DisplayPlayerTurnHUD();
 
         StartCoroutine(PlayerAttack(i));
@@ -811,13 +939,13 @@ public class BattleManager : MonoBehaviour
     public void OnBackButton()
     {
         state = States.Player;
+        ResetEnemyButtonHUD();
+        ResetSkillTargetHUD();
         playerHUD.DisplayPlayerTurnHUD();
     }
 
     public void StageComplete()
     {
-        //playerHUD.createdTargets = false;
-        //playerHUD.originalTargets = false;
         stageCount++;
         //playerHUD.SetStageCount(stageCount);
     }

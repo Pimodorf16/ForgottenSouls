@@ -11,6 +11,7 @@ public class BattleHUD : MonoBehaviour
 {
     [Header("BattleManager")]
     public BattleManager battleManager;
+    public List<string> targetNames = new List<string>();
     
     [Header("Player UI")]
     public GameObject playerTurn;
@@ -25,12 +26,10 @@ public class BattleHUD : MonoBehaviour
     public TextMeshProUGUI stageCountText;
 
     [Header("Targeting UI")]
+    public bool targetCreated = false;
     public GameObject targeting;
     public GameObject gridLayoutEnemy;
     public GameObject enemyButtonPrefab;
-    public List<string> targetNames = new List<string>();
-    public bool createdTargets = false;
-    public bool originalTargets = false;
     public List<GameObject> enemyButton = new List<GameObject>();
 
     [Header("Skill Selection UI")]
@@ -40,12 +39,10 @@ public class BattleHUD : MonoBehaviour
     public GameObject skillButtonPrefab;
 
     [Header("Skill Targeting UI")]
+    public bool skillTargetCreated = false;
     public GameObject skillTargeting;
     public GameObject gridLayoutSkillTarget;
     public GameObject playerButtonPrefab;
-    public List<string> targetSkillNames = new List<string>();
-    public bool createdSkillTargets = false;
-    public bool originalSkillTargets = false;
     public List<GameObject> enemySkillButton = new List<GameObject>();
 
     public void SetHUD(Character c)
@@ -100,48 +97,53 @@ public class BattleHUD : MonoBehaviour
 
     public void DisplayTargetHUD(int enemyCount)
     {
+        targetCreated = true;
+
         playerTurn.SetActive(false);
         targeting.SetActive(true);
 
-        if (createdTargets == false)
+        for (int i = 0; i < enemyCount; i++)
         {
-            for (int i = 0; i < enemyCount; i++)
-            {
-                CreateEnemyButton(i);
-            }
-        }else if(createdTargets == true)
-        {
-            return;
+            CreateEnemyButton(i);
         }
-
-        originalTargets = true;
     }
 
     public void DisplaySkillTargetHUD(int enemyCount)
     {
+        skillTargetCreated = true;
+        
         skillSelection.SetActive(false);
         skillTargeting.SetActive(true);
 
-        if(createdSkillTargets == false)
+        for (int i = 0; i < enemyCount; i++)
         {
-            for(int i = 0; i < enemyCount; i++)
-            {
-                CreateEnemySkillButton(i);
-            }
-        }else if(createdSkillTargets== true)
-        {
-            return;
+            CreateEnemySkillButton(i);
         }
-
-        originalSkillTargets = true;
     }
 
     public void DestroyTargetButtonHUD(int enemyCount)
     {
-        for(int i = enemyCount; i > 0; i--)
+        if(targetCreated == true)
         {
-            Destroy(enemyButton[i - 1]);
-            enemyButton.RemoveAt(i - 1);
+            for (int i = enemyCount; i > 0; i--)
+            {
+                Destroy(enemyButton[i - 1]);
+                enemyButton.RemoveAt(i - 1);
+            }
+            targetCreated = false;
+        }
+    }
+
+    public void DestroySkillTargetButtonHUD(int enemyCount)
+    {
+        if(skillTargetCreated == true)
+        {
+            for (int i = enemyCount; i > 0; i--)
+            {
+                Destroy(enemySkillButton[i - 1]);
+                enemySkillButton.RemoveAt(i - 1);
+            }
+            skillTargetCreated = false;
         }
     }
 
@@ -154,10 +156,8 @@ public class BattleHUD : MonoBehaviour
     }
     public void CreateEnemySkillButton(int i)
     {
-        createdSkillTargets = true;
-
         GameObject newEnemySkillButton = Instantiate(enemyButtonPrefab);
-        enemyButton.Add(newEnemySkillButton);
+        enemySkillButton.Add(newEnemySkillButton);
         EventTrigger trigger = newEnemySkillButton.GetComponent<EventTrigger>();
         newEnemySkillButton.transform.SetParent(gridLayoutSkillTarget.transform);
         newEnemySkillButton.transform.localScale = new Vector3(1, 1, 1);
@@ -169,21 +169,11 @@ public class BattleHUD : MonoBehaviour
 
 
         TextMeshProUGUI textComponent = newEnemySkillButton.GetComponentInChildren<TextMeshProUGUI>();
-        if (textComponent != null)
-        {
-            if (originalSkillTargets == false)
-            {
-                targetNames[i] = targetNames[i] + " " + (i + 1);
-            }
-
-            textComponent.text = targetNames[i];
-        }
+        textComponent.text = targetNames[i];
     }
 
     public void CreateEnemyButton(int i)
     {
-        createdTargets = true;
-        
         GameObject newEnemyButton = Instantiate(enemyButtonPrefab);
         enemyButton.Add(newEnemyButton);
         EventTrigger trigger = newEnemyButton.GetComponent<EventTrigger>();
@@ -195,17 +185,8 @@ public class BattleHUD : MonoBehaviour
         AddEventTriggerListener(trigger, EventTriggerType.PointerEnter, (eventData) => OnPointerEnterFunction(eventData, i));
         AddEventTriggerListener(trigger, EventTriggerType.PointerExit, (eventData) => OnPointerExitFunction(eventData, i));
 
-
         TextMeshProUGUI textComponent = newEnemyButton.GetComponentInChildren<TextMeshProUGUI>();
-        if(textComponent != null )
-        {
-            if(originalTargets == false)
-            {
-                targetNames[i] = targetNames[i] + " " + (i + 1);
-            }
-
-            textComponent.text = targetNames[i];
-        }
+        textComponent.text = targetNames[i];
     }
 
     private void AddEventTriggerListener(EventTrigger trigger, EventTriggerType eventType, UnityAction<BaseEventData> listener)

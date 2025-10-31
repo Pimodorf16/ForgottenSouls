@@ -344,6 +344,7 @@ public class BattleManager : MonoBehaviour
 
         ShowDiceRoll(roll);
         AttackEnemy(enemyIndex, roll, 1f);
+        CheckEnemyHP(enemyIndex);
 
         yield return new WaitForSeconds(1f);
 
@@ -712,13 +713,13 @@ public class BattleManager : MonoBehaviour
         Debug.Log("Enemy Turn");
 
         ResetEnemyGuard();
-        
+
         foreach(Enemy enemy in enemies)
         {
             enemy.CheckStatusEffectDuration();
             EnemyDOT(enemy);
-
-
+            
+            
             if (CheckEnemyAllowAction(enemy) == true)
             {
                 StartCoroutine(RandomEnemyAction(enemy));
@@ -728,6 +729,7 @@ public class BattleManager : MonoBehaviour
                     break;
                 }
             }
+            
 
             yield return new WaitForSeconds(1f);
         }

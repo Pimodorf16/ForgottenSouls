@@ -344,7 +344,6 @@ public class BattleManager : MonoBehaviour
 
         ShowDiceRoll(roll);
         AttackEnemy(enemyIndex, roll, 1f);
-        CheckEnemyHP(enemyIndex);
 
         yield return new WaitForSeconds(1f);
 
@@ -459,9 +458,11 @@ public class BattleManager : MonoBehaviour
                     break;
                 case 1:
                     AttackEnemy(enemyIndex, roll, skill.modifier[0].multiplier);
+                    CheckEnemyHP(enemyIndex);
                     break;
                 case 2:
                     AttackAllEnemy(roll, skill.modifier[0].multiplier);
+                    CheckEnemyHP(enemyIndex);
                     break;
                 default:
                     break;
@@ -717,6 +718,7 @@ public class BattleManager : MonoBehaviour
             enemy.CheckStatusEffectDuration();
             EnemyDOT(enemy);
 
+
             if (CheckEnemyAllowAction(enemy) == true)
             {
                 StartCoroutine(RandomEnemyAction(enemy));
@@ -729,6 +731,7 @@ public class BattleManager : MonoBehaviour
 
             yield return new WaitForSeconds(1f);
         }
+
 
         yield return new WaitForSeconds(1f);
 

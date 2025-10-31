@@ -49,6 +49,8 @@ public class Character : MonoBehaviour
     [Header("Status Effect")]
     public List<StatusEffect> statusEffects = new List<StatusEffect>();
     public List<StatusEffect> immunities = new List<StatusEffect>();
+    public List<StatusEffect> statusEffectsToRemove = new List<StatusEffect>();
+    public List<StatusEffect> immunitiesToRemove = new List<StatusEffect>();
     public bool allowAction = true;
     public bool allowGuard = true;
     public int damageOverTime = 0;
@@ -126,7 +128,7 @@ public class Character : MonoBehaviour
 
     public void RemoveStatusEffect(StatusEffect status)
     {
-        statusEffects.Remove(status);
+        Debug.Log("Removing Status Effect " + status.status + " from " + characterName);
 
         if (status.allowAction == false)
         {
@@ -153,16 +155,23 @@ public class Character : MonoBehaviour
     {
         foreach (StatusEffect effect in statusEffects)
         {
-            if(effect.duration <= 0)
+            if (effect.duration <= 0)
             {
                 RemoveStatusEffect(effect);
-                statusEffects.Remove(effect);
+                statusEffectsToRemove.Add(effect);
             }
             else
             {
                 effect.duration--;
             }
         }
+
+        foreach (StatusEffect effect in statusEffectsToRemove)
+        {
+            statusEffects.Remove(effect);
+        }
+
+        statusEffectsToRemove.Clear();
     }
 
     public bool CheckImmunity(StatusEffect newStatus)
@@ -199,13 +208,20 @@ public class Character : MonoBehaviour
         {
             if (immune.duration <= 0)
             {
-                immunities.Remove(immune);
+                immunitiesToRemove.Add(immune);
             }
             else
             {
                 immune.duration--;
             }
         }
+
+        foreach (StatusEffect immune in immunitiesToRemove)
+        {
+            immunities.Remove(immune);
+        }
+
+        immunitiesToRemove.Clear();
     }
 
     float RollValueConversion(int roll)
@@ -275,25 +291,24 @@ public class Character : MonoBehaviour
     public int GuardCheck(int roll)
     {
         float rng = RollValueConversion(roll);
-        Debug.Log("Guard RNG = " + rng);
+        Debug.Log("Player Guard RNG = " + rng);
 
         float guard = characterData.defenseStat * 2 * rng;
 
         guard = Mathf.CeilToInt(guard);
 
-        Debug.Log("Guard = " + guard);
+        Debug.Log("Player Guard = " + guard);
 
         return (int)guard;
     }
 
     public void TakeDamage(int damage)
     {
-        
         if(currentHP > 0)
         {
             float pastHP = currentHP;
             currentHP -= Mathf.CeilToInt((float)damage * damageReceivedMultiplier);
-            Debug.Log("Took " + damage + " Damage!");
+            Debug.Log("Player Took " + damage + " Damage!");
             if (currentHP < pastHP)
             {
                 GetComponent<PlaySound>().PlayByIndex(0);

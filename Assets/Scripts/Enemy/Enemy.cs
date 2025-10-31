@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     [Header("Enemy")]
     public EnemyType type;
     public string enemyName;
+    public int stationIndex;
     public enum EnemySize { Small, Medium, Big , None}
     public EnemySize enemySize;
 
@@ -57,6 +58,8 @@ public class Enemy : MonoBehaviour
     [Header("Status Effect")]
     public List<StatusEffect> statusEffects = new List<StatusEffect>();
     public List<StatusEffect> immunities = new List<StatusEffect>();
+    public List<StatusEffect> statusEffectsToRemove = new List<StatusEffect>();
+    public List<StatusEffect> immunitiesToRemove = new List<StatusEffect>();
     public bool allowAction = true;
     public bool allowGuard = true;
     public int damageOverTime = 0;
@@ -132,7 +135,7 @@ public class Enemy : MonoBehaviour
 
     public void RemoveStatusEffect(StatusEffect status)
     {
-        statusEffects.Remove(status);
+        Debug.Log("Removing Status Effect " + status.status + " from " + enemyName);
 
         if (status.allowAction == false)
         {
@@ -162,13 +165,20 @@ public class Enemy : MonoBehaviour
             if (effect.duration <= 0)
             {
                 RemoveStatusEffect(effect);
-                statusEffects.Remove(effect);
+                statusEffectsToRemove.Add(effect);
             }
             else
             {
                 effect.duration--;
             }
         }
+
+        foreach (StatusEffect effect in statusEffectsToRemove)
+        {
+            statusEffects.Remove(effect);
+        }
+
+        statusEffectsToRemove.Clear();
     }
 
     public bool CheckImmunity(StatusEffect newStatus)
@@ -205,13 +215,20 @@ public class Enemy : MonoBehaviour
         {
             if (immune.duration <= 0)
             {
-                immunities.Remove(immune);
+                immunitiesToRemove.Add(immune);
             }
             else
             {
                 immune.duration--;
             }
         }
+
+        foreach(StatusEffect immune in immunitiesToRemove)
+        {
+            immunities.Remove(immune);
+        }
+
+        immunitiesToRemove.Clear();
     }
 
     private void Start()
@@ -230,7 +247,7 @@ public class Enemy : MonoBehaviour
         if(currentHP > 0)
         {
             currentHP -= damage;
-            Debug.Log("Took " + damage + " Damage!");
+            Debug.Log(enemyName + (stationIndex + 1) + " Took " + damage + " Damage!");
             hpSlider.value = currentHP;
         }
         else
@@ -313,7 +330,7 @@ public class Enemy : MonoBehaviour
         float rng = RollValueConversion(roll);
         float guard = enemyData.defenseStat * 2 * rng;
 
-        Debug.Log("Guard = " + guard);
+        Debug.Log(enemyName + (stationIndex + 1) + " Guard = " + guard);
 
         guard = Mathf.CeilToInt(guard);
 

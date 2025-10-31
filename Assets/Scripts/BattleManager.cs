@@ -122,6 +122,7 @@ public class BattleManager : MonoBehaviour
         enemies.Add(enemyGO.GetComponent<Enemy>());
 
         enemies[enemy.stationIndex].enemyData = enemy.enemyData;
+        enemies[enemy.stationIndex].stationIndex = enemy.stationIndex;
         enemies[enemy.stationIndex].LoadDataValues(enemy.enemyData);
         enemies[enemy.stationIndex].SetValues();
 
@@ -147,8 +148,8 @@ public class BattleManager : MonoBehaviour
     {
         Debug.Log("Player Turn");
         ResetPlayerGuard();
-        PlayerDOT();
         character.CheckStatusEffectDuration();
+        PlayerDOT();
         PlayerWonCheck();
         
         if (character.allowAction == true)
@@ -429,6 +430,7 @@ public class BattleManager : MonoBehaviour
             {
                 Debug.Log("Applied " + effect.effect.status + " Status to " + playerHUD.targetNames[enemyIndex] + "!");
                 enemies[enemyIndex].SetStatusEffect(effect.effect, effect.duration);
+                Debug.Log("DOT = " + enemies[enemyIndex].damagePercentageOverTime);
             }
         }
     }
@@ -585,8 +587,8 @@ public class BattleManager : MonoBehaviour
         
         foreach(Enemy enemy in enemies)
         {
-            EnemyDOT(enemy);
             enemy.CheckStatusEffectDuration();
+            EnemyDOT(enemy);
 
             if (CheckEnemyAllowAction(enemy) == true)
             {
@@ -611,8 +613,8 @@ public class BattleManager : MonoBehaviour
 
     void EnemyDOT(Enemy enemy)
     {
-        enemy.TakeDamage(enemy.maxHP * (enemy.damagePercentageOverTime / 100));
-        enemy.TakeDamage(enemy.maxHP * (enemy.maxHealthLockPercentageOverTime) / 100);
+        enemy.TakeDamage(Mathf.CeilToInt(enemy.maxHP * ((float)enemy.damagePercentageOverTime / 100f)));
+        enemy.TakeDamage(Mathf.CeilToInt(enemy.maxHP * ((float)enemy.maxHealthLockPercentageOverTime) / 100f));
         enemy.TakeDamage(enemy.damageOverTime);
         enemy.maxHP -= Mathf.CeilToInt(enemy.maxHealthLockPercentageOverTime / 100);
     }

@@ -27,6 +27,7 @@ public class BattleManager : MonoBehaviour
     int goblinCount = 0;
     int ogreCount = 0;
     public List<Enemy> enemies = new List<Enemy>();
+    public List<Enemy> enemiesToKill = new List<Enemy>();
 
     [Header("Player Components")]
     Character character;
@@ -78,6 +79,7 @@ public class BattleManager : MonoBehaviour
     void ChangeStateToLost()
     {
         state = States.Lost;
+        Debug.Log("Player Lost!");
     }
 
     IEnumerator SetupBattle()
@@ -106,6 +108,8 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator SpawnNextWave()
     {
+        Debug.Log("Spawning Next Wave");
+        
         currentWave++;
         playerHUD.SetWaveCount(currentWave + 1, stage.waves.Count);
 
@@ -272,10 +276,13 @@ public class BattleManager : MonoBehaviour
         ResetPlayerGuard();
         character.CheckStatusEffectDuration();
         PlayerDOT();
+        CheckPlayerHP();
         PlayerWonCheck();
         
         if (character.allowAction == true)
         {
+            ResetEnemyButtonHUD();
+            ResetSkillTargetHUD();
             playerHUD.DisplayPlayerTurnHUD();
         }
         else
@@ -463,7 +470,7 @@ public class BattleManager : MonoBehaviour
                     break;
                 case 2:
                     AttackAllEnemy(roll, skill.modifier[0].multiplier);
-                    CheckEnemyHP(enemyIndex);
+                    CheckAllEnemiesHP();
                     break;
                 default:
                     break;
@@ -663,24 +670,75 @@ public class BattleManager : MonoBehaviour
     {
         if (enemies[enemyIndex].currentHP <= 0)
         {
-            DestroyEnemyGO(enemyIndex);
-
-            RemoveEnemyFromList(enemyIndex);
-
-            ResetEnemyButtonHUD();
-            ResetSkillTargetHUD();
-
-            DecreaseEnemyCount();
+            KillEnemyFromIndex(enemyIndex);
         }
     }
 
-    void DestroyEnemyGO(int enemyIndex)
+    void CheckAllEnemiesHP()
     {
-        enemies[enemyIndex].gameObject.SetActive(false);
-        Destroy(enemies[enemyIndex]);
+        List<int> enemyIndex = new List<int>();
+        int index = 0;
+        
+        foreach(Enemy enemy in enemies)
+        {
+            if(enemy.currentHP <= 0)
+            {
+                enemiesToKill.Add(enemy);
+                enemyIndex.Add(index);
+            }
+            index++;
+        }
+
+        index = 0;
+
+        foreach(Enemy enemy in enemiesToKill)
+        {
+            KillEnemy(enemy);
+            
+            enemies.Remove(enemy);
+            playerHUD.targetNames.RemoveAt(enemyIndex[index]);
+            index++;
+        }
+
+        enemiesToKill.Clear();
+        enemyIndex.Clear();
     }
 
-    void RemoveEnemyFromList(int enemyIndex)
+    void KillEnemy(Enemy enemy)
+    {
+        DestroyEnemyGO(enemy);
+
+        ResetEnemyButtonHUD();
+        ResetSkillTargetHUD();
+
+        DecreaseEnemyCount();
+    }
+
+    void DestroyEnemyGO(Enemy enemy)
+    {
+        enemy.gameObject.SetActive(false);
+        Destroy(enemy.gameObject);
+    }
+
+    void KillEnemyFromIndex(int enemyIndex)
+    {
+        DestroyEnemyGOFromIndex(enemyIndex);
+
+        RemoveEnemyFromListFromIndex(enemyIndex);
+
+        ResetEnemyButtonHUD();
+        ResetSkillTargetHUD();
+
+        DecreaseEnemyCount();
+    }
+
+    void DestroyEnemyGOFromIndex(int enemyIndex)
+    {
+        enemies[enemyIndex].gameObject.SetActive(false);
+        Destroy(enemies[enemyIndex].gameObject);
+    }
+
+    void RemoveEnemyFromListFromIndex(int enemyIndex)
     {
         enemies.RemoveAt(enemyIndex);
         playerHUD.targetNames.RemoveAt(enemyIndex);
@@ -712,34 +770,51 @@ public class BattleManager : MonoBehaviour
     {
         Debug.Log("Enemy Turn");
 
-        ResetEnemyGuard();
-
-        foreach(Enemy enemy in enemies)
+        if(EnemyTurnInit() == false)
         {
-            enemy.CheckStatusEffectDuration();
-            EnemyDOT(enemy);
-            
-            
-            if (CheckEnemyAllowAction(enemy) == true)
+            foreach (Enemy enemy in enemies)
             {
-                StartCoroutine(RandomEnemyAction(enemy));
-
-                if (state == States.Lost)
+                if (CheckEnemyAllowAction(enemy) == true)
                 {
-                    break;
+                    StartCoroutine(RandomEnemyAction(enemy));
+
+                    if (state == States.Lost)
+                    {
+                        break;
+                    }
                 }
+
+                yield return new WaitForSeconds(1f);
             }
-            
-
-            yield return new WaitForSeconds(1f);
         }
-
 
         yield return new WaitForSeconds(1f);
 
         if(state == States.Enemy)
         {
             ChangeStateToPlayer();
+        }
+    }
+
+    bool EnemyTurnInit()
+    {
+        ResetEnemyGuard();
+
+        foreach(Enemy enemy in enemies)
+        {
+            enemy.CheckStatusEffectDuration();
+            EnemyDOT(enemy);
+        }
+
+        CheckAllEnemiesHP();
+
+        if (PlayerWonCheck() == false)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
         }
     }
 
@@ -929,6 +1004,7 @@ public class BattleManager : MonoBehaviour
             enemy.indicator.gameObject.SetActive(false);
         }
 
+        ResetSkillTargetHUD();
         playerHUD.DisplayPlayerTurnHUD();
 
         StartCoroutine(PlayerSkill(i, selectSkills.selectedSkill));
@@ -936,6 +1012,7 @@ public class BattleManager : MonoBehaviour
 
     public void OnSelfSkillSelectButton()
     {
+        ResetSkillTargetHUD();
         playerHUD.DisplayPlayerTurnHUD();
 
         StartCoroutine(PlayerSkillSelf(selectSkills.selectedSkill));

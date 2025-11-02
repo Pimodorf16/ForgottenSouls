@@ -1,0 +1,2153 @@
+fileFormatVersion: 2
+guid: ad73490fb5513d048bf47f5f6da3365f
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 470
+      width: 148
+      height: 198
+    spriteID: f55833ffae2d85a4a89f5bbb742e4147
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 470}
+    spritePosition: {x: 76, y: 491}
+  - name: Shading
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 393
+      y: 4
+      width: 87
+      height: 99
+    spriteID: c10ecd66a0e46fa4eaad22aa39864081
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 393, y: 4}
+    spritePosition: {x: 89, y: 513}
+  - name: Addon color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 393
+      y: 111
+      width: 84
+      height: 99
+    spriteID: d10a2ac0514804d49a9372143ebbed47
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 393, y: 111}
+    spritePosition: {x: 89, y: 516}
+  - name: Base color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 163
+      y: 206
+      width: 129
+      height: 195
+    spriteID: 79702eecbb6482c4a8b3f2edb6fefb8d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 163, y: 206}
+    spritePosition: {x: 87, y: 492}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 303
+      y: 809
+      width: 60
+      height: 124
+    spriteID: da9bd858c68728c46bb8fc6adada2151
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 303, y: 809}
+    spritePosition: {x: 162, y: 359}
+  - name: Shading
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 463
+      y: 994
+      width: 14
+      height: 21
+    spriteID: 88e49029e2c2c9c4f8f5b695bb11fa48
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 463, y: 994}
+    spritePosition: {x: 209, y: 437}
+  - name: Addon color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 303
+      y: 692
+      width: 71
+      height: 109
+    spriteID: 4b2a1ebe38eac144bbb6cc723a1e5f6c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 303, y: 692}
+    spritePosition: {x: 159, y: 379}
+  - name: Base color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 303
+      y: 559
+      width: 64
+      height: 125
+    spriteID: b997dd6dadbe66d4d92c1ad275e2f31c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 303, y: 559}
+    spritePosition: {x: 159, y: 358}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 393
+      y: 418
+      width: 52
+      height: 122
+    spriteID: 37add460584550a42b1d43afdda88254
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 393, y: 418}
+    spritePosition: {x: 171, y: 259}
+  - name: Shading
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 446
+      y: 960
+      width: 0
+      height: 0
+    spriteID: d373fe6c768842d428294a2c49104d45
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 446, y: 960}
+    spritePosition: {x: 0, y: 690}
+  - name: Addon color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 446
+      y: 968
+      width: 0
+      height: 0
+    spriteID: d04ade782dbd95a4cadaf4ac22519c0a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 446, y: 968}
+    spritePosition: {x: 0, y: 690}
+  - name: Base color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 393
+      y: 810
+      width: 50
+      height: 124
+    spriteID: fbcb912185d65c144830206a7b7b2a6a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 393, y: 810}
+    spritePosition: {x: 171, y: 258}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 612
+      y: 99
+      width: 64
+      height: 86
+    spriteID: 8dd2bff496f93b442a1139423f78525b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 612, y: 99}
+    spritePosition: {x: 151, y: 182}
+  - name: Shading
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 446
+      y: 976
+      width: 0
+      height: 0
+    spriteID: 798b4476e0d1a024cad82af4a49bb339
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 446, y: 976}
+    spritePosition: {x: 0, y: 690}
+  - name: Addon color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 446
+      y: 984
+      width: 0
+      height: 0
+    spriteID: 2c62ed423b3c1804e8211cdc391300d8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 446, y: 984}
+    spritePosition: {x: 0, y: 690}
+  - name: Base color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 393
+      y: 320
+      width: 72
+      height: 90
+    spriteID: ec09e1430da67dd4ab32323521d8c6bf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 393, y: 320}
+    spritePosition: {x: 149, y: 180}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 488
+      y: 912
+      width: 45
+      height: 43
+    spriteID: 7eb649b024cb4da40bade5bad4bf9c38
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 488, y: 912}
+    spritePosition: {x: 124, y: 481}
+  - name: Shading
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 303
+      y: 941
+      width: 65
+      height: 62
+    spriteID: 0c37aa0554c1eb949ba4cfe80513a90f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 303, y: 941}
+    spritePosition: {x: 113, y: 476}
+  - name: Addon color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 454
+      y: 960
+      width: 0
+      height: 0
+    spriteID: e237d2b9c9873ca4499a52b446ee3086
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 454, y: 960}
+    spritePosition: {x: 0, y: 690}
+  - name: Base color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 393
+      y: 942
+      width: 45
+      height: 44
+    spriteID: 4344a5cf29b66d148a38bbfdabf6ec15
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 393, y: 942}
+    spritePosition: {x: 124, y: 481}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 303
+      y: 4
+      width: 82
+      height: 138
+    spriteID: d20a3c4508b7e944bb35e7335a79e3f3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 303, y: 4}
+    spritePosition: {x: 139, y: 168}
+  - name: Shading
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 163
+      y: 971
+      width: 64
+      height: 30
+    spriteID: a85d09fdadd342b468058386d01d23f7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 163, y: 971}
+    spritePosition: {x: 153, y: 187}
+  - name: Addon color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 163
+      y: 696
+      width: 106
+      height: 119
+    spriteID: f5538f4fd38526547b5d6a4a163be1e9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 163, y: 696}
+    spritePosition: {x: 124, y: 191}
+  - name: Base color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 163
+      y: 409
+      width: 96
+      height: 142
+    spriteID: 62f143077ce95e248a07c40ec420f4d1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 163, y: 409}
+    spritePosition: {x: 126, y: 168}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 488
+      y: 646
+      width: 51
+      height: 125
+    spriteID: d597f49584613d2428de574c365a2629
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 488, y: 646}
+    spritePosition: {x: 164, y: 66}
+  - name: Shading
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 454
+      y: 968
+      width: 0
+      height: 0
+    spriteID: a30ccbea545af1c48bec8b127d400522
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 454, y: 968}
+    spritePosition: {x: 0, y: 690}
+  - name: Addon color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 454
+      y: 976
+      width: 0
+      height: 0
+    spriteID: a09d2aa057cf57641a0f459b3087a4d8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 454, y: 976}
+    spritePosition: {x: 0, y: 690}
+  - name: Base color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 488
+      y: 368
+      width: 52
+      height: 135
+    spriteID: b4a0350746e3704428ea7337c82ce5e4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 488, y: 368}
+    spritePosition: {x: 163, y: 66}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 488
+      y: 86
+      width: 115
+      height: 67
+    spriteID: 6e128e72cfb5247419c53d778c206d4b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 488, y: 86}
+    spritePosition: {x: 109, y: 10}
+  - name: Shading
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 454
+      y: 984
+      width: 0
+      height: 0
+    spriteID: 4b8688fc1e104024a844490ff25a4516
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 454, y: 984}
+    spritePosition: {x: 0, y: 690}
+  - name: Addon color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 462
+      y: 960
+      width: 0
+      height: 0
+    spriteID: 735ebcbda00ac4742b93690842c9d48b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 462, y: 960}
+    spritePosition: {x: 0, y: 690}
+  - name: Base color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 488
+      y: 4
+      width: 116
+      height: 74
+    spriteID: fb9aeae2e8bd52043824e370041e0d52
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 488, y: 4}
+    spritePosition: {x: 108, y: 10}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 676
+      width: 126
+      height: 226
+    spriteID: 95ae4742ff00e684cba6031366f0b4df
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 676}
+    spritePosition: {x: 84, y: 267}
+  - name: Shading
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 163
+      y: 4
+      width: 132
+      height: 194
+    spriteID: e39db84bc04f0a842841e5c93a8629cd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 163, y: 4}
+    spritePosition: {x: 85, y: 302}
+  - name: Addon color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 244
+      width: 137
+      height: 218
+    spriteID: b788cf5bdcc3c774aad0eb30d1fd873c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 244}
+    spritePosition: {x: 77, y: 266}
+  - name: Base color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 151
+      height: 232
+    spriteID: d508de8c7e244f942bab8c9904cbb8b3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 60, y: 262}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 303
+      y: 150
+      width: 82
+      height: 138
+    spriteID: f9bede294981c494ab40555680c2e09e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 303, y: 150}
+    spritePosition: {x: 75, y: 167}
+  - name: Shading
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 393
+      y: 994
+      width: 62
+      height: 23
+    spriteID: d842523e52b343e4e9baf6c1a89a7716
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 393, y: 994}
+    spritePosition: {x: 82, y: 186}
+  - name: Addon color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 163
+      y: 559
+      width: 104
+      height: 129
+    spriteID: 2388f0ce8e28b67439139dca0b2853fb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 163, y: 559}
+    spritePosition: {x: 62, y: 187}
+  - name: Base color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 163
+      y: 823
+      width: 84
+      height: 140
+    spriteID: b28b71d659fa0d94a8b6c68ae6f52627
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 163, y: 823}
+    spritePosition: {x: 74, y: 167}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 488
+      y: 779
+      width: 51
+      height: 125
+    spriteID: 2208f05289cc92d41a81559a069307be
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 488, y: 779}
+    spritePosition: {x: 81, y: 64}
+  - name: Shading
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 462
+      y: 968
+      width: 0
+      height: 0
+    spriteID: bb393001faff3ed49b18ea2f69ee51aa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 462, y: 968}
+    spritePosition: {x: 0, y: 690}
+  - name: Addon color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 462
+      y: 976
+      width: 0
+      height: 0
+    spriteID: 895c08041c4cdfe4eb4b4e3e884f748d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 462, y: 976}
+    spritePosition: {x: 0, y: 690}
+  - name: Base color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 488
+      y: 511
+      width: 52
+      height: 127
+    spriteID: d423561ed1bc3c344a8ec798ce9b8446
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 488, y: 511}
+    spritePosition: {x: 82, y: 63}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 488
+      y: 161
+      width: 115
+      height: 67
+    spriteID: d67dde8775dd11e43999af8217e5e3a4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 488, y: 161}
+    spritePosition: {x: 27, y: 11}
+  - name: Shading
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 462
+      y: 984
+      width: 0
+      height: 0
+    spriteID: 28b548e746a56b24ca2bef1e04ae7874
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 462, y: 984}
+    spritePosition: {x: 0, y: 690}
+  - name: Addon color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 474
+      y: 942
+      width: 0
+      height: 0
+    spriteID: 26e77f34dca2b3e4f849fb1c654ba182
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 474, y: 942}
+    spritePosition: {x: 0, y: 690}
+  - name: Base color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 910
+      width: 127
+      height: 75
+    spriteID: 6439e42a881ebe640a8691f0ef018419
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 910}
+    spritePosition: {x: 26, y: 6}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 488
+      y: 236
+      width: 60
+      height: 124
+    spriteID: 81062846dab28a543985e857296d2ee7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 488, y: 236}
+    spritePosition: {x: 71, y: 355}
+  - name: Shading
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 446
+      y: 942
+      width: 20
+      height: 10
+    spriteID: 542f753fdca3864409bac49fd913a6bd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 446, y: 942}
+    spritePosition: {x: 71, y: 374}
+  - name: Addon color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 303
+      y: 296
+      width: 75
+      height: 117
+    spriteID: a86b874bd280c2e409f2a82880e3b59b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 303, y: 296}
+    spritePosition: {x: 62, y: 369}
+  - name: Base color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 303
+      y: 421
+      width: 63
+      height: 130
+    spriteID: dc6017ca53c8a5f4d919fd653d475b62
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 303, y: 421}
+    spritePosition: {x: 70, y: 355}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 393
+      y: 680
+      width: 51
+      height: 122
+    spriteID: a2f9f231d03666041b1a1e95c8034efb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 393, y: 680}
+    spritePosition: {x: 74, y: 255}
+  - name: Shading
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 474
+      y: 950
+      width: 0
+      height: 0
+    spriteID: 2bd68191f0b7dcd4abae25f0c20eed9b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 474, y: 950}
+    spritePosition: {x: 0, y: 690}
+  - name: Addon color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 474
+      y: 958
+      width: 0
+      height: 0
+    spriteID: 0dff35da5d4859e4aac34b36509fa560
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 474, y: 958}
+    spritePosition: {x: 0, y: 690}
+  - name: Base color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 393
+      y: 548
+      width: 51
+      height: 124
+    spriteID: b9814d9ddaff4cf488227bf783051212
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 393, y: 548}
+    spritePosition: {x: 73, y: 253}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 612
+      y: 4
+      width: 64
+      height: 87
+    spriteID: 2a3ac115257945c41b08929117193970
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 612, y: 4}
+    spritePosition: {x: 54, y: 181}
+  - name: Shading
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 474
+      y: 966
+      width: 0
+      height: 0
+    spriteID: 7c78680ec51551f4a89819c413567ef8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 474, y: 966}
+    spritePosition: {x: 0, y: 690}
+  - name: Addon color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 474
+      y: 974
+      width: 0
+      height: 0
+    spriteID: 58456aa13681eb34d86e581678601db7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 474, y: 974}
+    spritePosition: {x: 0, y: 690}
+  - name: Base color
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 393
+      y: 218
+      width: 70
+      height: 94
+    spriteID: 58d313ff6bec6b64780171c52a0ad865
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 393, y: 218}
+    spritePosition: {x: 49, y: 175}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  sharedRigSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  platformSettings: []
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 1
+  skeletonAssetReferenceID: 
+  pipeline: {instanceID: 0}
+  pipelineVersion: 
+  padding: 4
+  spriteSizeExpand: 0
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: Head
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 46f4f55e95362074e811798493aca533
+    layerID: 0
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 0
+    spriteID: f55833ffae2d85a4a89f5bbb742e4147
+    layerID: -553247143
+    mosaicPosition: {x: 4, y: 470}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Shading
+    spriteName: Shading
+    isGroup: 0
+    parentIndex: 0
+    spriteID: c10ecd66a0e46fa4eaad22aa39864081
+    layerID: 1174468796
+    mosaicPosition: {x: 393, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon color
+    spriteName: Addon color
+    isGroup: 0
+    parentIndex: 0
+    spriteID: d10a2ac0514804d49a9372143ebbed47
+    layerID: 1915994041
+    mosaicPosition: {x: 393, y: 111}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base color
+    spriteName: Base color
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 79702eecbb6482c4a8b3f2edb6fefb8d
+    layerID: 1685119680
+    mosaicPosition: {x: 163, y: 206}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: RightTopArm
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 96b714a87db47d64e9004fa2308c3b01
+    layerID: 1289613185
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 5
+    spriteID: da9bd858c68728c46bb8fc6adada2151
+    layerID: 939136031
+    mosaicPosition: {x: 303, y: 809}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Shading
+    spriteName: Shading
+    isGroup: 0
+    parentIndex: 5
+    spriteID: 88e49029e2c2c9c4f8f5b695bb11fa48
+    layerID: -750858572
+    mosaicPosition: {x: 463, y: 994}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon color
+    spriteName: Addon color
+    isGroup: 0
+    parentIndex: 5
+    spriteID: 4b2a1ebe38eac144bbb6cc723a1e5f6c
+    layerID: 1081838631
+    mosaicPosition: {x: 303, y: 692}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base color
+    spriteName: Base color
+    isGroup: 0
+    parentIndex: 5
+    spriteID: b997dd6dadbe66d4d92c1ad275e2f31c
+    layerID: 722106164
+    mosaicPosition: {x: 303, y: 559}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: RightBottomArm
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 24fcbc4e158a51a4a84171560750c125
+    layerID: 939019637
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 10
+    spriteID: 37add460584550a42b1d43afdda88254
+    layerID: -626947910
+    mosaicPosition: {x: 393, y: 418}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Shading
+    spriteName: Shading
+    isGroup: 0
+    parentIndex: 10
+    spriteID: d373fe6c768842d428294a2c49104d45
+    layerID: 1978024783
+    mosaicPosition: {x: 446, y: 960}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon color
+    spriteName: Addon color
+    isGroup: 0
+    parentIndex: 10
+    spriteID: d04ade782dbd95a4cadaf4ac22519c0a
+    layerID: 678554104
+    mosaicPosition: {x: 446, y: 968}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base color
+    spriteName: Base color
+    isGroup: 0
+    parentIndex: 10
+    spriteID: fbcb912185d65c144830206a7b7b2a6a
+    layerID: 722106165
+    mosaicPosition: {x: 393, y: 810}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: RightFist
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 7f26d15febd83b149b6a64e004f612c8
+    layerID: 199550382
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 15
+    spriteID: 8dd2bff496f93b442a1139423f78525b
+    layerID: 2101935445
+    mosaicPosition: {x: 612, y: 99}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Shading
+    spriteName: Shading
+    isGroup: 0
+    parentIndex: 15
+    spriteID: 798b4476e0d1a024cad82af4a49bb339
+    layerID: 411940842
+    mosaicPosition: {x: 446, y: 976}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon color
+    spriteName: Addon color
+    isGroup: 0
+    parentIndex: 15
+    spriteID: 2c62ed423b3c1804e8211cdc391300d8
+    layerID: -2050329251
+    mosaicPosition: {x: 446, y: 984}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base color
+    spriteName: Base color
+    isGroup: 0
+    parentIndex: 15
+    spriteID: ec09e1430da67dd4ab32323521d8c6bf
+    layerID: 722106166
+    mosaicPosition: {x: 393, y: 320}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Neck
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: e5ee687c3ebdaeb40b200034766accd9
+    layerID: -1893468801
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 20
+    spriteID: 7eb649b024cb4da40bade5bad4bf9c38
+    layerID: 179621144
+    mosaicPosition: {x: 488, y: 912}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Shading
+    spriteName: Shading
+    isGroup: 0
+    parentIndex: 20
+    spriteID: 0c37aa0554c1eb949ba4cfe80513a90f
+    layerID: -1154143099
+    mosaicPosition: {x: 303, y: 941}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon color
+    spriteName: Addon color
+    isGroup: 0
+    parentIndex: 20
+    spriteID: e237d2b9c9873ca4499a52b446ee3086
+    layerID: 1841353518
+    mosaicPosition: {x: 454, y: 960}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base color
+    spriteName: Base color
+    isGroup: 0
+    parentIndex: 20
+    spriteID: 4344a5cf29b66d148a38bbfdabf6ec15
+    layerID: 722106159
+    mosaicPosition: {x: 393, y: 942}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: RightTopLeg
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 58c833a575d523646a3bacf713d17388
+    layerID: 899624921
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 25
+    spriteID: d20a3c4508b7e944bb35e7335a79e3f3
+    layerID: -1386462797
+    mosaicPosition: {x: 303, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Shading
+    spriteName: Shading
+    isGroup: 0
+    parentIndex: 25
+    spriteID: a85d09fdadd342b468058386d01d23f7
+    layerID: 1574740256
+    mosaicPosition: {x: 163, y: 971}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon color
+    spriteName: Addon color
+    isGroup: 0
+    parentIndex: 25
+    spriteID: f5538f4fd38526547b5d6a4a163be1e9
+    layerID: -887529837
+    mosaicPosition: {x: 163, y: 696}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base color
+    spriteName: Base color
+    isGroup: 0
+    parentIndex: 25
+    spriteID: 62f143077ce95e248a07c40ec420f4d1
+    layerID: 722106160
+    mosaicPosition: {x: 163, y: 409}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: RightBottomLeg
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 85597ce587e70374caec44e61d1f5251
+    layerID: 1523614981
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 30
+    spriteID: d597f49584613d2428de574c365a2629
+    layerID: 1342420558
+    mosaicPosition: {x: 488, y: 646}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Shading
+    spriteName: Shading
+    isGroup: 0
+    parentIndex: 30
+    spriteID: a30ccbea545af1c48bec8b127d400522
+    layerID: 8656315
+    mosaicPosition: {x: 454, y: 968}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon color
+    spriteName: Addon color
+    isGroup: 0
+    parentIndex: 30
+    spriteID: a09d2aa057cf57641a0f459b3087a4d8
+    layerID: -1290814364
+    mosaicPosition: {x: 454, y: 976}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base color
+    spriteName: Base color
+    isGroup: 0
+    parentIndex: 30
+    spriteID: b4a0350746e3704428ea7337c82ce5e4
+    layerID: 722106161
+    mosaicPosition: {x: 488, y: 368}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: RightShoe
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 72a01877cb915114c898d03fc7d8d3b3
+    layerID: 1115142593
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 35
+    spriteID: 6e128e72cfb5247419c53d778c206d4b
+    layerID: -223663383
+    mosaicPosition: {x: 488, y: 86}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Shading
+    spriteName: Shading
+    isGroup: 0
+    parentIndex: 35
+    spriteID: 4b8688fc1e104024a844490ff25a4516
+    layerID: -1557427626
+    mosaicPosition: {x: 454, y: 984}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon color
+    spriteName: Addon color
+    isGroup: 0
+    parentIndex: 35
+    spriteID: 735ebcbda00ac4742b93690842c9d48b
+    layerID: 275269577
+    mosaicPosition: {x: 462, y: 960}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base color
+    spriteName: Base color
+    isGroup: 0
+    parentIndex: 35
+    spriteID: fb9aeae2e8bd52043824e370041e0d52
+    layerID: 722106162
+    mosaicPosition: {x: 488, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Body
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: ca5735cab7dd207408083c15895716a1
+    layerID: -723767166
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 40
+    spriteID: 95ae4742ff00e684cba6031366f0b4df
+    layerID: -1433516964
+    mosaicPosition: {x: 4, y: 676}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Shading
+    spriteName: Shading
+    isGroup: 0
+    parentIndex: 40
+    spriteID: e39db84bc04f0a842841e5c93a8629cd
+    layerID: 458995009
+    mosaicPosition: {x: 163, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon color
+    spriteName: Addon color
+    isGroup: 0
+    parentIndex: 40
+    spriteID: b788cf5bdcc3c774aad0eb30d1fd873c
+    layerID: -128014950
+    mosaicPosition: {x: 4, y: 244}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base color
+    spriteName: Base color
+    isGroup: 0
+    parentIndex: 40
+    spriteID: d508de8c7e244f942bab8c9904cbb8b3
+    layerID: 722106171
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: LeftTopLeg
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 787892971b644444d8370c5ee6bc3439
+    layerID: 435724894
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 45
+    spriteID: f9bede294981c494ab40555680c2e09e
+    layerID: 1295366391
+    mosaicPosition: {x: 303, y: 150}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Shading
+    spriteName: Shading
+    isGroup: 0
+    parentIndex: 45
+    spriteID: d842523e52b343e4e9baf6c1a89a7716
+    layerID: -1107088932
+    mosaicPosition: {x: 393, y: 994}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon color
+    spriteName: Addon color
+    isGroup: 0
+    parentIndex: 45
+    spriteID: 2388f0ce8e28b67439139dca0b2853fb
+    layerID: 1438068991
+    mosaicPosition: {x: 163, y: 559}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base color
+    spriteName: Base color
+    isGroup: 0
+    parentIndex: 45
+    spriteID: b28b71d659fa0d94a8b6c68ae6f52627
+    layerID: 722106172
+    mosaicPosition: {x: 163, y: 823}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: LeftBottomLeg
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 9eb70992576a14b4e82a726d7a5fec56
+    layerID: -1465338912
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 50
+    spriteID: 2208f05289cc92d41a81559a069307be
+    layerID: -670505553
+    mosaicPosition: {x: 488, y: 779}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Shading
+    spriteName: Shading
+    isGroup: 0
+    parentIndex: 50
+    spriteID: bb393001faff3ed49b18ea2f69ee51aa
+    layerID: -1934608476
+    mosaicPosition: {x: 462, y: 968}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon color
+    spriteName: Addon color
+    isGroup: 0
+    parentIndex: 50
+    spriteID: 895c08041c4cdfe4eb4b4e3e884f748d
+    layerID: -1119217257
+    mosaicPosition: {x: 462, y: 976}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base color
+    spriteName: Base color
+    isGroup: 0
+    parentIndex: 50
+    spriteID: d423561ed1bc3c344a8ec798ce9b8446
+    layerID: 1345518596
+    mosaicPosition: {x: 488, y: 511}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: LeftShoe
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: ce66f29712a65534a81c5664e8f66a16
+    layerID: 948071024
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 55
+    spriteID: d67dde8775dd11e43999af8217e5e3a4
+    layerID: -670505554
+    mosaicPosition: {x: 488, y: 161}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Shading
+    spriteName: Shading
+    isGroup: 0
+    parentIndex: 55
+    spriteID: 28b548e746a56b24ca2bef1e04ae7874
+    layerID: -1934608475
+    mosaicPosition: {x: 462, y: 984}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon color
+    spriteName: Addon color
+    isGroup: 0
+    parentIndex: 55
+    spriteID: 26e77f34dca2b3e4f849fb1c654ba182
+    layerID: -1119217256
+    mosaicPosition: {x: 474, y: 942}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base color
+    spriteName: Base color
+    isGroup: 0
+    parentIndex: 55
+    spriteID: 6439e42a881ebe640a8691f0ef018419
+    layerID: -220565345
+    mosaicPosition: {x: 4, y: 910}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: LeftTopArm
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 63ec6dd4aa9b846439e18b939d2f2cf9
+    layerID: -21261716
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 60
+    spriteID: 81062846dab28a543985e857296d2ee7
+    layerID: -670505551
+    mosaicPosition: {x: 488, y: 236}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Shading
+    spriteName: Shading
+    isGroup: 0
+    parentIndex: 60
+    spriteID: 542f753fdca3864409bac49fd913a6bd
+    layerID: -1934608478
+    mosaicPosition: {x: 446, y: 942}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon color
+    spriteName: Addon color
+    isGroup: 0
+    parentIndex: 60
+    spriteID: a86b874bd280c2e409f2a82880e3b59b
+    layerID: -1119217255
+    mosaicPosition: {x: 303, y: 296}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base color
+    spriteName: Base color
+    isGroup: 0
+    parentIndex: 60
+    spriteID: dc6017ca53c8a5f4d919fd653d475b62
+    layerID: -1786649286
+    mosaicPosition: {x: 303, y: 421}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: LeftBottomArm
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: f828c33263a829741a84a87838bdc9eb
+    layerID: -1640000982
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 65
+    spriteID: a2f9f231d03666041b1a1e95c8034efb
+    layerID: -670505552
+    mosaicPosition: {x: 393, y: 680}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Shading
+    spriteName: Shading
+    isGroup: 0
+    parentIndex: 65
+    spriteID: 2bd68191f0b7dcd4abae25f0c20eed9b
+    layerID: -1934608477
+    mosaicPosition: {x: 474, y: 950}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon color
+    spriteName: Addon color
+    isGroup: 0
+    parentIndex: 65
+    spriteID: 0dff35da5d4859e4aac34b36509fa560
+    layerID: -1119217254
+    mosaicPosition: {x: 474, y: 958}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base color
+    spriteName: Base color
+    isGroup: 0
+    parentIndex: 65
+    spriteID: b9814d9ddaff4cf488227bf783051212
+    layerID: 942234069
+    mosaicPosition: {x: 393, y: 548}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: LeftFist
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: e4b3f1a32c3cb3045a4aee751621fefe
+    layerID: -1209536057
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 70
+    spriteID: 2a3ac115257945c41b08929117193970
+    layerID: -670505557
+    mosaicPosition: {x: 612, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Shading
+    spriteName: Shading
+    isGroup: 0
+    parentIndex: 70
+    spriteID: 7c78680ec51551f4a89819c413567ef8
+    layerID: -1934608480
+    mosaicPosition: {x: 474, y: 966}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon color
+    spriteName: Addon color
+    isGroup: 0
+    parentIndex: 70
+    spriteID: 58456aa13681eb34d86e581678601db7
+    layerID: -1119217261
+    mosaicPosition: {x: 474, y: 974}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base color
+    spriteName: Base color
+    isGroup: 0
+    parentIndex: 70
+    spriteID: 58d313ff6bec6b64780171c52a0ad865
+    layerID: -980080232
+    mosaicPosition: {x: 393, y: 218}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  sharedRigPSDLayers: []
+  pSDLayerImportSetting: []
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  spriteSizeExpandChanged: 0
+  generateGOHierarchy: 0
+  textureAssetName: 
+  prefabAssetName: 
+  spriteLibAssetName: 
+  skeletonAssetName: 
+  secondarySpriteTextures: []

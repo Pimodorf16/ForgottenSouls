@@ -1,0 +1,2732 @@
+fileFormatVersion: 2
+guid: d29821ca1b9df924381a55661db2e1da
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 325
+      y: 442
+      width: 135
+      height: 131
+    spriteID: 196fc6b8741eb6641b006edc46c00c17
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 325, y: 442}
+    spritePosition: {x: 281, y: 630}
+  - name: Paint Layer 2 (pasted)
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 89
+      y: 2024
+      width: 0
+      height: 0
+    spriteID: a689cea9790c1764f80dcc7e55a968b8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 89, y: 2024}
+    spritePosition: {x: 0, y: 767}
+  - name: Dried Blood
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 89
+      y: 2032
+      width: 0
+      height: 0
+    spriteID: d89edee2a23030e418195d600abc4dbb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 89, y: 2032}
+    spritePosition: {x: 0, y: 767}
+  - name: Addon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 325
+      y: 1521
+      width: 125
+      height: 67
+    spriteID: 32c6006acec62724182c3ef86fdff8eb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 325, y: 1521}
+    spritePosition: {x: 285, y: 649}
+  - name: Base
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 325
+      y: 122
+      width: 136
+      height: 133
+    spriteID: b7881885b4767714ab156f9aeca389a5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 325, y: 122}
+    spritePosition: {x: 280, y: 629}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 213
+      y: 677
+      width: 101
+      height: 167
+    spriteID: 0cee4f2c8fdfc184c9e446d761cb5cb1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 213, y: 677}
+    spritePosition: {x: 393, y: 471}
+  - name: Paint Layer 2 (pasted)
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 89
+      y: 2040
+      width: 0
+      height: 0
+    spriteID: 38e65ee58eed02d41bb4061d5d90d266
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 89, y: 2040}
+    spritePosition: {x: 0, y: 767}
+  - name: Dried Blood
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 97
+      y: 2024
+      width: 0
+      height: 0
+    spriteID: ec99e60445651424b84225dd49908ef0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 97, y: 2024}
+    spritePosition: {x: 0, y: 767}
+  - name: Addon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 624
+      y: 259
+      width: 72
+      height: 83
+    spriteID: 9ba3bec237f899b4aaa8795c3fd4d07a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 624, y: 259}
+    spritePosition: {x: 395, y: 560}
+  - name: Base
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 213
+      y: 493
+      width: 102
+      height: 176
+    spriteID: bc76b71ee8733dc489141606450c3f25
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 213, y: 493}
+    spritePosition: {x: 392, y: 470}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 213
+      y: 1739
+      width: 75
+      height: 168
+    spriteID: 72b1643ac1a7aa541a8765b5e0527813
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 213, y: 1739}
+    spritePosition: {x: 428, y: 332}
+  - name: Paint Layer 2 (pasted)
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 97
+      y: 2032
+      width: 0
+      height: 0
+    spriteID: 5312a4e8cdaa64544aa46ab8016b9592
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 97, y: 2032}
+    spritePosition: {x: 0, y: 767}
+  - name: Dried Blood
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1985
+      width: 77
+      height: 31
+    spriteID: 9858e002da2b96e4b84e3d074f4eac51
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1985}
+    spritePosition: {x: 424, y: 472}
+  - name: Addon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 97
+      y: 2040
+      width: 0
+      height: 0
+    spriteID: f987b79459244a74d85dd95575de1f32
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 97, y: 2040}
+    spritePosition: {x: 0, y: 767}
+  - name: Base
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 213
+      y: 1562
+      width: 76
+      height: 169
+    spriteID: 9583196f3720f5a4f8924bb2893e6adf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 213, y: 1562}
+    spritePosition: {x: 427, y: 332}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 615
+      y: 356
+      width: 73
+      height: 65
+    spriteID: f282be4d7efaf7d40bfb8a8df4b05397
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 615, y: 356}
+    spritePosition: {x: 439, y: 281}
+  - name: Paint Layer 2 (pasted)
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 2024
+      width: 0
+      height: 0
+    spriteID: 4b1f5b5431608a543a9af155e1298f03
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 34, y: 2024}
+    spritePosition: {x: 0, y: 767}
+  - name: Dried Blood
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 42
+      y: 2024
+      width: 0
+      height: 0
+    spriteID: c74185837ae7d2b40979f0d28695fc08
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 42, y: 2024}
+    spritePosition: {x: 0, y: 767}
+  - name: Addon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 89
+      y: 1985
+      width: 8
+      height: 31
+    spriteID: 0c2d44aab455eda40bfa7893deb6e73f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 89, y: 1985}
+    spritePosition: {x: 443, y: 291}
+  - name: Base
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 614
+      y: 453
+      width: 78
+      height: 70
+    spriteID: 8022ebd773117c140af7f69022fd514a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 614, y: 453}
+    spritePosition: {x: 438, y: 277}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 982
+      width: 183
+      height: 269
+    spriteID: f8b391ebb6daa0c4b98786948ba77d43
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 982}
+    spritePosition: {x: 244, y: 160}
+  - name: Dried Blood
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 50
+      y: 2024
+      width: 0
+      height: 0
+    spriteID: fde375961475c634dbe81cbcde0cc028
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 50, y: 2024}
+    spritePosition: {x: 0, y: 767}
+  - name: Addon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 469
+      y: 544
+      width: 164
+      height: 48
+    spriteID: 1ea39bd542c24b0469b77495204f53da
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 469, y: 544}
+    spritePosition: {x: 256, y: 385}
+  - name: Base
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 705
+      width: 190
+      height: 269
+    spriteID: 300373627db502b47925e421fd9fb977
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 705}
+    spritePosition: {x: 244, y: 164}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 213
+      y: 122
+      width: 104
+      height: 179
+    spriteID: 30a2b339c5b4ae14f879bb56e2268b70
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 213, y: 122}
+    spritePosition: {x: 324, y: 219}
+  - name: Paint Layer 2 (pasted)
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 58
+      y: 2024
+      width: 0
+      height: 0
+    spriteID: c22e52c5ac541cc46846af21b83a7203
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 58, y: 2024}
+    spritePosition: {x: 0, y: 767}
+  - name: Dried Blood
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 66
+      y: 2024
+      width: 0
+      height: 0
+    spriteID: f3334ccb46c80a147a8a2e1180067ad6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 66, y: 2024}
+    spritePosition: {x: 0, y: 767}
+  - name: Addon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 325
+      y: 730
+      width: 112
+      height: 144
+    spriteID: e807c245baa95384aae8ff2e34177e68
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 325, y: 730}
+    spritePosition: {x: 321, y: 259}
+  - name: Base
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1792
+      width: 105
+      height: 185
+    spriteID: f5a79d78e3a3b55459e05809131bae08
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1792}
+    spritePosition: {x: 323, y: 214}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 325
+      y: 882
+      width: 71
+      height: 177
+    spriteID: ff57d5761aa2fb744be6be9ffc894a15
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 325, y: 882}
+    spritePosition: {x: 343, y: 75}
+  - name: Dried Blood
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 213
+      y: 1915
+      width: 83
+      height: 129
+    spriteID: 4aac86d534d66c24a81fe3e3eceaf4d5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 213, y: 1915}
+    spritePosition: {x: 343, y: 125}
+  - name: Addon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2024
+      width: 22
+      height: 11
+    spriteID: bfe860928c64ff7458c4385bd0d2c85d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 2024}
+    spritePosition: {x: 384, y: 37}
+  - name: Base
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 117
+      y: 1792
+      width: 73
+      height: 220
+    spriteID: 21b5c45680514024aa5253ced5785e2b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 117, y: 1792}
+    spritePosition: {x: 342, y: 41}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 325
+      y: 1253
+      width: 136
+      height: 83
+    spriteID: a01adca5ad03f19409da94a8d54ab541
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 325, y: 1253}
+    spritePosition: {x: 274, y: 9}
+  - name: Dried Blood
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 74
+      y: 2024
+      width: 0
+      height: 0
+    spriteID: 6899ab09148014d438eb2b605317e551
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 74, y: 2024}
+    spritePosition: {x: 0, y: 767}
+  - name: Addon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 469
+      y: 259
+      width: 147
+      height: 89
+    spriteID: fd50046d72c2a52418cfa184d805f7bd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 469, y: 259}
+    spritePosition: {x: 268, y: 7}
+  - name: Base
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 469
+      y: 453
+      width: 137
+      height: 83
+    spriteID: 0fd4167ac19dea34bb6a07fd1ec73463
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 469, y: 453}
+    spritePosition: {x: 273, y: 9}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 355
+      width: 201
+      height: 342
+    spriteID: 6a2d2033d1dcc13439ca495d048a2021
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 355}
+    spritePosition: {x: 244, y: 330}
+  - name: Paint Layer 2 (pasted)
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 2032
+      width: 0
+      height: 0
+    spriteID: cae01b2f8b713d04c8f5d4c7da7a2758
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 34, y: 2032}
+    spritePosition: {x: 0, y: 767}
+  - name: Dried Blood
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1437
+      width: 148
+      height: 162
+    spriteID: 71ee26ea7b7fe4143a842c52a4edc53b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1437}
+    spritePosition: {x: 258, y: 511}
+  - name: Addon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1259
+      width: 185
+      height: 170
+    spriteID: 2f7e0cfed70d0c446a50d398674fcc5a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1259}
+    spritePosition: {x: 252, y: 505}
+  - name: Base
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 201
+      height: 343
+    spriteID: 2afad9025091da14eb0fe2364805ac5d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 244, y: 330}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 213
+      y: 309
+      width: 104
+      height: 176
+    spriteID: 4b0006af34513a4468f600604cf0cb54
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 213, y: 309}
+    spritePosition: {x: 239, y: 219}
+  - name: Dried Blood
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 42
+      y: 2032
+      width: 0
+      height: 0
+    spriteID: 04948a94fe3b9db46a84aaa0d03ad619
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 42, y: 2032}
+    spritePosition: {x: 0, y: 767}
+  - name: Addon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 325
+      y: 581
+      width: 118
+      height: 141
+    spriteID: d1d77042180ac3045b2339ad6f68f348
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 325, y: 581}
+    spritePosition: {x: 232, y: 258}
+  - name: Base
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1607
+      width: 112
+      height: 177
+    spriteID: 9284ddf520a7dec418ac7d3b44a99202
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1607}
+    spritePosition: {x: 237, y: 219}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 325
+      y: 1067
+      width: 70
+      height: 178
+    spriteID: 0db1f45484526714683414de7574d503
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 325, y: 1067}
+    spritePosition: {x: 246, y: 75}
+  - name: Dried Blood
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 325
+      y: 1596
+      width: 68
+      height: 26
+    spriteID: 208057f45734b0c498326aab852102d9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 325, y: 1596}
+    spritePosition: {x: 247, y: 232}
+  - name: Addon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 50
+      y: 2032
+      width: 0
+      height: 0
+    spriteID: 4a3dcc2939b8e3e46935b7ea0296e13c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 50, y: 2032}
+    spritePosition: {x: 0, y: 767}
+  - name: Base
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 213
+      y: 1193
+      width: 78
+      height: 187
+    spriteID: 4c7ed4a65fc8f0e428cd443ba3e550d6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 213, y: 1193}
+    spritePosition: {x: 238, y: 74}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 325
+      y: 1344
+      width: 136
+      height: 83
+    spriteID: 875ee52a2346ccf47a1c3e96fd81e900
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 325, y: 1344}
+    spritePosition: {x: 176, y: 10}
+  - name: Dried Blood
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 58
+      y: 2032
+      width: 0
+      height: 0
+    spriteID: a7055e5d41c4e2d4c9b679d09532a7b3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 58, y: 2032}
+    spritePosition: {x: 0, y: 767}
+  - name: Addon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 469
+      y: 160
+      width: 151
+      height: 91
+    spriteID: 0970ab63f69d80b4d89607348628467e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 469, y: 160}
+    spritePosition: {x: 173, y: 8}
+  - name: Base
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 469
+      y: 356
+      width: 138
+      height: 89
+    spriteID: ab018232804c44848927685af0a8f34f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 469, y: 356}
+    spritePosition: {x: 175, y: 5}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 213
+      y: 852
+      width: 95
+      height: 171
+    spriteID: 0eb476e60230e9647ad77c9168b57f49
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 213, y: 852}
+    spritePosition: {x: 201, y: 469}
+  - name: Paint Layer 2 (pasted)
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 66
+      y: 2032
+      width: 0
+      height: 0
+    spriteID: 48722a2cc92d96a4db4d64f9bf841912
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 66, y: 2032}
+    spritePosition: {x: 0, y: 767}
+  - name: Dried Blood
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 74
+      y: 2032
+      width: 0
+      height: 0
+    spriteID: af199996d1d75b44f8f5749c2237caa2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 74, y: 2032}
+    spritePosition: {x: 0, y: 767}
+  - name: Addon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 628
+      y: 160
+      width: 78
+      height: 82
+    spriteID: 44d1cc18ddc023f419a1b52c0dd4fd14
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 628, y: 160}
+    spritePosition: {x: 215, y: 560}
+  - name: Base
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 325
+      y: 263
+      width: 105
+      height: 171
+    spriteID: b325320ad0e5ba84c947ae32381aacf1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 325, y: 263}
+    spritePosition: {x: 191, y: 469}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 213
+      y: 1388
+      width: 78
+      height: 166
+    spriteID: 9c7b1af0acc8a6e4b8e77b46c57630cd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 213, y: 1388}
+    spritePosition: {x: 182, y: 335}
+  - name: Paint Layer 2 (pasted)
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 105
+      y: 1985
+      width: 0
+      height: 0
+    spriteID: 3af97a2951cecee4ca3dd5edb9684062
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 105, y: 1985}
+    spritePosition: {x: 0, y: 767}
+  - name: Dried Blood
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 213
+      y: 1031
+      width: 95
+      height: 154
+    spriteID: fe7aebc062638164fb9c9fa640cd3da6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 213, y: 1031}
+    spritePosition: {x: 166, y: 350}
+  - name: Addon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 105
+      y: 1993
+      width: 0
+      height: 0
+    spriteID: 70b43f2c1fddae949a123ad106a6c856
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 105, y: 1993}
+    spritePosition: {x: 0, y: 767}
+  - name: Base
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 124
+      y: 1607
+      width: 78
+      height: 167
+    spriteID: 762118a0fb0508b4bb6867f4fb608dd8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 124, y: 1607}
+    spritePosition: {x: 181, y: 334}
+  - name: Lineart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 469
+      y: 83
+      width: 239
+      height: 69
+    spriteID: 61bda022fcc478340b8a0ea6ceaee91a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 469, y: 83}
+    spritePosition: {x: 7, y: 277}
+  - name: Paint Layer 2 (pasted)
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 105
+      y: 2001
+      width: 0
+      height: 0
+    spriteID: 73e7e7ef4e383eb4ea05807904fc8692
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 105, y: 2001}
+    spritePosition: {x: 0, y: 767}
+  - name: Dried Blood
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 325
+      y: 1435
+      width: 110
+      height: 78
+    spriteID: cf2303fa489107e4eb9ddf84005cbbf3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 325, y: 1435}
+    spritePosition: {x: 0, y: 263}
+  - name: Addon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 213
+      y: 4
+      width: 248
+      height: 110
+    spriteID: c085870beb0263a46aca5b2707454235
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 213, y: 4}
+    spritePosition: {x: 0, y: 247}
+  - name: Base
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 469
+      y: 4
+      width: 239
+      height: 71
+    spriteID: 2f494ceb34f447240ac642afedef7665
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 469, y: 4}
+    spritePosition: {x: 7, y: 276}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  sharedRigSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  platformSettings: []
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 1
+  skeletonAssetReferenceID: 
+  pipeline: {instanceID: 0}
+  pipelineVersion: 
+  padding: 4
+  spriteSizeExpand: 0
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: Head
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 73847941cebb19945a572fa35ae22b5a
+    layerID: 0
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 196fc6b8741eb6641b006edc46c00c17
+    layerID: -553247143
+    mosaicPosition: {x: 325, y: 442}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Paint Layer 2 (pasted)
+    spriteName: Paint Layer 2 (pasted)
+    isGroup: 0
+    parentIndex: 0
+    spriteID: a689cea9790c1764f80dcc7e55a968b8
+    layerID: -1209222871
+    mosaicPosition: {x: 89, y: 2024}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Color
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 5db8b9f37fa4dc84ebfdeab9ce72cbc0
+    layerID: 883899921
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Dried Blood
+    spriteName: Dried Blood
+    isGroup: 0
+    parentIndex: 3
+    spriteID: d89edee2a23030e418195d600abc4dbb
+    layerID: -527146118
+    mosaicPosition: {x: 89, y: 2032}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon
+    spriteName: Addon
+    isGroup: 0
+    parentIndex: 3
+    spriteID: 32c6006acec62724182c3ef86fdff8eb
+    layerID: -1179135276
+    mosaicPosition: {x: 325, y: 1521}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base
+    spriteName: Base
+    isGroup: 0
+    parentIndex: 3
+    spriteID: b7881885b4767714ab156f9aeca389a5
+    layerID: -1779161319
+    mosaicPosition: {x: 325, y: 122}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Sketch
+    spriteName: 
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 60fe5cf01b723da4f9e074d34074e9be
+    layerID: -1600492854
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: RightTopArm
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 6784b03781cbcce44bfb51c052cfac18
+    layerID: 1289613185
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 8
+    spriteID: 0cee4f2c8fdfc184c9e446d761cb5cb1
+    layerID: 939136031
+    mosaicPosition: {x: 213, y: 677}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Paint Layer 2 (pasted)
+    spriteName: Paint Layer 2 (pasted)
+    isGroup: 0
+    parentIndex: 8
+    spriteID: 38e65ee58eed02d41bb4061d5d90d266
+    layerID: -1632730581
+    mosaicPosition: {x: 89, y: 2040}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Color
+    spriteName: 
+    isGroup: 1
+    parentIndex: 8
+    spriteID: 9f4201a1b218c34459af2f05941caa20
+    layerID: -304572565
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Dried Blood
+    spriteName: Dried Blood
+    isGroup: 0
+    parentIndex: 11
+    spriteID: ec99e60445651424b84225dd49908ef0
+    layerID: 1800470010
+    mosaicPosition: {x: 97, y: 2024}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon
+    spriteName: Addon
+    isGroup: 0
+    parentIndex: 11
+    spriteID: 9ba3bec237f899b4aaa8795c3fd4d07a
+    layerID: 2021786284
+    mosaicPosition: {x: 624, y: 259}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base
+    spriteName: Base
+    isGroup: 0
+    parentIndex: 11
+    spriteID: bc76b71ee8733dc489141606450c3f25
+    layerID: -1856111749
+    mosaicPosition: {x: 213, y: 493}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Sketch
+    spriteName: 
+    isGroup: 0
+    parentIndex: 8
+    spriteID: 12ccc0627f0d2c145b452f77be1ef6b3
+    layerID: 927982626
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: RightBottomArm
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 394644b0b174f1d48a672771e58f5325
+    layerID: 939019637
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 16
+    spriteID: 72b1643ac1a7aa541a8765b5e0527813
+    layerID: -626947910
+    mosaicPosition: {x: 213, y: 1739}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Paint Layer 2 (pasted)
+    spriteName: Paint Layer 2 (pasted)
+    isGroup: 0
+    parentIndex: 16
+    spriteID: 5312a4e8cdaa64544aa46ab8016b9592
+    layerID: -1632730580
+    mosaicPosition: {x: 97, y: 2032}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Color
+    spriteName: 
+    isGroup: 1
+    parentIndex: 16
+    spriteID: e46ca57bc87019848b70c4fc650c7240
+    layerID: 98711962
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Dried Blood
+    spriteName: Dried Blood
+    isGroup: 0
+    parentIndex: 19
+    spriteID: 9858e002da2b96e4b84e3d074f4eac51
+    layerID: -2091212759
+    mosaicPosition: {x: 4, y: 1985}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon
+    spriteName: Addon
+    isGroup: 0
+    parentIndex: 19
+    spriteID: f987b79459244a74d85dd95575de1f32
+    layerID: 1618501757
+    mosaicPosition: {x: 97, y: 2040}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base
+    spriteName: Base
+    isGroup: 0
+    parentIndex: 19
+    spriteID: 9583196f3720f5a4f8924bb2893e6adf
+    layerID: -1856111748
+    mosaicPosition: {x: 213, y: 1562}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Sketch
+    spriteName: 
+    isGroup: 0
+    parentIndex: 16
+    spriteID: 79429133073a36049ba5547c4190764f
+    layerID: 927982627
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: RightFist
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: e0280b6aed5331e4a9c2212d2f71a00f
+    layerID: 199550382
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 24
+    spriteID: f282be4d7efaf7d40bfb8a8df4b05397
+    layerID: 2101935445
+    mosaicPosition: {x: 615, y: 356}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Paint Layer 2 (pasted)
+    spriteName: Paint Layer 2 (pasted)
+    isGroup: 0
+    parentIndex: 24
+    spriteID: 4b1f5b5431608a543a9af155e1298f03
+    layerID: -1632730579
+    mosaicPosition: {x: 34, y: 2024}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Color
+    spriteName: 
+    isGroup: 1
+    parentIndex: 24
+    spriteID: 07a49d5598df9e541859bdc4b517476a
+    layerID: -1467371979
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Dried Blood
+    spriteName: Dried Blood
+    isGroup: 0
+    parentIndex: 27
+    spriteID: c74185837ae7d2b40979f0d28695fc08
+    layerID: 637670596
+    mosaicPosition: {x: 42, y: 2024}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon
+    spriteName: Addon
+    isGroup: 0
+    parentIndex: 27
+    spriteID: 0c2d44aab455eda40bfa7893deb6e73f
+    layerID: -1110381598
+    mosaicPosition: {x: 89, y: 1985}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base
+    spriteName: Base
+    isGroup: 0
+    parentIndex: 27
+    spriteID: 8022ebd773117c140af7f69022fd514a
+    layerID: -1856111747
+    mosaicPosition: {x: 614, y: 453}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Sketch
+    spriteName: 
+    isGroup: 0
+    parentIndex: 24
+    spriteID: 9db890b1a2aedf045a8229aa46aed32c
+    layerID: 927982628
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: Ogre
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 74e05ae8c020bd5459ce8b4eb1cbe512
+    layerID: 472537627
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 32
+    spriteID: f8b391ebb6daa0c4b98786948ba77d43
+    layerID: 179621144
+    mosaicPosition: {x: 4, y: 982}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Color
+    spriteName: 
+    isGroup: 1
+    parentIndex: 32
+    spriteID: 8d71709d526ff444f972b7d04221dbb5
+    layerID: -707857092
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Dried Blood
+    spriteName: Dried Blood
+    isGroup: 0
+    parentIndex: 34
+    spriteID: fde375961475c634dbe81cbcde0cc028
+    layerID: 1040955123
+    mosaicPosition: {x: 50, y: 2024}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon
+    spriteName: Addon
+    isGroup: 0
+    parentIndex: 34
+    spriteID: 1ea39bd542c24b0469b77495204f53da
+    layerID: -1513666125
+    mosaicPosition: {x: 469, y: 544}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base
+    spriteName: Base
+    isGroup: 0
+    parentIndex: 34
+    spriteID: 300373627db502b47925e421fd9fb977
+    layerID: -1856111754
+    mosaicPosition: {x: 4, y: 705}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Sketch
+    spriteName: 
+    isGroup: 0
+    parentIndex: 32
+    spriteID: cce6a78b691721c4e86ad30a3be15001
+    layerID: 927982629
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: RightTopLeg
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: ff80b1acfc9de9e43a56d91c0adce8d5
+    layerID: 899624921
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 39
+    spriteID: 30a2b339c5b4ae14f879bb56e2268b70
+    layerID: -1386462797
+    mosaicPosition: {x: 213, y: 122}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Paint Layer 2 (pasted)
+    spriteName: Paint Layer 2 (pasted)
+    isGroup: 0
+    parentIndex: 39
+    spriteID: c22e52c5ac541cc46846af21b83a7203
+    layerID: -1632730586
+    mosaicPosition: {x: 58, y: 2024}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Color
+    spriteName: 
+    isGroup: 1
+    parentIndex: 39
+    spriteID: d679e74a70c764941a05c995da41546a
+    layerID: 2021026263
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Dried Blood
+    spriteName: Dried Blood
+    isGroup: 0
+    parentIndex: 42
+    spriteID: f3334ccb46c80a147a8a2e1180067ad6
+    layerID: -525128818
+    mosaicPosition: {x: 66, y: 2024}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon
+    spriteName: Addon
+    isGroup: 0
+    parentIndex: 42
+    spriteID: e807c245baa95384aae8ff2e34177e68
+    layerID: 52417816
+    mosaicPosition: {x: 325, y: 730}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base
+    spriteName: Base
+    isGroup: 0
+    parentIndex: 42
+    spriteID: f5a79d78e3a3b55459e05809131bae08
+    layerID: -1856111753
+    mosaicPosition: {x: 4, y: 1792}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Sketch
+    spriteName: 
+    isGroup: 0
+    parentIndex: 39
+    spriteID: d0718be3dc4b8aa458557d1fe99d7f42
+    layerID: 927982630
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: RightBottomLeg
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 7850fea3ac0cf50498355291d836e4fa
+    layerID: 1523614981
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 47
+    spriteID: ff57d5761aa2fb744be6be9ffc894a15
+    layerID: 1342420558
+    mosaicPosition: {x: 325, y: 882}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Color
+    spriteName: 
+    isGroup: 1
+    parentIndex: 47
+    spriteID: 8a8d602f43ae8c941af29883574e0154
+    layerID: -1870656506
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Dried Blood
+    spriteName: Dried Blood
+    isGroup: 0
+    parentIndex: 49
+    spriteID: 4aac86d534d66c24a81fe3e3eceaf4d5
+    layerID: -121844291
+    mosaicPosition: {x: 213, y: 1915}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon
+    spriteName: Addon
+    isGroup: 0
+    parentIndex: 49
+    spriteID: bfe860928c64ff7458c4385bd0d2c85d
+    layerID: -350866711
+    mosaicPosition: {x: 4, y: 2024}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base
+    spriteName: Base
+    isGroup: 0
+    parentIndex: 49
+    spriteID: 21b5c45680514024aa5253ced5785e2b
+    layerID: -1856111752
+    mosaicPosition: {x: 117, y: 1792}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Sketch
+    spriteName: 
+    isGroup: 0
+    parentIndex: 47
+    spriteID: 507206e9414eb4142a7abfee5480dd0d
+    layerID: 927982631
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: RightFeet
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 31bfa76e02c6f4a4c81b16a6b1a197be
+    layerID: -1212075016
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 54
+    spriteID: a01adca5ad03f19409da94a8d54ab541
+    layerID: -223663383
+    mosaicPosition: {x: 325, y: 1253}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Color
+    spriteName: 
+    isGroup: 1
+    parentIndex: 54
+    spriteID: 1190075634e143842a80b42729c3b73e
+    layerID: 858226849
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Dried Blood
+    spriteName: Dried Blood
+    isGroup: 0
+    parentIndex: 56
+    spriteID: 6899ab09148014d438eb2b605317e551
+    layerID: -1687928232
+    mosaicPosition: {x: 74, y: 2024}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon
+    spriteName: Addon
+    isGroup: 0
+    parentIndex: 56
+    spriteID: fd50046d72c2a52418cfa184d805f7bd
+    layerID: 1215217230
+    mosaicPosition: {x: 469, y: 259}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base
+    spriteName: Base
+    isGroup: 0
+    parentIndex: 56
+    spriteID: 0fd4167ac19dea34bb6a07fd1ec73463
+    layerID: -1856111751
+    mosaicPosition: {x: 469, y: 453}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Sketch
+    spriteName: 
+    isGroup: 0
+    parentIndex: 54
+    spriteID: 81dbbbdbcc983ed4fb3ef86053560a95
+    layerID: 927982632
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: Body
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 7bea25d50e777834397c17603ab6a461
+    layerID: -723767166
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 61
+    spriteID: 6a2d2033d1dcc13439ca495d048a2021
+    layerID: -1433516964
+    mosaicPosition: {x: 4, y: 355}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Paint Layer 2 (pasted)
+    spriteName: Paint Layer 2 (pasted)
+    isGroup: 0
+    parentIndex: 61
+    spriteID: cae01b2f8b713d04c8f5d4c7da7a2758
+    layerID: -1632730585
+    mosaicPosition: {x: 34, y: 2032}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Color
+    spriteName: 
+    isGroup: 1
+    parentIndex: 61
+    spriteID: c0563590f13364340b2030bf96f3e83c
+    layerID: 905281016
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Dried Blood
+    spriteName: Dried Blood
+    isGroup: 0
+    parentIndex: 64
+    spriteID: 71ee26ea7b7fe4143a842c52a4edc53b
+    layerID: -1284643705
+    mosaicPosition: {x: 4, y: 1437}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon
+    spriteName: Addon
+    isGroup: 0
+    parentIndex: 64
+    spriteID: 2f7e0cfed70d0c446a50d398674fcc5a
+    layerID: 811932703
+    mosaicPosition: {x: 4, y: 1259}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base
+    spriteName: Base
+    isGroup: 0
+    parentIndex: 64
+    spriteID: 2afad9025091da14eb0fe2364805ac5d
+    layerID: -1856111742
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Sketch
+    spriteName: 
+    isGroup: 0
+    parentIndex: 61
+    spriteID: 86715889b28599a47b52ebef2863e018
+    layerID: 927982633
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: LeftTopLeg
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: a584f1a381496dc4f8dfcb484043ef14
+    layerID: 435724894
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 69
+    spriteID: 4b0006af34513a4468f600604cf0cb54
+    layerID: 1295366391
+    mosaicPosition: {x: 213, y: 309}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Color
+    spriteName: 
+    isGroup: 1
+    parentIndex: 69
+    spriteID: d1c247c286dd5f647a0412999ec78cf0
+    layerID: -660802925
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Dried Blood
+    spriteName: Dried Blood
+    isGroup: 0
+    parentIndex: 71
+    spriteID: 04948a94fe3b9db46a84aaa0d03ad619
+    layerID: 1444239650
+    mosaicPosition: {x: 42, y: 2032}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon
+    spriteName: Addon
+    isGroup: 0
+    parentIndex: 71
+    spriteID: d1d77042180ac3045b2339ad6f68f348
+    layerID: -1916950652
+    mosaicPosition: {x: 325, y: 581}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base
+    spriteName: Base
+    isGroup: 0
+    parentIndex: 71
+    spriteID: 9284ddf520a7dec418ac7d3b44a99202
+    layerID: -1856111741
+    mosaicPosition: {x: 4, y: 1607}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Sketch
+    spriteName: 
+    isGroup: 0
+    parentIndex: 69
+    spriteID: 04183d14359c1694f9aecc27e6860887
+    layerID: 927982634
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: LeftBottomLeg
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: d891d3ff17fddfa43bb569b807bac3e6
+    layerID: -1465338912
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 76
+    spriteID: 0db1f45484526714683414de7574d503
+    layerID: -670505553
+    mosaicPosition: {x: 325, y: 1067}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Color
+    spriteName: 
+    isGroup: 1
+    parentIndex: 76
+    spriteID: 9b9c4a98cd6ae574eb8447a4b2da402d
+    layerID: 2114190459
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Dried Blood
+    spriteName: Dried Blood
+    isGroup: 0
+    parentIndex: 78
+    spriteID: 208057f45734b0c498326aab852102d9
+    layerID: 1964083530
+    mosaicPosition: {x: 325, y: 1596}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon
+    spriteName: Addon
+    isGroup: 0
+    parentIndex: 78
+    spriteID: 4a3dcc2939b8e3e46935b7ea0296e13c
+    layerID: 138547420
+    mosaicPosition: {x: 50, y: 2032}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base
+    spriteName: Base
+    isGroup: 0
+    parentIndex: 78
+    spriteID: 4c7ed4a65fc8f0e428cd443ba3e550d6
+    layerID: 42511499
+    mosaicPosition: {x: 213, y: 1193}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Sketch
+    spriteName: 
+    isGroup: 0
+    parentIndex: 76
+    spriteID: aac8c70afa285f0459cee16f928e5e83
+    layerID: -1835087374
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: LeftFeet
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: bb48b688ef2e311408ac77f97a648d6f
+    layerID: 1035250405
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 83
+    spriteID: 875ee52a2346ccf47a1c3e96fd81e900
+    layerID: -670505554
+    mosaicPosition: {x: 325, y: 1344}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Color
+    spriteName: 
+    isGroup: 1
+    parentIndex: 83
+    spriteID: 67d6059a2d3364d4281bd514438d79c9
+    layerID: 2114190458
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Dried Blood
+    spriteName: Dried Blood
+    isGroup: 0
+    parentIndex: 85
+    spriteID: a7055e5d41c4e2d4c9b679d09532a7b3
+    layerID: 1964083531
+    mosaicPosition: {x: 58, y: 2032}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon
+    spriteName: Addon
+    isGroup: 0
+    parentIndex: 85
+    spriteID: 0970ab63f69d80b4d89607348628467e
+    layerID: 138547419
+    mosaicPosition: {x: 469, y: 160}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base
+    spriteName: Base
+    isGroup: 0
+    parentIndex: 85
+    spriteID: ab018232804c44848927685af0a8f34f
+    layerID: 1608595440
+    mosaicPosition: {x: 469, y: 356}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Sketch
+    spriteName: 
+    isGroup: 0
+    parentIndex: 83
+    spriteID: b80d1730fe1319149ab4b4e420103e23
+    layerID: 893795981
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: LeftTopArm
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 78888b1ebaa2c8b4fac74427f6a4adbb
+    layerID: -21261716
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 90
+    spriteID: 0eb476e60230e9647ad77c9168b57f49
+    layerID: -670505551
+    mosaicPosition: {x: 213, y: 852}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Paint Layer 2 (pasted)
+    spriteName: Paint Layer 2 (pasted)
+    isGroup: 0
+    parentIndex: 90
+    spriteID: 48722a2cc92d96a4db4d64f9bf841912
+    layerID: -1632730584
+    mosaicPosition: {x: 66, y: 2032}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Color
+    spriteName: 
+    isGroup: 1
+    parentIndex: 90
+    spriteID: 7baf808fd4c81a542baae082f57d93c1
+    layerID: 2114190457
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Dried Blood
+    spriteName: Dried Blood
+    isGroup: 0
+    parentIndex: 93
+    spriteID: af199996d1d75b44f8f5749c2237caa2
+    layerID: 1964083528
+    mosaicPosition: {x: 74, y: 2032}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon
+    spriteName: Addon
+    isGroup: 0
+    parentIndex: 93
+    spriteID: 44d1cc18ddc023f419a1b52c0dd4fd14
+    layerID: 138547422
+    mosaicPosition: {x: 628, y: 160}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base
+    spriteName: Base
+    isGroup: 0
+    parentIndex: 93
+    spriteID: b325320ad0e5ba84c947ae32381aacf1
+    layerID: 1205310913
+    mosaicPosition: {x: 325, y: 263}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Sketch
+    spriteName: 
+    isGroup: 0
+    parentIndex: 90
+    spriteID: 82f7fffd92b8bca4c810184cf7328bc5
+    layerID: 1297080508
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: LeftBottomArm
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 16427bcb3689faa4796098a2b06fcae2
+    layerID: -1640000982
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 98
+    spriteID: 9c7b1af0acc8a6e4b8e77b46c57630cd
+    layerID: -670505552
+    mosaicPosition: {x: 213, y: 1388}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Paint Layer 2 (pasted)
+    spriteName: Paint Layer 2 (pasted)
+    isGroup: 0
+    parentIndex: 98
+    spriteID: 3af97a2951cecee4ca3dd5edb9684062
+    layerID: -1632730583
+    mosaicPosition: {x: 105, y: 1985}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Color
+    spriteName: 
+    isGroup: 1
+    parentIndex: 98
+    spriteID: ef11bb33e1af9c84aad96aa17bad71c0
+    layerID: 2114190456
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Dried Blood
+    spriteName: Dried Blood
+    isGroup: 0
+    parentIndex: 101
+    spriteID: fe7aebc062638164fb9c9fa640cd3da6
+    layerID: 1964083529
+    mosaicPosition: {x: 213, y: 1031}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon
+    spriteName: Addon
+    isGroup: 0
+    parentIndex: 101
+    spriteID: 70b43f2c1fddae949a123ad106a6c856
+    layerID: 138547421
+    mosaicPosition: {x: 105, y: 1993}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base
+    spriteName: Base
+    isGroup: 0
+    parentIndex: 101
+    spriteID: 762118a0fb0508b4bb6867f4fb608dd8
+    layerID: -1523572442
+    mosaicPosition: {x: 124, y: 1607}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Sketch
+    spriteName: 
+    isGroup: 0
+    parentIndex: 98
+    spriteID: bfba781e8fd6d72449cb9fc75b033c02
+    layerID: -269003433
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: LeftFist
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: dab6575db102f9049bda22aaa9f69327
+    layerID: -1209536057
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Lineart
+    spriteName: Lineart
+    isGroup: 0
+    parentIndex: 106
+    spriteID: 61bda022fcc478340b8a0ea6ceaee91a
+    layerID: -670505557
+    mosaicPosition: {x: 469, y: 83}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Paint Layer 2 (pasted)
+    spriteName: Paint Layer 2 (pasted)
+    isGroup: 0
+    parentIndex: 106
+    spriteID: 73e7e7ef4e383eb4ea05807904fc8692
+    layerID: -1632730574
+    mosaicPosition: {x: 105, y: 2001}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Color
+    spriteName: 
+    isGroup: 1
+    parentIndex: 106
+    spriteID: c85f42ef2415d5d4c97f844f864ae03e
+    layerID: 2114190455
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Dried Blood
+    spriteName: Dried Blood
+    isGroup: 0
+    parentIndex: 109
+    spriteID: cf2303fa489107e4eb9ddf84005cbbf3
+    layerID: 1964083534
+    mosaicPosition: {x: 325, y: 1435}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Addon
+    spriteName: Addon
+    isGroup: 0
+    parentIndex: 109
+    spriteID: c085870beb0263a46aca5b2707454235
+    layerID: 138547424
+    mosaicPosition: {x: 213, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Base
+    spriteName: Base
+    isGroup: 0
+    parentIndex: 109
+    spriteID: 2f494ceb34f447240ac642afedef7665
+    layerID: -1926856969
+    mosaicPosition: {x: 469, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Sketch
+    spriteName: 
+    isGroup: 0
+    parentIndex: 106
+    spriteID: f67bd3b7229eb1346a1ceb4f6312fa74
+    layerID: 490511454
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  sharedRigPSDLayers: []
+  pSDLayerImportSetting: []
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  spriteSizeExpandChanged: 0
+  generateGOHierarchy: 0
+  textureAssetName: 
+  prefabAssetName: 
+  spriteLibAssetName: 
+  skeletonAssetName: 
+  secondarySpriteTextures: []

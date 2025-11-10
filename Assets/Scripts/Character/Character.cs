@@ -176,6 +176,22 @@ public class Character : MonoBehaviour
         statusEffectsToRemove.Clear();
     }
 
+    public void ClearAllStatusEffect()
+    {
+        foreach (StatusEffect effect in statusEffects)
+        {
+            RemoveStatusEffect(effect);
+            statusEffectsToRemove.Add(effect);
+        }
+        
+        foreach (StatusEffect effect in statusEffectsToRemove)
+        {
+            statusEffects.Remove(effect);
+        }
+
+        statusEffectsToRemove.Clear();
+    }
+
     public bool CheckImmunity(StatusEffect newStatus)
     {
         foreach(StatusEffect immune in immunities)
@@ -282,6 +298,7 @@ public class Character : MonoBehaviour
     public int Roll()
     {
         int result = Random.Range(1, 7);
+        Debug.Log("Character roll = " + result);
         return result;
     }
 

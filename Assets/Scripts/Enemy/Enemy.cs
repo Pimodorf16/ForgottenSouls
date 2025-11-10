@@ -350,7 +350,7 @@ public class Enemy : MonoBehaviour
         float rng = RollValueConversion(roll);
         float guard = enemyData.defenseStat * 2 * rng;
 
-        Debug.Log(enemyName + (stationIndex + 1) + " Guard = " + guard);
+        Debug.Log(enemyName + " Guard = " + guard);
 
         guard = Mathf.CeilToInt(guard);
 

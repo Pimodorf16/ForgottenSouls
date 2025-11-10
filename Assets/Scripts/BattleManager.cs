@@ -81,12 +81,18 @@ public class BattleManager : MonoBehaviour
         {
             stage.AddEnemy();
         }
-
-        if(character.point > 0)
+        
+        if(stageCount % 2 == 0)
         {
-            playerHUD.DisplayLevelUpButtons();
+            playerHUD.DisplayShop();
         }
-        playerHUD.DisplayLevelUp(character);
+        
+        if(playerHUD.theShopState == false)
+        {
+            StartCoroutine(SetupNextStage());
+        }
+        
+
     }
 
     void ChangeStateToLost()
@@ -317,19 +323,22 @@ public class BattleManager : MonoBehaviour
         character.CheckStatusEffectDuration();
         PlayerDOT();
         CheckPlayerHP();
-        PlayerWonCheck();
+        if (PlayerWonCheck() == false)
+        {
+            if (character.allowAction == true)
+            {
+                ResetEnemyButtonHUD();
+                ResetSkillTargetHUD();
+                playerHUD.DisplayPlayerTurnHUD();
+            }
+            else
+            {
+                Debug.Log("Cannot Move! Turn Skipped!");
+                ChangeStateToEnemy();
+            }
+        }
         
-        if (character.allowAction == true)
-        {
-            ResetEnemyButtonHUD();
-            ResetSkillTargetHUD();
-            playerHUD.DisplayPlayerTurnHUD();
-        }
-        else
-        {
-            Debug.Log("Cannot Move! Turn Skipped!");
-            ChangeStateToEnemy();
-        }
+        
     }
 
     void PlayerDOT()
@@ -345,6 +354,22 @@ public class BattleManager : MonoBehaviour
         character.gold += gold;
         Debug.Log("Player Gained " + gold + " Gold!");
         playerHUD.SetGoldCount(character.gold);
+    }
+
+    bool PlayerUseGold(int gold)
+    {
+        if (gold <= character.gold)
+        {
+            character.gold -= gold;
+            Debug.Log("Player Used " + gold + " Gold!");
+            playerHUD.SetGoldCount(character.gold);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
     }
 
     void PlayerAddExp(int exp)
@@ -385,7 +410,8 @@ public class BattleManager : MonoBehaviour
     {
         if (CheckAllEnemiesDead() == true)
         {
-            WaveCheck();
+            ShowPlayerLevelUp();
+            //WaveCheck();
             return true;
         }
         else
@@ -398,12 +424,22 @@ public class BattleManager : MonoBehaviour
     {
         if(stage.waves.Count > currentWave + 1)
         {
+            //ShowPlayerLevelUp();
             StartCoroutine(SpawnNextWave());
         }
         else
         {
             ChangeStateToWon();
         }
+    }
+
+    void ShowPlayerLevelUp()
+    {
+        if(character.point > 0)
+        {
+            playerHUD.DisplayLevelUpButtons();
+        }
+        playerHUD.DisplayLevelUp(character);
     }
 
     void PlayerTarget()
@@ -431,6 +467,7 @@ public class BattleManager : MonoBehaviour
         int roll = RollCharacterDice();
 
         ShowDiceRoll(roll);
+
         AttackEnemy(enemyIndex, roll, 1f);
         CheckEnemyHP(enemyIndex);
 
@@ -1172,7 +1209,44 @@ public class BattleManager : MonoBehaviour
     {
         playerHUD.CloseLevelUp();
 
+        //StartCoroutine(SpawnNextWave());
+        WaveCheck();
+    }
+
+    public void OnCloseShopbutton()
+    {
+        playerHUD.CloseShop();
         StartCoroutine(SetupNextStage());
+    }
+
+    public void OnBuyingPotion()
+    {
+        int goldcost = 30;
+        float potionHeal = 0.5f;
+        if (PlayerUseGold(goldcost) == true)
+        {
+            int heal = character.Heal(potionHeal);
+            playerHUD.SetHP(heal, character.maxHP);
+        }
+        else
+        {
+            Debug.Log("Insufficient Gold!");
+        }
+
+    }
+    
+    public void OnBuyingAntidote()
+    {
+        int goldcost = 30;
+        if (PlayerUseGold(goldcost) == true)
+        {
+            character.ClearAllStatusEffect();
+        }
+        else
+        {
+            Debug.Log("Insufficient Gold!");
+        }
+
     }
 
     public void StageComplete()

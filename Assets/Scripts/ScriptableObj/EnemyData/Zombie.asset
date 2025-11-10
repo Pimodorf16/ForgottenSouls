@@ -16,7 +16,6 @@ MonoBehaviour:
   enemyName: Zombie
   enemySize: 1
   level: 1
-  exp: 0
   maxHP: 15
   currentHP: 15
   maxMP: 5
@@ -25,10 +24,13 @@ MonoBehaviour:
   defenseStat: 4
   speedStat: 2
   luckStat: 2
+  manaRecoveryOvertime: 1
   baseCritRate: 0.1
   baseCritDamageMultiplier: 0.15
   baseDodge: 0.1
+  baseHP: 15
   baseGold: 15
+  baseExp: 30
   weapon: {fileID: 11400000, guid: 4ed6dfa982c099d4f88c6205f2b0c779, type: 2}
   skill:
   - {fileID: 11400000, guid: cc618c2ba31c2d84a87c723705690f9e, type: 2}

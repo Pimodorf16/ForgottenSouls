@@ -32,8 +32,10 @@ public class Enemy : MonoBehaviour
     public float baseCritRate = 0.10f;
     public float baseCritDamageMultiplier = 0.15f;
     public float baseDodge = 0.10f;
-
+    public int baseHP = 0;
     public int baseGold;
+    public int baseExp;
+    public int ExpGiven;
 
     [Header("Weapon")]
     public Weapon weapon;
@@ -83,7 +85,6 @@ public class Enemy : MonoBehaviour
         enemyName = data.enemyName;
         enemySize = data.enemySize;
         level = data.level;
-        exp = data.exp;
         maxHP = data.maxHP;
         currentHP = data.currentHP;
         maxMP = data.maxMP;
@@ -96,13 +97,29 @@ public class Enemy : MonoBehaviour
         baseCritDamageMultiplier += data.baseCritDamageMultiplier;
         baseDodge = data.baseDodge;
 
+        baseHP = data.baseHP;
         baseGold = data.baseGold;
+        baseExp = data.baseExp;
 
         weapon = data.weapon;
         skill = data.skill;
         soul = data.soul;
         criticalChance = data.criticalChance;
         evasionChance = data.evasionChance;
+
+        ExpGiven = baseExp + (level * 3);
+        maxHP = baseHP + (5 * (level - 1));
+        currentHP = maxHP;
+
+        attackStat = DataToStat(attackStat);
+        defenseStat = DataToStat(defenseStat);
+        speedStat = DataToStat(speedStat);
+        luckStat = DataToStat(luckStat);
+    }
+
+    int DataToStat(int stat)
+    {
+        return (int)Mathf.Round(stat + ((7 + (stat * 3) - stat) * ((level - 1) / 19f)));
     }
 
     public void SetStatusEffect(StatusEffect status, int duration)

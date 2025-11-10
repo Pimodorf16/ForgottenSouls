@@ -16,7 +16,6 @@ MonoBehaviour:
   enemyName: Goblin
   enemySize: 0
   level: 1
-  exp: 0
   maxHP: 10
   currentHP: 10
   maxMP: 10
@@ -29,7 +28,9 @@ MonoBehaviour:
   baseCritRate: 0.1
   baseCritDamageMultiplier: 0.15
   baseDodge: 0.1
+  baseHP: 10
   baseGold: 15
+  baseExp: 15
   weapon: {fileID: 11400000, guid: 85ba46b7e8f143e4096f2c5d29ca7c78, type: 2}
   skill:
   - {fileID: 11400000, guid: dc3d78f7dfc8cb641b1875bb1a12ceac, type: 2}

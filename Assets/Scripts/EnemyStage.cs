@@ -32,12 +32,12 @@ public class EnemyStage : MonoBehaviour
 
     public void AddEnemy()
     {
-        if (waves[waves.Count].enemies.Count >= 3)
+        if (waves[waves.Count - 1].enemies.Count >= 3)
         {
             AddWave();
         }
         
-        waves[waves.Count].enemies.Add(new IndividualEnemy());
+        waves[waves.Count - 1].enemies.Add(new IndividualEnemy());
 
         RandomizeEnemy();
     }

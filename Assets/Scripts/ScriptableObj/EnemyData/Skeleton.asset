@@ -16,7 +16,6 @@ MonoBehaviour:
   enemyName: Skeleton
   enemySize: 1
   level: 1
-  exp: 0
   maxHP: 10
   currentHP: 10
   maxMP: 0
@@ -25,10 +24,13 @@ MonoBehaviour:
   defenseStat: 3
   speedStat: 4
   luckStat: 3
+  manaRecoveryOvertime: 1
   baseCritRate: 0.1
   baseCritDamageMultiplier: 0.15
   baseDodge: 0.1
+  baseHP: 10
   baseGold: 10
+  baseExp: 20
   weapon: {fileID: 11400000, guid: 4ed6dfa982c099d4f88c6205f2b0c779, type: 2}
   skill:
   - {fileID: 11400000, guid: cc618c2ba31c2d84a87c723705690f9e, type: 2}

@@ -16,7 +16,6 @@ public class EnemyData : ScriptableObject
 
     [Header("Level")]
     public int level = 1;
-    public int exp = 0;
 
     [Header("Status")]
     public int maxHP = 20;
@@ -31,8 +30,9 @@ public class EnemyData : ScriptableObject
     public float baseCritRate = 0.10f;
     public float baseCritDamageMultiplier = 0.15f;
     public float baseDodge = 0.10f;
-
+    public int baseHP = 0;
     public int baseGold;
+    public int baseExp;
 
     [Header("Weapon")]
     public Weapon weapon;

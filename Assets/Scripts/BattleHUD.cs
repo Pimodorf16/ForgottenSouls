@@ -16,11 +16,27 @@ public class BattleHUD : MonoBehaviour
     [Header("Player UI")]
     public GameObject playerTurn;
 
+    [Header("Level UP UI")]
+    public GameObject levelUpDisplay;
+    public TextMeshProUGUI levelText;
+    public TextMeshProUGUI pointText;
+    public TextMeshProUGUI hpText;
+    public TextMeshProUGUI mpText;
+    public TextMeshProUGUI attackText;
+    public TextMeshProUGUI defenseText;
+    public TextMeshProUGUI speedText;
+    public TextMeshProUGUI luckText;
+    public GameObject attackButton;
+    public GameObject defenseButton;
+    public GameObject speedButton;
+    public GameObject luckButton;
+
     [Header("Display UI")]
     public GameObject display;
     public TextMeshProUGUI diceRoll;
     public Slider hpSlider;
     public Slider mpSlider;
+    public Slider expSlider;
     public TextMeshProUGUI enemyCountText;
     public TextMeshProUGUI waveCountText;
     public TextMeshProUGUI stageCountText;
@@ -52,6 +68,10 @@ public class BattleHUD : MonoBehaviour
         hpSlider.value = c.characterData.currentHP;
         mpSlider.maxValue = c.characterData.maxMP;
         mpSlider.value = c.characterData.currentMP;
+        expSlider.maxValue = c.maxExp;
+        expSlider.value = c.exp;
+
+        SetLevelUpDisplay(c);
     }
 
     public IEnumerator SetDiceRoll(int roll)
@@ -75,6 +95,24 @@ public class BattleHUD : MonoBehaviour
         mpSlider.value = mp;
     }
 
+    public void SetExp(int exp, int maxExp)
+    {
+        expSlider.maxValue = maxExp;
+        expSlider.value = exp;
+    }
+
+    public void SetLevelUpDisplay(Character c)
+    {
+        levelText.text = "Level: " + c.level;
+        pointText.text = "Point: " + c.point;
+        hpText.text = "HP: " + c.currentHP + " / " + c.maxHP;
+        mpText.text = "MP: " + c.currentMP + " / " + c.maxMP;
+        attackText.text = "ATT: " + c.attackStat;
+        defenseText.text = "DEF: " + c.defenseStat;
+        speedText.text = "SPD: " + c.speedStat;
+        luckText.text = "LCK: " + c.luckStat;
+    }
+
     public void SetEnemyCount(int count)
     {
         enemyCountText.text = "Enemy: " + count;
@@ -93,6 +131,36 @@ public class BattleHUD : MonoBehaviour
     public void SetGoldCount(int gold)
     {
         goldCountText.text = "Gold: " + gold;
+    }
+
+    public void DisplayLevelUp(Character c)
+    {
+        SetLevelUpDisplay(c);
+
+        playerTurn.SetActive(false);
+        levelUpDisplay.SetActive(true);
+    }
+
+    public void DisplayLevelUpButtons()
+    {
+        attackButton.SetActive(true);
+        defenseButton.SetActive(true);
+        speedButton.SetActive(true);
+        luckButton.SetActive(true);
+    }
+
+    public void HideLevelUpButtons()
+    {
+        attackButton.SetActive(false);
+        defenseButton.SetActive(false);
+        speedButton.SetActive(false);
+        luckButton.SetActive(false);
+    }
+
+    public void CloseLevelUp()
+    {
+        levelUpDisplay.SetActive(false);
+        playerTurn.SetActive(true);
     }
 
     public void DisplaySkillSelectionHUD()

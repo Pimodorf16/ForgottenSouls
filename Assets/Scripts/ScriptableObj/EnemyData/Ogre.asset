@@ -16,7 +16,6 @@ MonoBehaviour:
   enemyName: Ogre
   enemySize: 2
   level: 1
-  exp: 0
   maxHP: 25
   currentHP: 25
   maxMP: 0
@@ -25,10 +24,13 @@ MonoBehaviour:
   defenseStat: 5
   speedStat: 1
   luckStat: 1
+  manaRecoveryOvertime: 1
   baseCritRate: 0.1
   baseCritDamageMultiplier: 0.15
   baseDodge: 0.1
+  baseHP: 25
   baseGold: 30
+  baseExp: 50
   weapon: {fileID: 11400000, guid: 4ed6dfa982c099d4f88c6205f2b0c779, type: 2}
   skill:
   - {fileID: 11400000, guid: a01a07f875c0b1e4b8dc5dbd05ff9bdc, type: 2}

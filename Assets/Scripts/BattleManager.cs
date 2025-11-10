@@ -74,6 +74,15 @@ public class BattleManager : MonoBehaviour
     {
         state = States.Won;
         Debug.Log("Player Wins!");
+
+        currentWave = 0;
+        stageCount++;
+        if(stageCount % 3 == 0)
+        {
+            stage.AddEnemy();
+        }
+
+        playerHUD.DisplayLevelUp(character);
     }
 
     void ChangeStateToLost()
@@ -86,6 +95,33 @@ public class BattleManager : MonoBehaviour
     {
         InstantiatePlayer();
 
+        playerHUD.SetStageCount(stageCount);
+
+        foreach (EnemyData enemyData in stage.enemyPool)
+        {
+            enemyData.level = 1;
+        }
+
+        stage.RandomizeEnemy();
+
+        playerHUD.SetWaveCount(currentWave + 1, stage.waves.Count);
+
+        foreach (IndividualEnemy enemy in stage.waves[currentWave].enemies)
+        {
+            InstantiateEnemy(enemy);
+        }
+
+        SetEnemyName();
+        SetEnemyButtonNames();
+
+        yield return new WaitForSeconds(1f);
+
+        state = States.Player;
+        PlayerTurn();
+    }
+
+    IEnumerator SetupNextStage()
+    {
         playerHUD.SetStageCount(stageCount);
 
         stage.RandomizeEnemy();
@@ -303,8 +339,42 @@ public class BattleManager : MonoBehaviour
     void PlayerAddGold(int gold)
     {
         character.gold += gold;
-
+        Debug.Log("Player Gained " + gold + " Gold!");
         playerHUD.SetGoldCount(character.gold);
+    }
+
+    void PlayerAddExp(int exp)
+    {
+        character.exp += exp;
+        Debug.Log("Player Gained " + exp + " EXP!");
+        if (character.exp >= character.maxExp)
+        {
+            character.exp -= character.maxExp;
+            PlayerLevelUp();
+        }
+
+        playerHUD.SetExp(character.exp, character.maxExp);
+    }
+
+    void PlayerLevelUp()
+    {
+        Debug.Log("Player Leveled Up!");
+
+        character.maxExp += 30;
+
+        character.level++;
+        character.point += 2;
+
+        character.maxHP += (character.level - 1) * 5;
+        playerHUD.SetHP(character.currentHP);
+
+        character.maxMP += (character.level - 1) * 2;
+        playerHUD.SetMP(character.currentMP);
+
+        foreach(EnemyData enemyData in stage.enemyPool)
+        {
+            enemyData.level++;
+        }
     }
 
     bool PlayerWonCheck()
@@ -729,7 +799,8 @@ public class BattleManager : MonoBehaviour
         Debug.Log("Killed enemy: " +  enemy.enemyName);
         
         PlayerAddGold(enemy.baseGold);
-        
+        PlayerAddExp(enemy.ExpGiven);
+
         DestroyEnemyGO(enemy);
 
         ResetEnemyButtonHUD();
@@ -749,6 +820,7 @@ public class BattleManager : MonoBehaviour
         Debug.Log("Killed enemy: " + enemies[enemyIndex].enemyName);
 
         PlayerAddGold(enemies[enemyIndex].baseGold);
+        PlayerAddExp(enemies[enemyIndex].ExpGiven);
 
         DestroyEnemyGOFromIndex(enemyIndex);
 
@@ -983,6 +1055,36 @@ public class BattleManager : MonoBehaviour
         playerGO.SetActive(false);
     }
 
+    public void OnAddStatButton(int stat)
+    {
+        character.point--;
+
+        switch (stat)
+        {
+            case 1:
+                character.attackStat++;
+                break;
+            case 2:
+                character.speedStat++;
+                break;
+            case 3:
+                character.defenseStat++;
+                break;
+            case 4:
+                character.luckStat++;
+                break;
+            default:
+                break;
+        }
+
+        playerHUD.SetLevelUpDisplay(character);
+
+        if(character.point <= 0)
+        {
+            playerHUD.HideLevelUpButtons();
+        }
+    }
+
     public void OnAttackButton()
     {
         if(state != States.Player)
@@ -1060,6 +1162,13 @@ public class BattleManager : MonoBehaviour
         ResetEnemyButtonHUD();
         ResetSkillTargetHUD();
         playerHUD.DisplayPlayerTurnHUD();
+    }
+
+    public void OnNextStageButton()
+    {
+        playerHUD.CloseLevelUp();
+
+        StartCoroutine(SetupNextStage());
     }
 
     public void StageComplete()

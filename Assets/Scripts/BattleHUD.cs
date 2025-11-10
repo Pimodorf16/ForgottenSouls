@@ -24,6 +24,7 @@ public class BattleHUD : MonoBehaviour
     public TextMeshProUGUI enemyCountText;
     public TextMeshProUGUI waveCountText;
     public TextMeshProUGUI stageCountText;
+    public TextMeshProUGUI goldCountText;
 
     [Header("Targeting UI")]
     public bool targetCreated = false;
@@ -87,6 +88,11 @@ public class BattleHUD : MonoBehaviour
     public void SetStageCount(int stageCount)
     {
         stageCountText.text = "Stage: " + stageCount;
+    }
+
+    public void SetGoldCount(int gold)
+    {
+        goldCountText.text = "Gold: " + gold;
     }
 
     public void DisplaySkillSelectionHUD()

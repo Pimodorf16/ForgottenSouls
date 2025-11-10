@@ -15,6 +15,7 @@ public class Character : MonoBehaviour
     public int level = 1;
     public int maxExp = 30;
     public int exp = 0;
+    public int gold = 0;
 
     [Header("Status")]
     public int maxHP = 20;

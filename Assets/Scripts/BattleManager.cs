@@ -300,6 +300,13 @@ public class BattleManager : MonoBehaviour
         character.maxHP -= Mathf.CeilToInt(character.maxHealthLockPercentageOverTime / 100);
     }
 
+    void PlayerAddGold(int gold)
+    {
+        character.gold += gold;
+
+        playerHUD.SetGoldCount(character.gold);
+    }
+
     bool PlayerWonCheck()
     {
         if (CheckAllEnemiesDead() == true)
@@ -557,11 +564,15 @@ public class BattleManager : MonoBehaviour
     {
         foreach (SkillEffect effect in mod.effects)
         {
-            if (Random.Range(1, 101) < effect.chance)
+            if (Random.Range(1, 101) <= effect.chance)
             {
                 Debug.Log("Applied " + effect.effect.status + " Status to " + playerHUD.targetNames[enemyIndex] + "!");
                 enemies[enemyIndex].SetStatusEffect(effect.effect, effect.duration);
                 Debug.Log("DOT = " + enemies[enemyIndex].damagePercentageOverTime);
+            }
+            else
+            {
+                Debug.Log("Failed to apply " + effect.effect.status + " Status to " + playerHUD.targetNames[enemyIndex] + "!");
             }
         }
     }
@@ -573,6 +584,7 @@ public class BattleManager : MonoBehaviour
         foreach(Enemy enemy in enemies)
         {
             ApplyStatusToEnemy(mod, index);
+            index++;
         }
     }
 
@@ -580,10 +592,14 @@ public class BattleManager : MonoBehaviour
     {
         foreach (SkillImmunity immunity in mod.immunities)
         {
-            if (Random.Range(1, 101) < immunity.chance)
+            if (Random.Range(1, 101) <= immunity.chance)
             {
-                Debug.Log("Applied " + immunity.immuneEffect.status + " Status to " + playerHUD.targetNames[enemyIndex] + "!");
+                Debug.Log("Applied " + immunity.immuneEffect.status + " Immunity to " + playerHUD.targetNames[enemyIndex] + "!");
                 enemies[enemyIndex].SetImmunity(immunity.immuneEffect, immunity.chance);
+            }
+            else
+            {
+                Debug.Log("Failed to apply " + immunity.immuneEffect.status + " Immunity to " + playerHUD.targetNames[enemyIndex] + "!");
             }
         }
     }
@@ -595,6 +611,7 @@ public class BattleManager : MonoBehaviour
         foreach (Enemy enemy in enemies)
         {
             ApplyImmunityToEnemy(mod, index);
+            index++;
         }
     }
 
@@ -691,6 +708,9 @@ public class BattleManager : MonoBehaviour
 
         index = 0;
 
+        enemiesToKill.Reverse();
+        enemyIndex.Reverse();
+
         foreach(Enemy enemy in enemiesToKill)
         {
             KillEnemy(enemy);
@@ -706,6 +726,10 @@ public class BattleManager : MonoBehaviour
 
     void KillEnemy(Enemy enemy)
     {
+        Debug.Log("Killed enemy: " +  enemy.enemyName);
+        
+        PlayerAddGold(enemy.baseGold);
+        
         DestroyEnemyGO(enemy);
 
         ResetEnemyButtonHUD();
@@ -722,6 +746,10 @@ public class BattleManager : MonoBehaviour
 
     void KillEnemyFromIndex(int enemyIndex)
     {
+        Debug.Log("Killed enemy: " + enemies[enemyIndex].enemyName);
+
+        PlayerAddGold(enemies[enemyIndex].baseGold);
+
         DestroyEnemyGOFromIndex(enemyIndex);
 
         RemoveEnemyFromListFromIndex(enemyIndex);
@@ -772,6 +800,8 @@ public class BattleManager : MonoBehaviour
 
         if(EnemyTurnInit() == false)
         {
+            int index = 0;
+            
             foreach (Enemy enemy in enemies)
             {
                 if (CheckEnemyAllowAction(enemy) == true)
@@ -783,6 +813,12 @@ public class BattleManager : MonoBehaviour
                         break;
                     }
                 }
+                else
+                {
+                    Debug.Log(playerHUD.targetNames[index] + " Cannot Act!");
+                }
+
+                index++;
 
                 yield return new WaitForSeconds(1f);
             }

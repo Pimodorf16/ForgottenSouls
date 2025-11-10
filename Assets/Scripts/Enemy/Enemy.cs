@@ -96,6 +96,8 @@ public class Enemy : MonoBehaviour
         baseCritDamageMultiplier += data.baseCritDamageMultiplier;
         baseDodge = data.baseDodge;
 
+        baseGold = data.baseGold;
+
         weapon = data.weapon;
         skill = data.skill;
         soul = data.soul;
@@ -246,7 +248,7 @@ public class Enemy : MonoBehaviour
         if(currentHP > 0)
         {
             currentHP -= damage;
-            Debug.Log(enemyName + (stationIndex + 1) + " Took " + damage + " Damage!");
+            Debug.Log(enemyName + " Took " + damage + " Damage!");
             hpSlider.value = currentHP;
         }
         else

@@ -82,6 +82,10 @@ public class BattleManager : MonoBehaviour
             stage.AddEnemy();
         }
 
+        if(character.point > 0)
+        {
+            playerHUD.DisplayLevelUpButtons();
+        }
         playerHUD.DisplayLevelUp(character);
     }
 
@@ -366,10 +370,10 @@ public class BattleManager : MonoBehaviour
         character.point += 2;
 
         character.maxHP += (character.level - 1) * 5;
-        playerHUD.SetHP(character.currentHP);
+        playerHUD.SetHP(character.currentHP, character.maxHP);
 
         character.maxMP += (character.level - 1) * 2;
-        playerHUD.SetMP(character.currentMP);
+        playerHUD.SetMP(character.currentMP, character.maxMP);
 
         foreach(EnemyData enemyData in stage.enemyPool)
         {
@@ -462,7 +466,7 @@ public class BattleManager : MonoBehaviour
         Debug.Log("Player Uses Skill: " + skillData.skillName + "!");
 
         character.UseMP(skillData.modifier[0].manaCost);
-        playerHUD.SetMP(character.currentMP);
+        playerHUD.SetMP(character.currentMP, character.maxMP);
 
         CheckSkillDamaging(skillData, 1, enemyIndex);
 
@@ -484,7 +488,7 @@ public class BattleManager : MonoBehaviour
         Debug.Log("Player Uses Skill: " + skillData.skillName + "!");
 
         character.UseMP(skillData.modifier[0].manaCost);
-        playerHUD.SetMP(character.currentMP);
+        playerHUD.SetMP(character.currentMP, character.maxMP);
 
         CheckSkillDamaging(skillData, 2, 0);
 
@@ -508,7 +512,7 @@ public class BattleManager : MonoBehaviour
         Debug.Log("Player Uses Skill: " + skillData.skillName + "!");
 
         character.UseMP(skillData.modifier[0].manaCost);
-        playerHUD.SetMP(character.currentMP);
+        playerHUD.SetMP(character.currentMP, character.maxMP);
 
         CheckSkillDamaging(skillData, 0, 0);
 
@@ -560,7 +564,7 @@ public class BattleManager : MonoBehaviour
         if (skill.modifier[0].healing == true)
         {
             int heal = character.Heal(skill.modifier[0].multiplier);
-            playerHUD.SetHP(heal);
+            playerHUD.SetHP(heal, character.maxHP);
         }
     }
 
@@ -740,7 +744,7 @@ public class BattleManager : MonoBehaviour
         int damage = character.Attack(roll);
         damage = Mathf.CeilToInt(damage * multiplier);
         character.TakeDamage(damage);
-        playerHUD.SetHP(character.currentHP);
+        playerHUD.SetHP(character.currentHP, character.maxHP);
     }
 
     public bool CheckEnemyGuardStatus(int enemyIndex)
@@ -1037,7 +1041,7 @@ public class BattleManager : MonoBehaviour
         }
 
         character.TakeDamage(damage);
-        playerHUD.SetHP(character.currentHP);
+        playerHUD.SetHP(character.currentHP, character.maxHP);
     }
 
     void CheckPlayerHP()

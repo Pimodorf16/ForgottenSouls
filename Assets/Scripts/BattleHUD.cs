@@ -85,13 +85,15 @@ public class BattleHUD : MonoBehaviour
         diceRoll.gameObject.SetActive(false);
     }
 
-    public void SetHP(int hp)
+    public void SetHP(int hp, int maxHP)
     {
+        hpSlider.maxValue = maxHP;
         hpSlider.value = hp;
     }
 
-    public void SetMP(int mp)
+    public void SetMP(int mp, int maxMP)
     {
+        mpSlider.maxValue = maxMP;
         mpSlider.value = mp;
     }
 

@@ -266,11 +266,13 @@ public class Enemy : MonoBehaviour
         {
             currentHP -= damage;
             Debug.Log(enemyName + " Took " + damage + " Damage!");
+            hpSlider.maxValue = maxHP;
             hpSlider.value = currentHP;
         }
         else
         {
             currentHP = 0;
+            hpSlider.maxValue = maxHP;
             hpSlider.value = currentHP;
         }
         

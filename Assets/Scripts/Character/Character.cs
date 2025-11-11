@@ -27,9 +27,9 @@ public class Character : MonoBehaviour
     public int defenseStat = 5;
     public int speedStat = 5;
     public int luckStat = 5;
-    public float baseCritRate = 0.10f;
+    public float baseCritRate = 0.01f;
     public float baseCritDamageMultiplier = 0.15f;
-    public float baseDodge = 0.10f;
+    public float baseDodge = 0.01f;
 
     [Header("Weapon")]
     public Weapon weapon;
@@ -95,8 +95,8 @@ public class Character : MonoBehaviour
         weapon = data.weapon;
         skill = data.skill;
         soul = data.soul;
-        criticalChance = data.criticalChance;
-        evasionChance = data.evasionChance;
+        criticalChance = (0.005f * luckStat) + baseCritRate;
+        evasionChance = (0.005f * speedStat) + baseDodge;
     }
 
     public void SetStatusEffect(StatusEffect status, int duration)

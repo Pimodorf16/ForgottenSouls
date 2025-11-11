@@ -2141,7 +2141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6661589013757506141, guid: 1998cd47115294c4c9023021311ab379, type: 3}
       propertyPath: m_text
-      value: Next Stage
+      value: Continue
       objectReference: {fileID: 0}
     - target: {fileID: 6661589013757506141, guid: 1998cd47115294c4c9023021311ab379, type: 3}
       propertyPath: m_fontSize
@@ -3123,6 +3123,8 @@ MonoBehaviour:
     - enemyData: {fileID: 0}
       stationIndex: 0
   - enemies:
+    - enemyData: {fileID: 0}
+      stationIndex: 0
     - enemyData: {fileID: 0}
       stationIndex: 0
     - enemyData: {fileID: 0}

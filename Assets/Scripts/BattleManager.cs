@@ -82,7 +82,7 @@ public class BattleManager : MonoBehaviour
             stage.AddEnemy();
         }
         
-        if(stageCount % 2 == 0)
+        if(stageCount % 2 == 1)
         {
             playerHUD.DisplayShop();
         }
@@ -91,8 +91,6 @@ public class BattleManager : MonoBehaviour
         {
             StartCoroutine(SetupNextStage());
         }
-        
-
     }
 
     void ChangeStateToLost()
@@ -337,8 +335,6 @@ public class BattleManager : MonoBehaviour
                 ChangeStateToEnemy();
             }
         }
-        
-        
     }
 
     void PlayerDOT()
@@ -399,6 +395,15 @@ public class BattleManager : MonoBehaviour
 
         character.maxMP += (character.level - 1) * 2;
         playerHUD.SetMP(character.currentMP, character.maxMP);
+
+        character.criticalChance = (0.005f * character.luckStat) + character.baseCritRate;
+        character.evasionChance = (0.005f * character.speedStat) + character.baseDodge;
+
+        if (character.level % 5 == 0)
+        {
+            character.baseCritRate += 0.01f;
+            character.baseDodge += 0.01f;
+        }
 
         foreach(EnemyData enemyData in stage.enemyPool)
         {
@@ -744,17 +749,31 @@ public class BattleManager : MonoBehaviour
 
         foreach(Enemy enemy in enemies)
         {
+            int newDamage = damage;
+
+            if (CheckPlayerCrit() == true)
+            {
+                newDamage = Mathf.CeilToInt(newDamage * 1.5f);
+            }
+
             if (CheckEnemyGuardStatus(enemyIndex) == true)
             {
-                damage -= enemy.guardValue;
+                newDamage -= enemy.guardValue;
 
-                if (damage <= 0)
+                if (newDamage <= 0)
                 {
-                    damage = 0;
+                    newDamage = 0;
                 }
             }
 
-            DamageEnemy(enemyIndex, damage);
+            if (CheckEnemyEvasion(enemyIndex) == true)
+            {
+                Debug.Log(enemies[enemyIndex].enemyName + " Dodged the attack!");
+            }
+            else if (CheckEnemyEvasion(enemyIndex) == false)
+            {
+                DamageEnemy(enemyIndex, newDamage);
+            }
             enemyIndex++;
         }
     }
@@ -763,6 +782,12 @@ public class BattleManager : MonoBehaviour
     {
         int damage = character.Attack(roll);
         damage = Mathf.CeilToInt(damage * multiplier);
+
+        if (CheckPlayerCrit() == true)
+        {
+            damage = Mathf.CeilToInt(damage * 1.5f);
+        }
+
         if (CheckEnemyGuardStatus(enemyIndex) == true)
         {
             damage -= enemies[enemyIndex].guardValue;
@@ -773,15 +798,39 @@ public class BattleManager : MonoBehaviour
             }
         }
 
-        DamageEnemy(enemyIndex, damage);
+        if(CheckEnemyEvasion(enemyIndex) == true)
+        {
+            Debug.Log(enemies[enemyIndex].enemyName + " Dodged the attack!");
+        }else if(CheckEnemyEvasion(enemyIndex) == false)
+        {
+            DamageEnemy(enemyIndex, damage);
+        }
     }
 
     void AttackSelf(int roll, float multiplier)
     {
         int damage = character.Attack(roll);
         damage = Mathf.CeilToInt(damage * multiplier);
+
+        if (CheckPlayerCrit() == true)
+        {
+            damage = Mathf.CeilToInt(damage * 1.5f);
+        }
+
         character.TakeDamage(damage);
         playerHUD.SetHP(character.currentHP, character.maxHP);
+    }
+
+    bool CheckPlayerCrit()
+    {
+        if(Random.Range(1f, 101f) <= character.criticalChance)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public bool CheckEnemyGuardStatus(int enemyIndex)
@@ -792,6 +841,18 @@ public class BattleManager : MonoBehaviour
     public void DamageEnemy(int enemyIndex, int damage)
     {
         enemies[enemyIndex].TakeDamage(damage);
+    }
+
+    bool CheckEnemyEvasion(int enemyIndex)
+    {
+        if (Random.Range(1f, 101f) <= enemies[enemyIndex].evasionChance)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     void CheckEnemyHP(int enemyIndex)
@@ -1042,8 +1103,16 @@ public class BattleManager : MonoBehaviour
         int roll = RollEnemyDice(enemy);
 
         ShowDiceRoll(roll);
-        AttackPlayer(enemy, roll);
-        CheckPlayerHP();
+
+        if(CheckPlayerEvasion() == true)
+        {
+            Debug.Log("Player Dodged the attack from " + enemy.enemyName + "!");
+        }
+        else if(CheckPlayerEvasion() == false)
+        {
+            AttackPlayer(enemy, roll);
+            CheckPlayerHP();
+        }
 
         yield return new WaitForSeconds(1f);
     }
@@ -1066,10 +1135,28 @@ public class BattleManager : MonoBehaviour
         return enemy.Roll();
     }
 
+    bool CheckEnemyCrit(Enemy enemy)
+    {
+        if (Random.Range(1f, 101f) <= enemy.criticalChance)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     void AttackPlayer(Enemy enemy, int roll)
     {
         int damage = enemy.Attack(roll);
         int guard = character.guardValue;
+
+        if(CheckEnemyCrit(enemy) == true)
+        {
+            damage = Mathf.CeilToInt(damage * 1.5f);
+        }
+
         damage -= guard;
 
         if (damage < 0)
@@ -1079,6 +1166,18 @@ public class BattleManager : MonoBehaviour
 
         character.TakeDamage(damage);
         playerHUD.SetHP(character.currentHP, character.maxHP);
+    }
+
+    bool CheckPlayerEvasion()
+    {
+        if (Random.Range(1f, 101f) <= character.evasionChance)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     void CheckPlayerHP()

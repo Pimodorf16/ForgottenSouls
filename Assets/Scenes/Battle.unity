@@ -3162,7 +3162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605e1c2638c9dfd469a8119c4c9ea33a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 9192916337472220444, guid: bf23ca7fdaf65bc41937d271a44bda94, type: 3}
+  playerPrefab: {fileID: 251578849029772132, guid: c5d103427aaf097498828ce7a52e8a0c, type: 3}
   enemyPrefab: {fileID: 7462496896560041147, guid: d2f721802f33f604a9b3aa26af3fe4d1, type: 3}
   state: 0
   stage: {fileID: 514856588}
@@ -4264,7 +4264,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 0000000033827d23
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -9585,7 +9585,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 595427891
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!1 &1968894458
@@ -10391,7 +10391,7 @@ Transform:
   m_GameObject: {fileID: 2128495674}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: -1, z: 0}
+  m_LocalPosition: {x: -5.25, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10725,8 +10725,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 2045444556}
   - {fileID: 514856591}
+  - {fileID: 1949167215}
   - {fileID: 282768614}
   - {fileID: 824055378}
   - {fileID: 710659057}
-  - {fileID: 1949167215}
   - {fileID: 626089548}

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Character : MonoBehaviour
 {
     public CharacterData characterData;
-    public GameObject characterPrefab;
+    public Animator animator;
 
     [Header("Character")]
     public string characterName;
@@ -70,6 +70,8 @@ public class Character : MonoBehaviour
     {
         LoadDataValues(characterData);
         
+        animator = GetComponent<Animator>();
+
         currentHP = maxHP;
         currentMP = maxMP;
     }
@@ -115,7 +117,15 @@ public class Character : MonoBehaviour
                 allowGuard = status.allowGuard;
             }
 
-            damageOverTime += status.damageOverTime;
+            if(allowAction == false)
+            {
+                animator.speed = 0f;
+            }else if(allowAction == true)
+            {
+                animator.speed = 1f;
+            }
+
+                damageOverTime += status.damageOverTime;
             damagePercentageOverTime += status.damagePercentageOverTime;
             healOverTime += status.healOverTime;
             healPercentageOverTime += status.healPercentageOverTime;
@@ -139,6 +149,11 @@ public class Character : MonoBehaviour
         if (status.allowGuard == false)
         {
             allowGuard = true;
+        }
+
+        if (allowAction == true)
+        {
+            animator.speed = 1f;
         }
 
         damageOverTime -= status.damageOverTime;

@@ -122,6 +122,11 @@ public class BattleManager : MonoBehaviour
         SetEnemyName();
         SetEnemyButtonNames();
 
+        if(state != States.Lost)
+        {
+            character.animator.SetBool("Dead", false);
+        }
+
         yield return new WaitForSeconds(1f);
 
         state = States.Player;
@@ -462,6 +467,7 @@ public class BattleManager : MonoBehaviour
     void ResetPlayerGuard()
     {
         character.guarding = false;
+        character.animator.SetBool("Guarding", false);
         character.guardValue = 0;
     }
     
@@ -472,6 +478,9 @@ public class BattleManager : MonoBehaviour
         int roll = RollCharacterDice();
 
         ShowDiceRoll(roll);
+
+        character.animator.SetTrigger("Attack");
+        yield return new WaitForSeconds(0.75f);
 
         AttackEnemy(enemyIndex, roll, 1f);
         CheckEnemyHP(enemyIndex);
@@ -487,6 +496,8 @@ public class BattleManager : MonoBehaviour
     IEnumerator PlayerGuard()
     {
         Debug.Log("Player Guards!");
+
+        character.animator.SetBool("Guarding", true);
 
         character.guarding = true;
         int roll = RollCharacterDice();
@@ -510,6 +521,9 @@ public class BattleManager : MonoBehaviour
         character.UseMP(skillData.modifier[0].manaCost);
         playerHUD.SetMP(character.currentMP, character.maxMP);
 
+        character.animator.SetTrigger("Skill");
+        yield return new WaitForSeconds(0.75f);
+
         CheckSkillDamaging(skillData, 1, enemyIndex);
 
         CheckSkillEffects(skillData, 1, enemyIndex);
@@ -529,16 +543,20 @@ public class BattleManager : MonoBehaviour
         Skill skillData = character.skill[skill];
         Debug.Log("Player Uses Skill: " + skillData.skillName + "!");
 
+        playerHUD.DisplayPlayerTurnHUD();
+
+        character.animator.SetTrigger("Skill");
+
         character.UseMP(skillData.modifier[0].manaCost);
         playerHUD.SetMP(character.currentMP, character.maxMP);
+
+        yield return new WaitForSeconds(0.5f);
 
         CheckSkillDamaging(skillData, 2, 0);
 
         CheckSkillEffects(skillData, 2, 0);
 
         CheckSkillImmunities(skillData, 2, 0);
-
-        playerHUD.DisplayPlayerTurnHUD();
 
         yield return new WaitForSeconds(1f);
 
@@ -553,8 +571,12 @@ public class BattleManager : MonoBehaviour
         Skill skillData = character.skill[skill];
         Debug.Log("Player Uses Skill: " + skillData.skillName + "!");
 
+        character.animator.SetTrigger("Skill");
+
         character.UseMP(skillData.modifier[0].manaCost);
         playerHUD.SetMP(character.currentMP, character.maxMP);
+
+        yield return new WaitForSeconds(0.85f);
 
         CheckSkillDamaging(skillData, 0, 0);
 
@@ -660,6 +682,10 @@ public class BattleManager : MonoBehaviour
             {
                 Debug.Log("Applied " + effect.effect.status + " Status to Player!");
                 character.SetStatusEffect(effect.effect, effect.duration);
+            }
+            else
+            {
+                Debug.Log("Failed to apply " + effect.effect.status + " Status!");
             }
         }
     }
@@ -1111,10 +1137,16 @@ public class BattleManager : MonoBehaviour
         else if(CheckPlayerEvasion() == false)
         {
             AttackPlayer(enemy, roll);
+
+            if(character.allowAction == true)
+            {
+                character.animator.SetTrigger("Hurt");
+            }
+
             CheckPlayerHP();
         }
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
     }
 
     IEnumerator EnemyGuard(Enemy enemy)
@@ -1184,7 +1216,9 @@ public class BattleManager : MonoBehaviour
     {
         if (character.currentHP <= 0)
         {
-            DeactivatePlayerGO();
+            character.animator.SetBool("Dead", true);
+
+            //DeactivatePlayerGO();
 
             ChangeStateToLost();
         }

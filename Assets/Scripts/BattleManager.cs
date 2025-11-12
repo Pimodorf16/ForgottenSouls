@@ -97,6 +97,7 @@ public class BattleManager : MonoBehaviour
     {
         state = States.Lost;
         Debug.Log("Player Lost!");
+        OnPlayerDeath();
     }
 
     IEnumerator SetupBattle()
@@ -1380,6 +1381,21 @@ public class BattleManager : MonoBehaviour
             Debug.Log("Insufficient Gold!");
         }
 
+    }
+
+    public void OnPlayerDeath()
+    {
+        playerHUD.DisplayGameOver();
+    }
+
+    public void OnPause()
+    {
+        playerHUD.DisplayPauseMenu();
+    }
+
+    public void OnClosePause()
+    {
+        playerHUD.ClosePauseMenu();
     }
 
     public void StageComplete()

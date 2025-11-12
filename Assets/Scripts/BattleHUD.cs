@@ -66,6 +66,12 @@ public class BattleHUD : MonoBehaviour
     public bool theShopState = false;
     public GameObject theShop;
 
+    [Header("GameOver UI")]
+    public GameObject gameOver;
+
+    [Header("Pause UI")]
+    public GameObject pauseMenu;
+
     public void SetHUD(Character c)
     {
         hpSlider.maxValue = c.characterData.maxHP;
@@ -137,6 +143,36 @@ public class BattleHUD : MonoBehaviour
     public void SetGoldCount(int gold)
     {
         goldCountText.text = "Gold: " + gold;
+    }
+
+    public void DisplayPauseMenu()
+    {
+        pauseMenu.SetActive(true);
+        GamePaused();
+    }
+
+    public void GamePaused()
+    {
+        Time.timeScale = 0f;
+
+    }
+
+    public void GameResumed()
+    {
+        Time.timeScale = 1f;
+
+    }
+
+    public void ClosePauseMenu()
+    {
+        pauseMenu.SetActive(false);
+        GameResumed();
+    }
+
+    public void DisplayGameOver()
+    {
+        playerTurn.SetActive(false);
+        gameOver.SetActive(true);
     }
 
     public void DisplayShop()

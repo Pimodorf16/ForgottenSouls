@@ -28,6 +28,8 @@ public class EnemyStage : MonoBehaviour
     public void AddWave()
     {
         waves.Add(new Waves());
+
+        waves[waves.Count - 1].enemies.Add(new IndividualEnemy());
     }
 
     public void AddEnemy()
@@ -36,8 +38,10 @@ public class EnemyStage : MonoBehaviour
         {
             AddWave();
         }
-        
-        waves[waves.Count - 1].enemies.Add(new IndividualEnemy());
+        else
+        {
+            waves[waves.Count - 1].enemies.Add(new IndividualEnemy());
+        }
 
         RandomizeEnemy();
     }
@@ -46,7 +50,7 @@ public class EnemyStage : MonoBehaviour
 [System.Serializable]
 public class Waves
 {
-    public List<IndividualEnemy> enemies;
+    public List<IndividualEnemy> enemies = new List<IndividualEnemy>();
 }
 
 [System.Serializable]

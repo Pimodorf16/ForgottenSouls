@@ -93,9 +93,9 @@ public class Enemy : MonoBehaviour
         defenseStat = data.defenseStat;
         speedStat = data.speedStat;
         luckStat = data.luckStat;
-        baseCritRate = data.baseCritRate;
+        baseCritRate = data.baseCritRate + (data.baseCritRate * (level / 5));
         baseCritDamageMultiplier += data.baseCritDamageMultiplier;
-        baseDodge = data.baseDodge;
+        baseDodge = data.baseDodge + (data.baseDodge * (level / 5));
 
         baseHP = data.baseHP;
         baseGold = data.baseGold;
@@ -104,8 +104,8 @@ public class Enemy : MonoBehaviour
         weapon = data.weapon;
         skill = data.skill;
         soul = data.soul;
-        criticalChance = data.criticalChance;
-        evasionChance = data.evasionChance;
+        criticalChance = (0.005f * luckStat) + baseCritRate;
+        evasionChance = (0.005f * speedStat) + baseDodge;
 
         ExpGiven = baseExp + (level * 3);
         maxHP = baseHP + (5 * (level - 1));
@@ -350,7 +350,7 @@ public class Enemy : MonoBehaviour
         float rng = RollValueConversion(roll);
         float guard = enemyData.defenseStat * 2 * rng;
 
-        Debug.Log(enemyName + (stationIndex + 1) + " Guard = " + guard);
+        Debug.Log(enemyName + " Guard = " + guard);
 
         guard = Mathf.CeilToInt(guard);
 

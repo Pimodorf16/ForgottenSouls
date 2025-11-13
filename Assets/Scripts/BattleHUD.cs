@@ -62,6 +62,16 @@ public class BattleHUD : MonoBehaviour
     public GameObject playerButtonPrefab;
     public List<GameObject> enemySkillButton = new List<GameObject>();
 
+    [Header("Shop UI")]
+    public bool theShopState = false;
+    public GameObject theShop;
+
+    [Header("GameOver UI")]
+    public GameObject gameOver;
+
+    [Header("Pause UI")]
+    public GameObject pauseMenu;
+
     public void SetHUD(Character c)
     {
         hpSlider.maxValue = c.characterData.maxHP;
@@ -133,6 +143,50 @@ public class BattleHUD : MonoBehaviour
     public void SetGoldCount(int gold)
     {
         goldCountText.text = "Gold: " + gold;
+    }
+
+    public void DisplayPauseMenu()
+    {
+        pauseMenu.SetActive(true);
+        GamePaused();
+    }
+
+    public void GamePaused()
+    {
+        Time.timeScale = 0f;
+
+    }
+
+    public void GameResumed()
+    {
+        Time.timeScale = 1f;
+
+    }
+
+    public void ClosePauseMenu()
+    {
+        pauseMenu.SetActive(false);
+        GameResumed();
+    }
+
+    public void DisplayGameOver()
+    {
+        playerTurn.SetActive(false);
+        gameOver.SetActive(true);
+    }
+
+    public void DisplayShop()
+    {
+        playerTurn.SetActive(false);
+        theShopState = true;
+        theShop.SetActive(true);
+    }
+
+    public void CloseShop()
+    {
+        theShop.SetActive(false);
+        theShopState = false;
+        playerTurn.SetActive(true);
     }
 
     public void DisplayLevelUp(Character c)

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Character : MonoBehaviour
 {
     public CharacterData characterData;
-    public GameObject characterPrefab;
+    public Animator animator;
 
     [Header("Character")]
     public string characterName;
@@ -27,9 +27,9 @@ public class Character : MonoBehaviour
     public int defenseStat = 5;
     public int speedStat = 5;
     public int luckStat = 5;
-    public float baseCritRate = 0.10f;
+    public float baseCritRate = 0.01f;
     public float baseCritDamageMultiplier = 0.15f;
-    public float baseDodge = 0.10f;
+    public float baseDodge = 0.01f;
 
     [Header("Weapon")]
     public Weapon weapon;
@@ -70,6 +70,8 @@ public class Character : MonoBehaviour
     {
         LoadDataValues(characterData);
         
+        animator = GetComponent<Animator>();
+
         currentHP = maxHP;
         currentMP = maxMP;
     }
@@ -95,8 +97,8 @@ public class Character : MonoBehaviour
         weapon = data.weapon;
         skill = data.skill;
         soul = data.soul;
-        criticalChance = data.criticalChance;
-        evasionChance = data.evasionChance;
+        criticalChance = (0.005f * luckStat) + baseCritRate;
+        evasionChance = (0.005f * speedStat) + baseDodge;
     }
 
     public void SetStatusEffect(StatusEffect status, int duration)
@@ -115,7 +117,15 @@ public class Character : MonoBehaviour
                 allowGuard = status.allowGuard;
             }
 
-            damageOverTime += status.damageOverTime;
+            if(allowAction == false)
+            {
+                animator.speed = 0f;
+            }else if(allowAction == true)
+            {
+                animator.speed = 1f;
+            }
+
+                damageOverTime += status.damageOverTime;
             damagePercentageOverTime += status.damagePercentageOverTime;
             healOverTime += status.healOverTime;
             healPercentageOverTime += status.healPercentageOverTime;
@@ -139,6 +149,11 @@ public class Character : MonoBehaviour
         if (status.allowGuard == false)
         {
             allowGuard = true;
+        }
+
+        if (allowAction == true)
+        {
+            animator.speed = 1f;
         }
 
         damageOverTime -= status.damageOverTime;
@@ -168,6 +183,22 @@ public class Character : MonoBehaviour
             }
         }
 
+        foreach (StatusEffect effect in statusEffectsToRemove)
+        {
+            statusEffects.Remove(effect);
+        }
+
+        statusEffectsToRemove.Clear();
+    }
+
+    public void ClearAllStatusEffect()
+    {
+        foreach (StatusEffect effect in statusEffects)
+        {
+            RemoveStatusEffect(effect);
+            statusEffectsToRemove.Add(effect);
+        }
+        
         foreach (StatusEffect effect in statusEffectsToRemove)
         {
             statusEffects.Remove(effect);
@@ -282,6 +313,7 @@ public class Character : MonoBehaviour
     public int Roll()
     {
         int result = Random.Range(1, 7);
+        Debug.Log("Character roll = " + result);
         return result;
     }
 

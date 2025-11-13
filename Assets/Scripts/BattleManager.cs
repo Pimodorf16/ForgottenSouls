@@ -81,18 +81,23 @@ public class BattleManager : MonoBehaviour
         {
             stage.AddEnemy();
         }
-
-        if(character.point > 0)
+        
+        if(stageCount % 2 == 1)
         {
-            playerHUD.DisplayLevelUpButtons();
+            playerHUD.DisplayShop();
         }
-        playerHUD.DisplayLevelUp(character);
+        
+        if(playerHUD.theShopState == false)
+        {
+            StartCoroutine(SetupNextStage());
+        }
     }
 
     void ChangeStateToLost()
     {
         state = States.Lost;
         Debug.Log("Player Lost!");
+        OnPlayerDeath();
     }
 
     IEnumerator SetupBattle()
@@ -117,6 +122,11 @@ public class BattleManager : MonoBehaviour
 
         SetEnemyName();
         SetEnemyButtonNames();
+
+        if(state != States.Lost)
+        {
+            character.animator.SetBool("Dead", false);
+        }
 
         yield return new WaitForSeconds(1f);
 
@@ -317,18 +327,19 @@ public class BattleManager : MonoBehaviour
         character.CheckStatusEffectDuration();
         PlayerDOT();
         CheckPlayerHP();
-        PlayerWonCheck();
-        
-        if (character.allowAction == true)
+        if (PlayerWonCheck() == false)
         {
-            ResetEnemyButtonHUD();
-            ResetSkillTargetHUD();
-            playerHUD.DisplayPlayerTurnHUD();
-        }
-        else
-        {
-            Debug.Log("Cannot Move! Turn Skipped!");
-            ChangeStateToEnemy();
+            if (character.allowAction == true)
+            {
+                ResetEnemyButtonHUD();
+                ResetSkillTargetHUD();
+                playerHUD.DisplayPlayerTurnHUD();
+            }
+            else
+            {
+                Debug.Log("Cannot Move! Turn Skipped!");
+                ChangeStateToEnemy();
+            }
         }
     }
 
@@ -345,6 +356,22 @@ public class BattleManager : MonoBehaviour
         character.gold += gold;
         Debug.Log("Player Gained " + gold + " Gold!");
         playerHUD.SetGoldCount(character.gold);
+    }
+
+    bool PlayerUseGold(int gold)
+    {
+        if (gold <= character.gold)
+        {
+            character.gold -= gold;
+            Debug.Log("Player Used " + gold + " Gold!");
+            playerHUD.SetGoldCount(character.gold);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
     }
 
     void PlayerAddExp(int exp)
@@ -375,6 +402,15 @@ public class BattleManager : MonoBehaviour
         character.maxMP += (character.level - 1) * 2;
         playerHUD.SetMP(character.currentMP, character.maxMP);
 
+        character.criticalChance = (0.005f * character.luckStat) + character.baseCritRate;
+        character.evasionChance = (0.005f * character.speedStat) + character.baseDodge;
+
+        if (character.level % 5 == 0)
+        {
+            character.baseCritRate += 0.01f;
+            character.baseDodge += 0.01f;
+        }
+
         foreach(EnemyData enemyData in stage.enemyPool)
         {
             enemyData.level++;
@@ -385,7 +421,8 @@ public class BattleManager : MonoBehaviour
     {
         if (CheckAllEnemiesDead() == true)
         {
-            WaveCheck();
+            ShowPlayerLevelUp();
+            //WaveCheck();
             return true;
         }
         else
@@ -398,12 +435,22 @@ public class BattleManager : MonoBehaviour
     {
         if(stage.waves.Count > currentWave + 1)
         {
+            //ShowPlayerLevelUp();
             StartCoroutine(SpawnNextWave());
         }
         else
         {
             ChangeStateToWon();
         }
+    }
+
+    void ShowPlayerLevelUp()
+    {
+        if(character.point > 0)
+        {
+            playerHUD.DisplayLevelUpButtons();
+        }
+        playerHUD.DisplayLevelUp(character);
     }
 
     void PlayerTarget()
@@ -421,6 +468,7 @@ public class BattleManager : MonoBehaviour
     void ResetPlayerGuard()
     {
         character.guarding = false;
+        character.animator.SetBool("Guarding", false);
         character.guardValue = 0;
     }
     
@@ -431,6 +479,10 @@ public class BattleManager : MonoBehaviour
         int roll = RollCharacterDice();
 
         ShowDiceRoll(roll);
+
+        character.animator.SetTrigger("Attack");
+        yield return new WaitForSeconds(0.75f);
+
         AttackEnemy(enemyIndex, roll, 1f);
         CheckEnemyHP(enemyIndex);
 
@@ -445,6 +497,8 @@ public class BattleManager : MonoBehaviour
     IEnumerator PlayerGuard()
     {
         Debug.Log("Player Guards!");
+
+        character.animator.SetBool("Guarding", true);
 
         character.guarding = true;
         int roll = RollCharacterDice();
@@ -468,6 +522,9 @@ public class BattleManager : MonoBehaviour
         character.UseMP(skillData.modifier[0].manaCost);
         playerHUD.SetMP(character.currentMP, character.maxMP);
 
+        character.animator.SetTrigger("Skill");
+        yield return new WaitForSeconds(0.75f);
+
         CheckSkillDamaging(skillData, 1, enemyIndex);
 
         CheckSkillEffects(skillData, 1, enemyIndex);
@@ -487,16 +544,20 @@ public class BattleManager : MonoBehaviour
         Skill skillData = character.skill[skill];
         Debug.Log("Player Uses Skill: " + skillData.skillName + "!");
 
+        playerHUD.DisplayPlayerTurnHUD();
+
+        character.animator.SetTrigger("Skill");
+
         character.UseMP(skillData.modifier[0].manaCost);
         playerHUD.SetMP(character.currentMP, character.maxMP);
+
+        yield return new WaitForSeconds(0.5f);
 
         CheckSkillDamaging(skillData, 2, 0);
 
         CheckSkillEffects(skillData, 2, 0);
 
         CheckSkillImmunities(skillData, 2, 0);
-
-        playerHUD.DisplayPlayerTurnHUD();
 
         yield return new WaitForSeconds(1f);
 
@@ -511,8 +572,12 @@ public class BattleManager : MonoBehaviour
         Skill skillData = character.skill[skill];
         Debug.Log("Player Uses Skill: " + skillData.skillName + "!");
 
+        character.animator.SetTrigger("Skill");
+
         character.UseMP(skillData.modifier[0].manaCost);
         playerHUD.SetMP(character.currentMP, character.maxMP);
+
+        yield return new WaitForSeconds(0.85f);
 
         CheckSkillDamaging(skillData, 0, 0);
 
@@ -619,6 +684,10 @@ public class BattleManager : MonoBehaviour
                 Debug.Log("Applied " + effect.effect.status + " Status to Player!");
                 character.SetStatusEffect(effect.effect, effect.duration);
             }
+            else
+            {
+                Debug.Log("Failed to apply " + effect.effect.status + " Status!");
+            }
         }
     }
 
@@ -707,17 +776,31 @@ public class BattleManager : MonoBehaviour
 
         foreach(Enemy enemy in enemies)
         {
+            int newDamage = damage;
+
+            if (CheckPlayerCrit() == true)
+            {
+                newDamage = Mathf.CeilToInt(newDamage * 1.5f);
+            }
+
             if (CheckEnemyGuardStatus(enemyIndex) == true)
             {
-                damage -= enemy.guardValue;
+                newDamage -= enemy.guardValue;
 
-                if (damage <= 0)
+                if (newDamage <= 0)
                 {
-                    damage = 0;
+                    newDamage = 0;
                 }
             }
 
-            DamageEnemy(enemyIndex, damage);
+            if (CheckEnemyEvasion(enemyIndex) == true)
+            {
+                Debug.Log(enemies[enemyIndex].enemyName + " Dodged the attack!");
+            }
+            else if (CheckEnemyEvasion(enemyIndex) == false)
+            {
+                DamageEnemy(enemyIndex, newDamage);
+            }
             enemyIndex++;
         }
     }
@@ -726,6 +809,12 @@ public class BattleManager : MonoBehaviour
     {
         int damage = character.Attack(roll);
         damage = Mathf.CeilToInt(damage * multiplier);
+
+        if (CheckPlayerCrit() == true)
+        {
+            damage = Mathf.CeilToInt(damage * 1.5f);
+        }
+
         if (CheckEnemyGuardStatus(enemyIndex) == true)
         {
             damage -= enemies[enemyIndex].guardValue;
@@ -736,15 +825,39 @@ public class BattleManager : MonoBehaviour
             }
         }
 
-        DamageEnemy(enemyIndex, damage);
+        if(CheckEnemyEvasion(enemyIndex) == true)
+        {
+            Debug.Log(enemies[enemyIndex].enemyName + " Dodged the attack!");
+        }else if(CheckEnemyEvasion(enemyIndex) == false)
+        {
+            DamageEnemy(enemyIndex, damage);
+        }
     }
 
     void AttackSelf(int roll, float multiplier)
     {
         int damage = character.Attack(roll);
         damage = Mathf.CeilToInt(damage * multiplier);
+
+        if (CheckPlayerCrit() == true)
+        {
+            damage = Mathf.CeilToInt(damage * 1.5f);
+        }
+
         character.TakeDamage(damage);
         playerHUD.SetHP(character.currentHP, character.maxHP);
+    }
+
+    bool CheckPlayerCrit()
+    {
+        if(Random.Range(1f, 101f) <= character.criticalChance)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public bool CheckEnemyGuardStatus(int enemyIndex)
@@ -755,6 +868,18 @@ public class BattleManager : MonoBehaviour
     public void DamageEnemy(int enemyIndex, int damage)
     {
         enemies[enemyIndex].TakeDamage(damage);
+    }
+
+    bool CheckEnemyEvasion(int enemyIndex)
+    {
+        if (Random.Range(1f, 101f) <= enemies[enemyIndex].evasionChance)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     void CheckEnemyHP(int enemyIndex)
@@ -1005,10 +1130,24 @@ public class BattleManager : MonoBehaviour
         int roll = RollEnemyDice(enemy);
 
         ShowDiceRoll(roll);
-        AttackPlayer(enemy, roll);
-        CheckPlayerHP();
 
-        yield return new WaitForSeconds(1f);
+        if(CheckPlayerEvasion() == true)
+        {
+            Debug.Log("Player Dodged the attack from " + enemy.enemyName + "!");
+        }
+        else if(CheckPlayerEvasion() == false)
+        {
+            AttackPlayer(enemy, roll);
+
+            if(character.allowAction == true)
+            {
+                character.animator.SetTrigger("Hurt");
+            }
+
+            CheckPlayerHP();
+        }
+
+        yield return new WaitForSeconds(3f);
     }
 
     IEnumerator EnemyGuard(Enemy enemy)
@@ -1029,10 +1168,28 @@ public class BattleManager : MonoBehaviour
         return enemy.Roll();
     }
 
+    bool CheckEnemyCrit(Enemy enemy)
+    {
+        if (Random.Range(1f, 101f) <= enemy.criticalChance)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     void AttackPlayer(Enemy enemy, int roll)
     {
         int damage = enemy.Attack(roll);
         int guard = character.guardValue;
+
+        if(CheckEnemyCrit(enemy) == true)
+        {
+            damage = Mathf.CeilToInt(damage * 1.5f);
+        }
+
         damage -= guard;
 
         if (damage < 0)
@@ -1044,11 +1201,25 @@ public class BattleManager : MonoBehaviour
         playerHUD.SetHP(character.currentHP, character.maxHP);
     }
 
+    bool CheckPlayerEvasion()
+    {
+        if (Random.Range(1f, 101f) <= character.evasionChance)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     void CheckPlayerHP()
     {
         if (character.currentHP <= 0)
         {
-            DeactivatePlayerGO();
+            character.animator.SetBool("Dead", true);
+
+            //DeactivatePlayerGO();
 
             ChangeStateToLost();
         }
@@ -1172,7 +1343,59 @@ public class BattleManager : MonoBehaviour
     {
         playerHUD.CloseLevelUp();
 
+        //StartCoroutine(SpawnNextWave());
+        WaveCheck();
+    }
+
+    public void OnCloseShopbutton()
+    {
+        playerHUD.CloseShop();
         StartCoroutine(SetupNextStage());
+    }
+
+    public void OnBuyingPotion()
+    {
+        int goldcost = 30;
+        float potionHeal = 0.5f;
+        if (PlayerUseGold(goldcost) == true)
+        {
+            int heal = character.Heal(potionHeal);
+            playerHUD.SetHP(heal, character.maxHP);
+        }
+        else
+        {
+            Debug.Log("Insufficient Gold!");
+        }
+
+    }
+    
+    public void OnBuyingAntidote()
+    {
+        int goldcost = 30;
+        if (PlayerUseGold(goldcost) == true)
+        {
+            character.ClearAllStatusEffect();
+        }
+        else
+        {
+            Debug.Log("Insufficient Gold!");
+        }
+
+    }
+
+    public void OnPlayerDeath()
+    {
+        playerHUD.DisplayGameOver();
+    }
+
+    public void OnPause()
+    {
+        playerHUD.DisplayPauseMenu();
+    }
+
+    public void OnClosePause()
+    {
+        playerHUD.ClosePauseMenu();
     }
 
     public void StageComplete()

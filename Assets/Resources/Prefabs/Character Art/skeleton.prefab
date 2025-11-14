@@ -251,7 +251,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 253}
-  m_SizeDelta: {x: 168.33, y: 168.33}
+  m_SizeDelta: {x: 80, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8955754071478593207
 CanvasRenderer:
@@ -281,7 +281,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 2082517912, guid: 343790b9b36d7e44ca54dfd09be109f1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -582,7 +582,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6826183834643004041}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.0000015459952, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0000023506582, w: 1}
   m_LocalPosition: {x: 0.93, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -954,7 +954,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8071435182147783787}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.077724315, w: 0.9969749}
+  m_LocalRotation: {x: -0, y: -0, z: -0.07772422, w: 0.99697495}
   m_LocalPosition: {x: 0.958, y: -0.009, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1043,7 +1043,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6995105295723587623, guid: 212ea0673c0d4fb41bd6df9654929089, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.080119
+      value: 0.080119796
       objectReference: {fileID: 0}
     - target: {fileID: -6995105295723587623, guid: 212ea0673c0d4fb41bd6df9654929089, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1051,7 +1051,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6995105295723587623, guid: 212ea0673c0d4fb41bd6df9654929089, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.99678534
+      value: 0.9967853
       objectReference: {fileID: 0}
     - target: {fileID: -6375583528858144561, guid: 212ea0673c0d4fb41bd6df9654929089, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1139,7 +1139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6042486129318156846, guid: 212ea0673c0d4fb41bd6df9654929089, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.19890204
+      value: 0.19890194
       objectReference: {fileID: 0}
     - target: {fileID: 6042486129318156846, guid: 212ea0673c0d4fb41bd6df9654929089, type: 3}
       propertyPath: m_LocalRotation.y

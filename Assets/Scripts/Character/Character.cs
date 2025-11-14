@@ -76,6 +76,11 @@ public class Character : MonoBehaviour
         currentMP = maxMP;
     }
 
+    public void PlayTheSFX(int index)
+    {
+        GetComponent<PlaySound>().PlayByIndex(index);
+    }
+
     public void LoadDataValues(CharacterData data)
     {
         characterName = data.characterName;
@@ -299,7 +304,7 @@ public class Character : MonoBehaviour
         damage *= damageMultiplier;
 
         Debug.Log("Damage = " + damage);
-        GetComponent<PlaySound>().PlayByIndex(0);
+        PlayTheSFX(0);
         damage = Mathf.CeilToInt(damage);
 
         return (int)damage;
@@ -345,7 +350,7 @@ public class Character : MonoBehaviour
             Debug.Log("Player Took " + damage + " Damage!");
             if (currentHP < pastHP)
             {
-                GetComponent<PlaySound>().PlayByIndex(0);
+                PlayTheSFX(0);
             }
         }
         else
@@ -369,6 +374,16 @@ public class Character : MonoBehaviour
             currentHP = maxHP;
         }
         return currentHP;
+    }
+
+    public void RegenMP(int regen)
+    {
+        currentMP += regen;
+        Debug.Log("Restore" + regen + " Mana!");
+        if(currentMP > maxMP)
+        {
+            currentMP = maxMP;
+        }
     }
 
 

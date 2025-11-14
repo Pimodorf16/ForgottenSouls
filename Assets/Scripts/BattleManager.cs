@@ -337,6 +337,8 @@ public class BattleManager : MonoBehaviour
         {
             if (character.allowAction == true)
             {
+                character.RegenMP(2);
+                playerHUD.SetMP(character.currentMP, character.maxMP);
                 ResetEnemyButtonHUD();
                 ResetSkillTargetHUD();
                 playerHUD.DisplayPlayerTurnHUD();
@@ -404,10 +406,10 @@ public class BattleManager : MonoBehaviour
         character.level++;
         character.point += 2;
 
-        character.maxHP += (character.level - 1) * 5;
+        character.maxHP += 5;
         playerHUD.SetHP(character.currentHP, character.maxHP);
 
-        character.maxMP += (character.level - 1) * 2;
+        character.maxMP += 2;
         playerHUD.SetMP(character.currentMP, character.maxMP);
 
         character.criticalChance = (0.005f * character.luckStat) + character.baseCritRate;

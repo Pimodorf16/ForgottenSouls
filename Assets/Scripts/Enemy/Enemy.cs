@@ -141,6 +141,11 @@ public class Enemy : MonoBehaviour
                 allowGuard = status.allowGuard;
             }
 
+            if (allowAction == false)
+            {
+                animator.speed = 0f;
+            }
+
             damageOverTime += status.damageOverTime;
             damagePercentageOverTime += status.damagePercentageOverTime;
             healOverTime += status.healOverTime;
@@ -165,6 +170,11 @@ public class Enemy : MonoBehaviour
         if (status.allowGuard == false)
         {
             allowGuard = true;
+        }
+
+        if (allowAction == true)
+        {
+            animator.speed = 1f;
         }
 
         damageOverTime -= status.damageOverTime;

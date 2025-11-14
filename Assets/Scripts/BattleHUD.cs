@@ -33,6 +33,9 @@ public class BattleHUD : MonoBehaviour
 
     [Header("Display UI")]
     public GameObject display;
+    public GameObject dice;
+    public Sprite[] diceSides;
+    public Image diceImage;
     public TextMeshProUGUI diceRoll;
     public Slider hpSlider;
     public Slider mpSlider;
@@ -86,13 +89,22 @@ public class BattleHUD : MonoBehaviour
 
     public IEnumerator SetDiceRoll(int roll)
     {
-        diceRoll.gameObject.SetActive(true);
+        dice.SetActive(true);
 
-        diceRoll.text = roll.ToString();
+        int randomSide = 1;
 
-        yield return new WaitForSeconds(2f);
+        for(int i = 0; i <= 10; i++)
+        {
+            randomSide = Random.Range(1, 7);
+            diceImage.sprite = diceSides[randomSide - 1];
+            yield return new WaitForSeconds(0.05f);
+        }
 
-        diceRoll.gameObject.SetActive(false);
+        diceImage.sprite = diceSides[roll - 1];
+
+        yield return new WaitForSeconds(1f);
+
+        dice.SetActive(false);
     }
 
     public void SetHP(int hp, int maxHP)

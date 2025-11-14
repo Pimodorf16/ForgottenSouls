@@ -190,6 +190,13 @@ public class BattleManager : MonoBehaviour
         enemies.Add(enemyGO.GetComponent<Enemy>());
         AddEnemyTypeAmount(enemy.enemyData);
 
+        List<SpriteRenderer> enemySprites = new List<SpriteRenderer>(enemyGO.GetComponentsInChildren<SpriteRenderer>());
+
+        foreach (SpriteRenderer sprite in enemySprites)
+        {
+            sprite.sortingLayerName = "Station" + (enemy.stationIndex + 1);
+        }
+
         enemies[enemy.stationIndex].enemyData = enemy.enemyData;
         enemies[enemy.stationIndex].stationIndex = enemy.stationIndex;
         enemies[enemy.stationIndex].LoadDataValues(enemy.enemyData);
@@ -344,10 +351,12 @@ public class BattleManager : MonoBehaviour
 
     void PlayerDOT()
     {
-        character.TakeDamage(character.maxHP * (character.damagePercentageOverTime / 100));
-        character.TakeDamage(character.maxHP * (character.maxHealthLockPercentageOverTime) / 100);
+        character.TakeDamage(Mathf.CeilToInt(character.maxHP * ((float)character.damagePercentageOverTime / 100f)));
+        character.TakeDamage(Mathf.CeilToInt(character.maxHP * ((float)character.maxHealthLockPercentageOverTime) / 100f));
         character.TakeDamage(character.damageOverTime);
         character.maxHP -= Mathf.CeilToInt(character.maxHealthLockPercentageOverTime / 100);
+
+        playerHUD.SetHP(character.currentHP, character.maxHP);
     }
 
     void PlayerAddGold(int gold)
@@ -478,6 +487,7 @@ public class BattleManager : MonoBehaviour
         int roll = RollCharacterDice();
 
         ShowDiceRoll(roll);
+        yield return new WaitForSeconds(1.5f);
 
         character.animator.SetTrigger("Attack");
         yield return new WaitForSeconds(0.75f);
@@ -502,6 +512,7 @@ public class BattleManager : MonoBehaviour
         character.guarding = true;
         int roll = RollCharacterDice();
         ShowDiceRoll(roll);
+        yield return new WaitForSeconds(1.5f);
 
         character.guardValue = character.GuardCheck(roll);
 
@@ -516,15 +527,23 @@ public class BattleManager : MonoBehaviour
     public IEnumerator PlayerSkill(int enemyIndex, int skill)
     {
         Skill skillData = character.skill[skill];
+        int roll = 0;
         Debug.Log("Player Uses Skill: " + skillData.skillName + "!");
 
         character.UseMP(skillData.modifier[0].manaCost);
         playerHUD.SetMP(character.currentMP, character.maxMP);
 
+        if(skillData.modifier[0].damaging == true)
+        {
+            roll = RollCharacterDice();
+            ShowDiceRoll(roll);
+            yield return new WaitForSeconds(1.5f);
+        }
+
         character.animator.SetTrigger("Skill");
         yield return new WaitForSeconds(0.75f);
 
-        CheckSkillDamaging(skillData, 1, enemyIndex);
+        CheckSkillDamaging(skillData, 1, enemyIndex, roll);
 
         CheckSkillEffects(skillData, 1, enemyIndex);
 
@@ -541,9 +560,17 @@ public class BattleManager : MonoBehaviour
     public IEnumerator PlayerSkillAllOfEnemies(int skill)
     {
         Skill skillData = character.skill[skill];
+        int roll = 0;
         Debug.Log("Player Uses Skill: " + skillData.skillName + "!");
 
         playerHUD.DisplayPlayerTurnHUD();
+
+        if (skillData.modifier[0].damaging == true)
+        {
+            roll = RollCharacterDice();
+            ShowDiceRoll(roll);
+            yield return new WaitForSeconds(1.5f);
+        }
 
         character.animator.SetTrigger("Skill");
 
@@ -552,7 +579,7 @@ public class BattleManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        CheckSkillDamaging(skillData, 2, 0);
+        CheckSkillDamaging(skillData, 2, 0, roll);
 
         CheckSkillEffects(skillData, 2, 0);
 
@@ -569,7 +596,15 @@ public class BattleManager : MonoBehaviour
     public IEnumerator PlayerSkillSelf(int skill)
     {
         Skill skillData = character.skill[skill];
+        int roll = 0;
         Debug.Log("Player Uses Skill: " + skillData.skillName + "!");
+
+        if (skillData.modifier[0].damaging == true)
+        {
+            roll = RollCharacterDice();
+            ShowDiceRoll(roll);
+            yield return new WaitForSeconds(1.5f);
+        }
 
         character.animator.SetTrigger("Skill");
 
@@ -578,7 +613,7 @@ public class BattleManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.85f);
 
-        CheckSkillDamaging(skillData, 0, 0);
+        CheckSkillDamaging(skillData, 0, 0, roll);
 
         CheckSkillHealing(skillData);
 
@@ -596,13 +631,10 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    void CheckSkillDamaging(Skill skill, int target, int enemyIndex)
+    void CheckSkillDamaging(Skill skill, int target, int enemyIndex, int roll)
     {
         if (skill.modifier[0].damaging == true)
         {
-            int roll = RollCharacterDice();
-            ShowDiceRoll(roll);
-
             switch (target)
             {
                 case 0:
@@ -1043,7 +1075,7 @@ public class BattleManager : MonoBehaviour
 
                 index++;
 
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(3f);
             }
         }
 
@@ -1152,6 +1184,7 @@ public class BattleManager : MonoBehaviour
         int roll = RollEnemyDice(enemy);
 
         ShowDiceRoll(roll);
+        yield return new WaitForSeconds(1.5f);
 
         enemy.animator.SetTrigger("Attack");
         yield return new WaitForSeconds(0.75f);
@@ -1171,7 +1204,6 @@ public class BattleManager : MonoBehaviour
 
             CheckPlayerHP();
         }
-
         yield return new WaitForSeconds(3f);
     }
 
@@ -1182,6 +1214,7 @@ public class BattleManager : MonoBehaviour
         enemy.guarding = true;
         int roll = RollEnemyDice(enemy);
         ShowDiceRoll(roll);
+        yield return new WaitForSeconds(1.5f);
 
         enemy.guardValue = enemy.GuardCheck(roll);
         

@@ -390,6 +390,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4483868}
   m_CullTransparentMesh: 1
+--- !u!1 &6087892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6087893}
+  m_Layer: 5
+  m_Name: Dice
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &6087893
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6087892}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1450272569}
+  - {fileID: 1436738186}
+  m_Father: {fileID: 1311248642}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &34589407
 GameObject:
   m_ObjectHideFlags: 0
@@ -2156,7 +2193,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 258608856}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnemyStation1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2172,7 +2209,7 @@ Transform:
   m_GameObject: {fileID: 258608855}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.25, y: -2.08, z: 0}
+  m_LocalPosition: {x: 3.25, y: -2.08, z: -0.1}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -8070,7 +8107,7 @@ RectTransform:
   - {fileID: 463844090}
   - {fileID: 1982099019}
   - {fileID: 938133515}
-  - {fileID: 1450272569}
+  - {fileID: 6087893}
   - {fileID: 1883608331}
   - {fileID: 1893689341}
   - {fileID: 1572268962}
@@ -8731,7 +8768,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1411107905}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyStation3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8747,7 +8784,7 @@ Transform:
   m_GameObject: {fileID: 1411107904}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: -4.0299997, z: 0}
+  m_LocalPosition: {x: 5, y: -4.0299997, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -8829,6 +8866,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427869937}
   m_CullTransparentMesh: 1
+--- !u!1 &1436738185
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1436738186}
+  - component: {fileID: 1436738188}
+  - component: {fileID: 1436738187}
+  m_Layer: 5
+  m_Name: Roll
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1436738186
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436738185}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6087893}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1436738187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436738185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 2e0b6eca89d95e343b30550f14549c7c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1436738188
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436738185}
+  m_CullTransparentMesh: 1
 --- !u!1 &1444641290
 GameObject:
   m_ObjectHideFlags: 0
@@ -8838,7 +8950,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1444641291}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyStation2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8890,12 +9002,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1311248642}
+  m_Father: {fileID: 6087893}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 178.82}
+  m_SizeDelta: {x: 1820.0001, y: 178.82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1450272570
 CanvasRenderer:
@@ -12327,6 +12439,15 @@ MonoBehaviour:
   speedButton: {fileID: 1531149239}
   luckButton: {fileID: 1218305046}
   display: {fileID: 1311248641}
+  dice: {fileID: 6087892}
+  diceSides:
+  - {fileID: 21300000, guid: 2e0b6eca89d95e343b30550f14549c7c, type: 3}
+  - {fileID: 21300000, guid: 7b571e4cd6cdb7b4eba3168259cc0360, type: 3}
+  - {fileID: 21300000, guid: d844d19f2d2daaa40aa8150e7a9afec8, type: 3}
+  - {fileID: 21300000, guid: 861a21775ba2e0c4ca42c56f018031fd, type: 3}
+  - {fileID: 21300000, guid: d3d518e8e61d89945b8c9d4f874e7c05, type: 3}
+  - {fileID: 21300000, guid: 85c056f3e588f904bb7208904aae8549, type: 3}
+  diceImage: {fileID: 1436738187}
   diceRoll: {fileID: 1450272571}
   hpSlider: {fileID: 463844091}
   mpSlider: {fileID: 1982099020}

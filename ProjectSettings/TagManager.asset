@@ -44,6 +44,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Station1
+    uniqueID: 290712089
+    locked: 0
+  - name: Station2
+    uniqueID: 168689713
+    locked: 0
+  - name: Station3
+    uniqueID: 2216886979
+    locked: 0
   - name: UI
     uniqueID: 595427891
     locked: 0

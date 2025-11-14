@@ -16,8 +16,8 @@ MonoBehaviour:
   level: 1
   maxExp: 30
   exp: 0
-  maxHP: 1
-  currentHP: 1
+  maxHP: 1000
+  currentHP: 1000
   maxMP: 1000
   currentMP: 1000
   attackStat: 5
@@ -28,7 +28,7 @@ MonoBehaviour:
   baseCritRate: 0.1
   baseCritDamageMultiplier: 0.15
   baseDodge: 10
-  weapon: {fileID: 11400000, guid: 85ba46b7e8f143e4096f2c5d29ca7c78, type: 2}
+  weapon: {fileID: 11400000, guid: 8646ce33c9b2d9d40b843c16b55c0f13, type: 2}
   skill:
   - {fileID: 11400000, guid: b6d33f3fdc0fac846a10a1c70f3c11f5, type: 2}
   - {fileID: 11400000, guid: 3b1bccf0051af774e99189a2aaafd056, type: 2}

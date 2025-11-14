@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 4
   enemyName: Ogre
+  enemyPrefab: {fileID: 8319068347714114887, guid: 84cdfe2923c95c44eadc2557ef56b85d, type: 3}
   enemySize: 2
   level: 1
   maxHP: 25

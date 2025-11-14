@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   enemyName: Goblin
+  enemyPrefab: {fileID: 1586326395698960270, guid: d1b273799d785714f8a0d837980675fb, type: 3}
   enemySize: 0
   level: 1
   maxHP: 10

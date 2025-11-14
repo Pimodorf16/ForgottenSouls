@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   enemyName: Rat
+  enemyPrefab: {fileID: 7310011258363559328, guid: 66097c34438352243903db5de45c0e2f, type: 3}
   enemySize: 0
   level: 1
   maxHP: 8

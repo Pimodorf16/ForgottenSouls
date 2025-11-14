@@ -83,9 +83,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 8
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 8
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -516,10 +516,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 3e8620424eea8ab47b1f10d29b27fcfc, type: 2}
+  animator: {fileID: 0}
   indicator: {fileID: 2649788780860465036}
   hpSlider: {fileID: 2080549790943921542}
   type: 0
   enemyName: 
+  stationIndex: 0
   enemySize: 0
   level: 1
   exp: 0
@@ -534,12 +536,33 @@ MonoBehaviour:
   baseCritRate: 0.1
   baseCritDamageMultiplier: 0.15
   baseDodge: 0.1
+  baseHP: 0
   baseGold: 0
+  baseExp: 0
+  ExpGiven: 0
   weapon: {fileID: 0}
   skill: []
   soul: {fileID: 0}
   criticalChance: 0
   evasionChance: 0
+  guarding: 0
+  guardValue: 0
+  statusEffects: []
+  immunities: []
+  statusEffectsToRemove: []
+  immunitiesToRemove: []
+  allowAction: 1
+  allowGuard: 1
+  damageOverTime: 0
+  damagePercentageOverTime: 0
+  healOverTime: 0
+  healPercentageOverTime: 0
+  maxHealthLockPercentageOverTime: 0
+  damageMultiplier: 1
+  damageReceivedMultiplier: 1
+  applyStatus: 0
+  chance: 0
+  applyDuration: 0
 --- !u!1 &7718054773522676603
 GameObject:
   m_ObjectHideFlags: 0

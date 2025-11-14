@@ -11,7 +11,6 @@ public class BattleManager : MonoBehaviour
 {
     [Header("Prefabs")]
     public GameObject playerPrefab;
-    public GameObject enemyPrefab;
 
     [Header("States")]
     public States state;
@@ -187,7 +186,7 @@ public class BattleManager : MonoBehaviour
 
     void InstantiateEnemy(IndividualEnemy enemy)
     {
-        GameObject enemyGO = Instantiate(enemyPrefab, enemyStation[enemy.stationIndex]);
+        GameObject enemyGO = Instantiate(enemy.enemyData.enemyPrefab, enemyStation[enemy.stationIndex]);
         enemies.Add(enemyGO.GetComponent<Enemy>());
         AddEnemyTypeAmount(enemy.enemyData);
 
@@ -486,7 +485,7 @@ public class BattleManager : MonoBehaviour
         AttackEnemy(enemyIndex, roll, 1f);
         CheckEnemyHP(enemyIndex);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
         if (PlayerWonCheck() == false)
         {
@@ -531,7 +530,7 @@ public class BattleManager : MonoBehaviour
 
         CheckSkillImmunities(skillData, 1, enemyIndex);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
         if (PlayerWonCheck() == false)
         {
@@ -559,7 +558,7 @@ public class BattleManager : MonoBehaviour
 
         CheckSkillImmunities(skillData, 2, 0);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
         if (PlayerWonCheck() == false)
         {
@@ -799,6 +798,11 @@ public class BattleManager : MonoBehaviour
             }
             else if (CheckEnemyEvasion(enemyIndex) == false)
             {
+                if (enemies[enemyIndex].allowAction == true)
+                {
+                    enemies[enemyIndex].animator.SetTrigger("Hurt");
+                }
+
                 DamageEnemy(enemyIndex, newDamage);
             }
             enemyIndex++;
@@ -830,6 +834,11 @@ public class BattleManager : MonoBehaviour
             Debug.Log(enemies[enemyIndex].enemyName + " Dodged the attack!");
         }else if(CheckEnemyEvasion(enemyIndex) == false)
         {
+            if (enemies[enemyIndex].allowAction == true)
+            {
+                enemies[enemyIndex].animator.SetTrigger("Hurt");
+            }
+
             DamageEnemy(enemyIndex, damage);
         }
     }
@@ -842,6 +851,11 @@ public class BattleManager : MonoBehaviour
         if (CheckPlayerCrit() == true)
         {
             damage = Mathf.CeilToInt(damage * 1.5f);
+        }
+
+        if (character.allowAction == true)
+        {
+            character.animator.SetTrigger("Hurt");
         }
 
         character.TakeDamage(damage);
@@ -886,7 +900,7 @@ public class BattleManager : MonoBehaviour
     {
         if (enemies[enemyIndex].currentHP <= 0)
         {
-            KillEnemyFromIndex(enemyIndex);
+            StartCoroutine(KillEnemyFromIndex(enemyIndex));
         }
     }
 
@@ -912,7 +926,7 @@ public class BattleManager : MonoBehaviour
 
         foreach(Enemy enemy in enemiesToKill)
         {
-            KillEnemy(enemy);
+            StartCoroutine(KillEnemy(enemy));
             
             enemies.Remove(enemy);
             playerHUD.targetNames.RemoveAt(enemyIndex[index]);
@@ -923,8 +937,14 @@ public class BattleManager : MonoBehaviour
         enemyIndex.Clear();
     }
 
-    void KillEnemy(Enemy enemy)
+    IEnumerator KillEnemy(Enemy enemy)
     {
+        enemy.animator.SetBool("Dead", true);
+
+        DecreaseEnemyCount();
+
+        yield return new WaitForSeconds(1.5f);
+
         Debug.Log("Killed enemy: " +  enemy.enemyName);
         
         PlayerAddGold(enemy.baseGold);
@@ -934,8 +954,6 @@ public class BattleManager : MonoBehaviour
 
         ResetEnemyButtonHUD();
         ResetSkillTargetHUD();
-
-        DecreaseEnemyCount();
     }
 
     void DestroyEnemyGO(Enemy enemy)
@@ -944,8 +962,14 @@ public class BattleManager : MonoBehaviour
         Destroy(enemy.gameObject);
     }
 
-    void KillEnemyFromIndex(int enemyIndex)
+    IEnumerator KillEnemyFromIndex(int enemyIndex)
     {
+        enemies[enemyIndex].animator.SetBool("Dead", true);
+
+        DecreaseEnemyCount();
+
+        yield return new WaitForSeconds(1.5f);
+
         Debug.Log("Killed enemy: " + enemies[enemyIndex].enemyName);
 
         PlayerAddGold(enemies[enemyIndex].baseGold);
@@ -957,8 +981,6 @@ public class BattleManager : MonoBehaviour
 
         ResetEnemyButtonHUD();
         ResetSkillTargetHUD();
-
-        DecreaseEnemyCount();
     }
 
     void DestroyEnemyGOFromIndex(int enemyIndex)
@@ -1131,7 +1153,10 @@ public class BattleManager : MonoBehaviour
 
         ShowDiceRoll(roll);
 
-        if(CheckPlayerEvasion() == true)
+        enemy.animator.SetTrigger("Attack");
+        yield return new WaitForSeconds(0.75f);
+
+        if (CheckPlayerEvasion() == true)
         {
             Debug.Log("Player Dodged the attack from " + enemy.enemyName + "!");
         }

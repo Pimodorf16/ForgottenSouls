@@ -11,6 +11,7 @@ public class EnemyData : ScriptableObject
     [Header("Enemy")]
     public EnemyType type;
     public string enemyName;
+    public GameObject enemyPrefab;
     public enum EnemySize { Small, Medium, Big, None }
     public EnemySize enemySize;
 

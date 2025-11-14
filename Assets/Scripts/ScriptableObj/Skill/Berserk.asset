@@ -18,7 +18,7 @@ MonoBehaviour:
   cooldown: 4
   passive: 0
   modifier:
-  - damaging: 1
+  - damaging: 0
     healing: 0
     multiplier: 0
     manaCost: 5

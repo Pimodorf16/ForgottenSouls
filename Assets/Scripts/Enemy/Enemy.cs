@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     public EnemyData enemyData;
+    public Animator animator;
     public Image indicator;
     public Slider hpSlider;
 
@@ -74,6 +75,8 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         LoadDataValues(enemyData);
+
+        animator = GetComponent<Animator>();
 
         currentHP = maxHP;
         currentMP = maxMP;

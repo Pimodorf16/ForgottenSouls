@@ -16,10 +16,10 @@ MonoBehaviour:
   level: 1
   maxExp: 30
   exp: 0
-  maxHP: 1000
-  currentHP: 1000
-  maxMP: 1000
-  currentMP: 1000
+  maxHP: 35
+  currentHP: 35
+  maxMP: 12
+  currentMP: 12
   attackStat: 5
   defenseStat: 5
   speedStat: 5

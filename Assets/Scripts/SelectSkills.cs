@@ -61,54 +61,63 @@ public class SelectSkills : MonoBehaviour
     public void Fireball()
     {
         selectedSkill = 0;
+        character.animator.SetFloat("SkillType", 1);
         UseSkill();
     }
 
     public void Freeze()
     {
         selectedSkill = 1;
+        character.animator.SetFloat("SkillType", 2);
         UseSkill();
     }
 
     public void Spark()
     {
         selectedSkill = 2;
+        character.animator.SetFloat("SkillType", 3);
         UseSkill();
     }
 
     public void Heal()
     {
         selectedSkill = 3;
+        character.animator.SetFloat("SkillType", 8);
         UseSkill();
     }
 
     public void Berserk()
     {
         selectedSkill = 4;
+        character.animator.SetFloat("SkillType", 6);
         UseSkill();
     }
 
     public void MagicShield()
     {
         selectedSkill = 5;
+        character.animator.SetFloat("SkillType", 7);
         UseSkill();
     }
 
     public void ChainLightning()
     {
         selectedSkill = 6;
+        character.animator.SetFloat("SkillType", 4);
         UseSkill();
     }
 
     public void GlacialEnhancement()
     {
         selectedSkill = 7;
+        character.animator.SetFloat("SkillType", 8);
         UseSkill();
     }
 
     public void Meteor()
     {
         selectedSkill = 8;
+        character.animator.SetFloat("SkillType", 5);
         UseSkill();
     }
 

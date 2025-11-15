@@ -579,7 +579,7 @@ public class BattleManager : MonoBehaviour
         character.UseMP(skillData.modifier[0].manaCost);
         playerHUD.SetMP(character.currentMP, character.maxMP);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.75f);
 
         CheckSkillDamaging(skillData, 2, 0, roll);
 

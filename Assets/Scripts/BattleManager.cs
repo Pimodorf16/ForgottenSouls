@@ -1177,8 +1177,8 @@ public class BattleManager : MonoBehaviour
     {
         foreach(Enemy enemy in enemies)
         {
-            enemy.animator.SetBool("Guarding", false);
             enemy.guarding = false;
+            enemy.animator.SetBool("Guarding", false);
             enemy.guardValue = 0;
         }
     }
@@ -1197,7 +1197,7 @@ public class BattleManager : MonoBehaviour
 
         if (CheckPlayerEvasion() == true)
         {
-            //character.animator.SetTrigger("Dodge");
+            character.animator.SetTrigger("Dodge");
             Debug.Log("Player Dodged the attack from " + enemy.enemyName + "!");
         }
         else if(CheckPlayerEvasion() == false)

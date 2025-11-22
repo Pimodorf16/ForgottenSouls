@@ -42,6 +42,7 @@ public class BattleManager : MonoBehaviour
     void Start()
     {
         state = States.Start;
+        playerHUD.GameResumed();
         StartCoroutine(SetupBattle());
     }
 
@@ -828,6 +829,7 @@ public class BattleManager : MonoBehaviour
 
             if (CheckEnemyEvasion(enemyIndex) == true)
             {
+                enemies[enemyIndex].animator.SetTrigger("Dodge");
                 Debug.Log(enemies[enemyIndex].enemyName + " Dodged the attack!");
             }
             else if (CheckEnemyEvasion(enemyIndex) == false)
@@ -865,6 +867,7 @@ public class BattleManager : MonoBehaviour
 
         if(CheckEnemyEvasion(enemyIndex) == true)
         {
+            enemies[enemyIndex].animator.SetTrigger("Dodge");
             Debug.Log(enemies[enemyIndex].enemyName + " Dodged the attack!");
         }else if(CheckEnemyEvasion(enemyIndex) == false)
         {
@@ -1174,6 +1177,7 @@ public class BattleManager : MonoBehaviour
     {
         foreach(Enemy enemy in enemies)
         {
+            enemy.animator.SetBool("Guarding", false);
             enemy.guarding = false;
             enemy.guardValue = 0;
         }
@@ -1193,6 +1197,7 @@ public class BattleManager : MonoBehaviour
 
         if (CheckPlayerEvasion() == true)
         {
+            //character.animator.SetTrigger("Dodge");
             Debug.Log("Player Dodged the attack from " + enemy.enemyName + "!");
         }
         else if(CheckPlayerEvasion() == false)
@@ -1212,6 +1217,8 @@ public class BattleManager : MonoBehaviour
     IEnumerator EnemyGuard(Enemy enemy)
     {
         Debug.Log("Enemy Guards!");
+
+        enemy.animator.SetBool("Guarding", true);
 
         enemy.guarding = true;
         int roll = RollEnemyDice(enemy);

@@ -4212,15 +4212,6 @@ MonoBehaviour:
       stationIndex: 0
     - enemyData: {fileID: 0}
       stationIndex: 0
-    - enemyData: {fileID: 0}
-      stationIndex: 0
-  - enemies:
-    - enemyData: {fileID: 0}
-      stationIndex: 0
-    - enemyData: {fileID: 0}
-      stationIndex: 0
-    - enemyData: {fileID: 0}
-      stationIndex: 0
   enemyPool:
   - {fileID: 11400000, guid: 3e8620424eea8ab47b1f10d29b27fcfc, type: 2}
   - {fileID: 11400000, guid: cd4db18802aacd04a95ecc5daafad39e, type: 2}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.U2D.Animation;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Enemy : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     public Image indicator;
     public Slider hpSlider;
+    public TextMeshProUGUI damageCountText;
+    public GameObject damageText;
 
     [Header("Enemy")]
     public EnemyData.EnemyType type;
@@ -277,6 +280,10 @@ public class Enemy : MonoBehaviour
     {
         if(currentHP > 0)
         {
+            if(damage > 0)
+            {
+                ShowDamage(damage);
+            }
             currentHP -= damage;
             Debug.Log(enemyName + " Took " + damage + " Damage!");
             hpSlider.maxValue = maxHP;
@@ -288,6 +295,23 @@ public class Enemy : MonoBehaviour
             hpSlider.maxValue = maxHP;
             hpSlider.value = currentHP;
         }
+        
+    }
+
+    IEnumerator ShowDelayText(float duration)
+    {
+        damageText.SetActive(true);
+
+        yield return new WaitForSeconds(duration);
+
+        damageText.SetActive(false);
+    }
+
+    public void ShowDamage(int totalDamage)
+    {
+        damageCountText.text = "" + totalDamage;
+        
+        StartCoroutine(ShowDelayText(1f));
         
     }
 

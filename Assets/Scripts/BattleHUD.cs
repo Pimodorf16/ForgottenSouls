@@ -348,4 +348,6 @@ public class BattleHUD : MonoBehaviour
     {
         battleManager.enemies[i].indicator.gameObject.SetActive(false);
     }
+
+    
 }

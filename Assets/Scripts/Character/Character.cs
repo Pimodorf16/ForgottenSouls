@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Character : MonoBehaviour
 {
     public CharacterData characterData;
     public Animator animator;
+    public TextMeshProUGUI damageCountText;
+    public GameObject damageText;
 
     [Header("Character")]
     public string characterName;
@@ -345,6 +348,10 @@ public class Character : MonoBehaviour
     {
         if(currentHP > 0)
         {
+            if(damage > 0)
+            {
+                ShowDamage(damage);
+            }
             float pastHP = currentHP;
             currentHP -= Mathf.CeilToInt((float)damage * damageReceivedMultiplier);
             Debug.Log("Player Took " + damage + " Damage!");
@@ -357,6 +364,23 @@ public class Character : MonoBehaviour
         {
             currentHP = 0;
         }
+    }
+
+    IEnumerator ShowDelayText(float duration)
+    {
+        damageText.SetActive(true);
+
+        yield return new WaitForSeconds(duration);
+
+        damageText.SetActive(false);
+    }
+
+    public void ShowDamage(int totalDamage)
+    {
+        damageCountText.text = "" + totalDamage;
+        
+        StartCoroutine(ShowDelayText(1f));
+        
     }
 
     public void UseMP(int cost)
